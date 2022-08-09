@@ -15,5 +15,3 @@ services:
       - db:/var/lib/posgresql/data
 volumes:
   db:
-
-  

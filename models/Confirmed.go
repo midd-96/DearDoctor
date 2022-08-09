@@ -1,6 +1,6 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import "gorm.io/gorm"
 
 type Confirmed struct {
 	gorm.Model
@@ -12,13 +12,4 @@ type Confirmed struct {
 	Payment_status bool   `json:"payment_status" gorm:"not null"`
 	Fee            int    `json:"fee" gorm:"not null"`
 	Email          string `json:"email" gorm:"not null"`
-}
-
-func (c *Confirmed) SaveConfirmation(db *gorm.DB) (*Confirmed, error) {
-	var err error
-	err = db.Debug().Create(&c).Error
-	if err != nil {
-		return &Confirmed{}, err
-	}
-	return c, nil
 }
