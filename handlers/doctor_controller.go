@@ -3,6 +3,7 @@ package handlers
 import (
 	// "crypto/rand"
 
+	"dearDoctor/auth"
 	"dearDoctor/models"
 	"dearDoctor/util"
 	"encoding/json"
@@ -10,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -20,13 +22,12 @@ func (h handler) SignupDoctor(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 
 	if err != nil {
+		util.Respond(w, util.Message(false, "Failed to read data, Try again"))
 		log.Fatalln(err)
 	}
 
 	var doctor models.Doctor
-
 	json.Unmarshal(body, &doctor)
-
 	hashedPassword, err := util.HashPassword(doctor.Password)
 	if err != nil {
 		json.NewEncoder(w).Encode("Internal server error can't convert to hash password")
@@ -64,31 +65,24 @@ func (h handler) SignupDoctor(w http.ResponseWriter, r *http.Request) {
 func (h handler) LoginDoctor(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		json.NewEncoder(w).Encode("Status:Failure")
-		json.NewEncoder(w).Encode("Failed to read Json,Try again")
-		//responses.ERROR(w, http.StatusUnprocessableEntity, err)
+		util.Respond(w, util.Message(false, "Failed to read data, Try again"))
 		return
 	}
 	doctor := models.Doctor{}
 	err = json.Unmarshal(body, &doctor)
 	if err != nil {
-		json.NewEncoder(w).Encode("Status:Failure")
-		json.NewEncoder(w).Encode("Failed to read Json,Try again")
-		//responses.ERROR(w, http.StatusUnprocessableEntity, err)
+		util.Respond(w, util.Message(false, "Failed to read json data, Try again"))
 		return
 	}
-	h.SignInDoctor(doctor.Email, doctor.Password)
 
-	// token, err := server.SignInDoctor(user.Email, user.Password)
-	// if err != nil {
-
-	// 	formattedError := formaterror.FormatError(err.Error())
-	// 	json.NewEncoder(w).Encode("Status:Failure")
-	// 	json.NewEncoder(w).Encode("Invalid Username / Password")
-	// 	responses.ERROR(w, http.StatusUnprocessableEntity, formattedError)
-	// 	return
-	// }
-	// responses.JSON(w, http.StatusOK, token)
+	token, err := h.SignInDoctor(doctor.Email, doctor.Password)
+	if err != nil {
+		util.Respond(w, util.Message(false, "Invalid Username or Password"))
+		return
+	}
+	util.Respond(w, util.Message(true, "LoggedIn Successfully"))
+	json.NewEncoder(w).Encode(doctor.Email)
+	json.NewEncoder(w).Encode(token)
 }
 
 func (h handler) SignInDoctor(email, password string) (string, error) {
@@ -105,8 +99,8 @@ func (h handler) SignInDoctor(email, password string) (string, error) {
 	if err != nil && err == bcrypt.ErrMismatchedHashAndPassword {
 		return "", err
 	}
-	//return auth.CreateToken(uint32(doctor.Id))
-	return doctor.First_name, nil
+	return auth.CreateToken(doctor.Email, (os.Getenv("SECRET_DOCTOR")))
+
 }
 
 func (h handler) MarkAvilability(w http.ResponseWriter, r *http.Request) {

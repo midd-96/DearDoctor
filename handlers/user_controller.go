@@ -3,6 +3,7 @@ package handlers
 import (
 	// "crypto/rand"
 
+	"dearDoctor/auth"
 	"dearDoctor/models"
 	"dearDoctor/util"
 	"encoding/json"
@@ -10,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -61,31 +63,25 @@ func (h handler) SignupUser(w http.ResponseWriter, r *http.Request) {
 func (h handler) LoginUser(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		json.NewEncoder(w).Encode("Status:Failure")
-		json.NewEncoder(w).Encode("Failed to read Json,Try again")
-		//responses.ERROR(w, http.StatusUnprocessableEntity, err)
+		util.Respond(w, util.Message(false, "Failed to read data, Try again"))
 		return
 	}
 	user := models.User{}
 	err = json.Unmarshal(body, &user)
 	if err != nil {
-		json.NewEncoder(w).Encode("Status:Failure")
-		json.NewEncoder(w).Encode("Failed to read Json,Try again")
-		//responses.ERROR(w, http.StatusUnprocessableEntity, err)
+		util.Respond(w, util.Message(false, "Failed to read json data, Try again"))
 		return
 	}
-	h.SignInDoctor(user.Email, user.Password)
 
-	// token, err := server.SignInDoctor(user.Email, user.Password)
-	// if err != nil {
+	token, err := h.SignInDoctor(user.Email, user.Password)
+	if err != nil {
+		util.Respond(w, util.Message(false, "Invalid Username or Password"))
 
-	// 	formattedError := formaterror.FormatError(err.Error())
-	// 	json.NewEncoder(w).Encode("Status:Failure")
-	// 	json.NewEncoder(w).Encode("Invalid Username / Password")
-	// 	responses.ERROR(w, http.StatusUnprocessableEntity, formattedError)
-	// 	return
-	// }
-	// responses.JSON(w, http.StatusOK, token)
+		return
+	}
+	util.Respond(w, util.Message(true, "LoggedIn Successfully"))
+	json.NewEncoder(w).Encode(user.Email)
+	json.NewEncoder(w).Encode(token)
 }
 
 func (h handler) SignInUser(email, password string) (string, error) {
@@ -102,8 +98,7 @@ func (h handler) SignInUser(email, password string) (string, error) {
 	if err != nil && err == bcrypt.ErrMismatchedHashAndPassword {
 		return "", err
 	}
-	//return auth.CreateToken(uint32(doctor.Id))
-	return user.First_name, nil
+	return auth.CreateToken(user.Email, (os.Getenv("SECRET_USER")))
 }
 
 func (h handler) ConfirmAppointment(w http.ResponseWriter, r *http.Request) {
