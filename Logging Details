@@ -1,0 +1,75 @@
+2022/08/13 15:58:24 
+Connected to database: postgres
+2022/08/13 15:58:24 Api is listening on port: 8080
+2022/08/13 15:59:44 
+Connected to database: postgres
+2022/08/13 15:59:44 Api is listening on port: 8080
+2022/08/15 09:53:50 
+Connected to database: postgres
+2022/08/15 09:53:50 Api is listening on port: 8080
+2022/08/15 11:36:13 
+Connected to database: postgres
+2022/08/15 11:36:13 Api is listening on port: 8080
+2022/08/15 12:04:32 
+Connected to database: postgres
+2022/08/15 12:04:32 Api is listening on port: 8080
+2022/08/15 12:10:46 
+Connected to database: postgres
+2022/08/15 12:10:46 Api is listening on port: 8080
+2022/08/15 12:27:09 
+Connected to database: postgres
+2022/08/15 12:27:09 Api is listening on port: 8080
+2022/08/15 12:33:30 
+Connected to database: postgres
+2022/08/15 12:33:30 Api is listening on port: 8080
+2022/08/15 12:37:33 pq: duplicate key value violates unique constraint "departments_name_key"
+2022/08/15 16:27:36 
+Connected to database: postgres
+2022/08/15 16:27:36 Api is listening on port: 8080
+2022/08/15 16:55:20 
+Connected to database: postgres
+2022/08/15 16:55:20 Api is listening on port: 8080
+2022/08/15 17:32:27 
+Connected to database: postgres
+2022/08/15 17:32:27 Api is listening on port: 8080
+2022/08/15 17:34:11 http: panic serving [::1]:65370: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files/Go/src/net/http/server.go:1825 +0xbf
+panic({0x147cac0, 0x18fd740})
+	C:/Program Files/Go/src/runtime/panic.go:844 +0x258
+dearDoctor/handler.(*authHandler).UserSignup.func1({0x2a4ebeebcf8, 0xc0003842c0}, 0xc00038e400)
+	E:/dd_project/handler/auth.handler.go:131 +0x354
+net/http.HandlerFunc.ServeHTTP(0x1479020?, {0x2a4ebeebcf8?, 0xc0003842c0?}, 0xc00039e005?)
+	C:/Program Files/Go/src/net/http/server.go:2084 +0x2f
+github.com/go-chi/chi.(*Mux).routeHTTP(0xc00005e720, {0x2a4ebeebcf8, 0xc0003842c0}, 0xc00038e400)
+	C:/Users/midlaj/go/pkg/mod/github.com/go-chi/chi@v1.5.4/mux.go:436 +0x1f9
+net/http.HandlerFunc.ServeHTTP(0xc00038e300?, {0x2a4ebeebcf8?, 0xc0003842c0?}, 0xc0003a0090?)
+	C:/Program Files/Go/src/net/http/server.go:2084 +0x2f
+github.com/go-chi/chi/middleware.RequestLogger.func1.1({0x15e28a0, 0xc0003a20e0}, 0xc00038e300)
+	C:/Users/midlaj/go/pkg/mod/github.com/go-chi/chi@v1.5.4/middleware/logger.go:57 +0x3aa
+net/http.HandlerFunc.ServeHTTP(0x15e30a0?, {0x15e28a0?, 0xc0003a20e0?}, 0x18fd530?)
+	C:/Program Files/Go/src/net/http/server.go:2084 +0x2f
+github.com/go-chi/chi.(*Mux).ServeHTTP(0xc00005e720, {0x15e28a0, 0xc0003a20e0}, 0xc00038e200)
+	C:/Users/midlaj/go/pkg/mod/github.com/go-chi/chi@v1.5.4/mux.go:87 +0x442
+net/http.serverHandler.ServeHTTP({0x15e02d8?}, {0x15e28a0, 0xc0003a20e0}, 0xc00038e200)
+	C:/Program Files/Go/src/net/http/server.go:2916 +0x43b
+net/http.(*conn).serve(0xc000396000, {0x15e3148, 0xc000345380})
+	C:/Program Files/Go/src/net/http/server.go:1966 +0x5d7
+created by net/http.(*Server).Serve
+	C:/Program Files/Go/src/net/http/server.go:3071 +0x4db
+2022/08/15 17:37:42 
+Connected to database: postgres
+2022/08/15 17:37:42 Api is listening on port: 8080
+2022/08/15 18:15:28 
+Connected to database: postgres
+2022/08/15 18:15:28 Api is listening on port: 8080
+2022/08/15 18:19:09 
+Connected to database: postgres
+2022/08/15 18:19:09 Api is listening on port: 8080
+2022/08/15 18:27:30 
+Connected to database: postgres
+2022/08/15 18:27:30 Api is listening on port: 8080
+2022/08/15 18:49:08 
+Connected to database: postgres
+2022/08/15 18:49:08 Api is listening on port: 8080
