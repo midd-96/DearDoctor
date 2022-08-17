@@ -32,6 +32,8 @@ func (r *doctorRoute) DoctorRouter(routes chi.Router,
 		r.Use(middleware.AuthorizeJwt)
 		r.Post("/doctor/add/availability", doctorHandler.MarkAvailability())
 
+		r.Get("/doctor/token/refresh", authHandler.DoctorRefreshToken())
+
 	})
 
 }

@@ -32,8 +32,11 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 		r.Use(middleware.AuthorizeJwt)
 
 		r.Get("/admin/view/users", adminHandler.ViewAllUsers())
-
+		r.Get("admin/view/doctors", adminHandler.ViewAllDoctors())
 		r.Post("/admin/add/dept", adminHandler.AddDepartment())
+		r.Patch("/admin/approve/doctor", adminHandler.ApprovelAndFee())
+
+		r.Get("/admin/token/refresh", authHandler.AdminRefreshToken())
 
 	})
 

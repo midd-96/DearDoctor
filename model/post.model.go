@@ -42,9 +42,9 @@ type Departments struct {
 //table schema to update doctor table by admin to approve and add fee
 
 type ApproveAndFee struct {
-	Approve   bool `json:"approvel"`
-	Fee       int  `json:"fee"`
-	Doctor_id int  `json:"doc_id"`
+	Approve bool `json:"approvel"`
+	Fee     int  `json:"fee"`
+	//Doctor_id int  `json:"doc_id"`
 }
 
 //table schema to mark availability by doctor

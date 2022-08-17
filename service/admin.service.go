@@ -11,7 +11,7 @@ import (
 type AdminService interface {
 	FindAdmin(username string) (*model.AdminResponse, error)
 	AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error)
-	UpdateApproveFee(approvel model.ApproveAndFee) error
+	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
 	AddDept(department model.Departments) error
 }
 
@@ -63,9 +63,9 @@ func (c *adminService) AddDept(department model.Departments) error {
 	return nil
 }
 
-func (c *adminService) UpdateApproveFee(approvel model.ApproveAndFee) error {
+func (c *adminService) UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error {
 
-	err := c.adminRepo.UpdateApproveFee(approvel)
+	err := c.adminRepo.UpdateApproveFee(approvel, emailid)
 
 	if err != nil {
 		log.Println(err)

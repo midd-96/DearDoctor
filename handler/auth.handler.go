@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strings"
 	//"github.com/go-playground/validator/v10"
 )
 
@@ -17,6 +18,9 @@ type AuthHandler interface {
 	UserSignup() http.HandlerFunc
 	DoctorSignup() http.HandlerFunc
 	DoctorLogin() http.HandlerFunc
+	AdminRefreshToken() http.HandlerFunc
+	UserRefreshToken() http.HandlerFunc
+	DoctorRefreshToken() http.HandlerFunc
 }
 
 type authHandler struct {
@@ -191,5 +195,80 @@ func (c *authHandler) DoctorLogin() http.HandlerFunc {
 		doctor.Token = token
 		response := response.SuccessResponse(true, "OK", doctor.Token)
 		utils.ResponseJSON(w, response)
+	}
+}
+
+func (c *authHandler) AdminRefreshToken() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		autheader := r.Header.Get("Authorization")
+		bearerToken := strings.Split(autheader, " ")
+		token := bearerToken[1]
+
+		refreshToken, err := c.jwtAdminService.GenerateRefreshToken(token)
+
+		if err != nil {
+			response := response.ErrorResponse("error generating refresh token", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "OK!", refreshToken)
+		w.Header().Add("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		utils.ResponseJSON(w, response)
+
+	}
+}
+
+func (c *authHandler) UserRefreshToken() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		autheader := r.Header.Get("Authorization")
+		bearerToken := strings.Split(autheader, " ")
+		token := bearerToken[1]
+
+		refreshToken, err := c.jwtUserService.GenerateRefreshToken(token)
+
+		if err != nil {
+			response := response.ErrorResponse("error generating refresh token", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "OK!", refreshToken)
+		w.Header().Add("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		utils.ResponseJSON(w, response)
+
+	}
+}
+
+func (c *authHandler) DoctorRefreshToken() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		autheader := r.Header.Get("Authorization")
+		bearerToken := strings.Split(autheader, " ")
+		token := bearerToken[1]
+
+		refreshToken, err := c.jwtDoctorService.GenerateRefreshToken(token)
+
+		if err != nil {
+			response := response.ErrorResponse("error generating refresh token", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "OK!", refreshToken)
+		w.Header().Add("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		utils.ResponseJSON(w, response)
+
 	}
 }

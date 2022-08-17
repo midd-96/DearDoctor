@@ -8,7 +8,7 @@ import (
 type AdminRepository interface {
 	FindAdmin(username string) (model.AdminResponse, error)
 	AddDept(department model.Departments) error
-	UpdateApproveFee(approvel model.ApproveAndFee) error
+	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
 }
 
 type adminRepo struct {
@@ -42,7 +42,7 @@ func (c *adminRepo) FindAdmin(username string) (model.AdminResponse, error) {
 	return admin, err
 }
 
-func (c *adminRepo) UpdateApproveFee(approvel model.ApproveAndFee) error {
+func (c *adminRepo) UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error {
 
 	var query string
 
@@ -54,9 +54,9 @@ func (c *adminRepo) UpdateApproveFee(approvel model.ApproveAndFee) error {
 				SET
 				   approvel = $1, fee=$2
 				WHERE
-				   category_id = $3 ;`
+				   email = $3 ;`
 
-	err = c.db.QueryRow(query, approvel.Approve, approvel.Fee, approvel.Doctor_id).Err()
+	err = c.db.QueryRow(query, approvel.Approve, approvel.Fee, emailid).Err()
 
 	return err
 

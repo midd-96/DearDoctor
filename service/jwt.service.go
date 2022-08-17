@@ -14,6 +14,7 @@ type JWTService interface {
 	GenerateToken(user_id int, username string, role string) string
 	VerifyToken(token string) (bool, *SignedDetails)
 	GetTokenFromString(signedToken string, claims *SignedDetails) (*jwt.Token, error)
+	GenerateRefreshToken(token string) (string, error)
 }
 
 type SignedDetails struct {
@@ -51,7 +52,7 @@ func (j *jwtService) GenerateToken(user_id int, email, role string) string {
 		email,
 		role,
 		jwt.StandardClaims{
-			ExpiresAt: time.Now().Local().Add(time.Hour * time.Duration(24)).Unix(),
+			ExpiresAt: time.Now().Local().Add(time.Minute * time.Duration(59)).Unix(),
 		},
 	}
 
