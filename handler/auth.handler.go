@@ -6,6 +6,7 @@ import (
 	"dearDoctor/service"
 	"dearDoctor/utils"
 	"encoding/json"
+	"log"
 	"net/http"
 	//"github.com/go-playground/validator/v10"
 )
@@ -118,6 +119,8 @@ func (c *authHandler) UserSignup() http.HandlerFunc {
 		json.NewDecoder(r.Body).Decode(&newUser)
 
 		err := c.userService.CreateUser(newUser)
+
+		log.Println(newUser)
 
 		if err != nil {
 			response := response.ErrorResponse("Failed to create user", err.Error(), nil)

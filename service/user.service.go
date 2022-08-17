@@ -56,7 +56,7 @@ func (c *userService) CreateUser(newUser model.User) error {
 
 	_, err = c.userRepo.InsertUser(newUser)
 	if err != nil {
-		return errors.New("Error inserting user in the database")
+		return err
 	}
 	return nil
 

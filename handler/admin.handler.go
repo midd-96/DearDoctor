@@ -6,7 +6,9 @@ import (
 	"dearDoctor/service"
 	"dearDoctor/utils"
 	"encoding/json"
+	"log"
 	"net/http"
+	"strconv"
 )
 
 type AdminHandler interface {
@@ -31,19 +33,40 @@ func NewAdminHandler(
 }
 
 func (c *adminHandler) ViewAllUsers() http.HandlerFunc {
-	return func(w http.ResponseWriter, _ *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 
-		users, err := c.adminService.AllUsers()
+		page, _ := strconv.Atoi(r.URL.Query().Get("page"))
+
+		pageSize, _ := strconv.Atoi(r.URL.Query().Get("pagesize"))
+
+		log.Println(page, "   ", pageSize)
+
+		pagenation := utils.Filter{
+			Page:     page,
+			PageSize: pageSize,
+		}
+
+		users, metadata, err := c.adminService.AllUsers(pagenation)
+
+		result := struct {
+			Users *[]model.UserResponse
+			Meta  *utils.Metadata
+		}{
+			Users: users,
+			Meta:  metadata,
+		}
+		//log.Print(result)
+		//users, err := c.adminService.AllUsers()
 
 		if err != nil {
-			response := response.ErrorResponse("error getting users from database", err.Error(), nil)
+			response := response.ErrorResponse("error while getting users from database", err.Error(), nil)
 			w.Header().Add("Content-Type", "application/json")
 			w.WriteHeader(http.StatusBadRequest)
 			utils.ResponseJSON(w, response)
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK", users)
+		response := response.SuccessResponse(true, "Listed All Users", result)
 		utils.ResponseJSON(w, response)
 
 	}

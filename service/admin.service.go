@@ -3,13 +3,14 @@ package service
 import (
 	"dearDoctor/model"
 	"dearDoctor/repo"
+	"dearDoctor/utils"
 	"errors"
 	"log"
 )
 
 type AdminService interface {
 	FindAdmin(username string) (*model.AdminResponse, error)
-	AllUsers() (*[]model.UserResponse, error)
+	AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error)
 	UpdateApproveFee(approvel model.ApproveAndFee) error
 	AddDept(department model.Departments) error
 }
@@ -38,14 +39,16 @@ func (c *adminService) FindAdmin(username string) (*model.AdminResponse, error) 
 	return &admin, nil
 }
 
-func (c *adminService) AllUsers() (*[]model.UserResponse, error) {
+func (c *adminService) AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error) {
 
-	users, err := c.userRepo.AllUsers()
+	//var users []model.UserResponse
+
+	users, metadata, err := c.userRepo.AllUsers(pagenation)
 	if err != nil {
-		return nil, err
+		return nil, &metadata, err
 	}
 
-	return &users, nil
+	return &users, &metadata, nil
 }
 
 func (c *adminService) AddDept(department model.Departments) error {

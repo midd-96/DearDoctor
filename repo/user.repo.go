@@ -3,12 +3,14 @@ package repo
 import (
 	"database/sql"
 	"dearDoctor/model"
+	"dearDoctor/utils"
 	"fmt"
 	"log"
+	//"github.com/lib/pq"
 )
 
 type UserRepository interface {
-	AllUsers() ([]model.UserResponse, error)
+	AllUsers(pagenation utils.Filter) ([]model.UserResponse, utils.Metadata, error)
 	FindUser(email string) (model.UserResponse, error)
 	InsertUser(user model.User) (int, error)
 	AddAppointment(confirm model.Confirmed) (int, error)
@@ -26,51 +28,60 @@ func NewUserRepo(db *sql.DB) UserRepository {
 	}
 }
 
-func (c *userRepo) AllUsers() ([]model.UserResponse, error) {
+func (c *userRepo) AllUsers(pagenation utils.Filter) ([]model.UserResponse, utils.Metadata, error) {
 
 	var users []model.UserResponse
 
 	//stores related query to a variable
 	query := `SELECT 
+				COUNT(*) OVER(),
 				id,
 				first_name,
 				last_name,
-				password,
 				email,
+				password,
 				phone,
 				last_appointment
 				FROM users 
-				WHERE email = $1;`
+				LIMIT $1 OFFSET $2`
 
-	rows, err := c.db.Query(query)
-
+	rows, err := c.db.Query(query, pagenation.Limit(), pagenation.Offset())
 	if err != nil {
-		return nil, err
+		log.Println("Error", "Query prepare failed: ", err)
+		return nil, utils.Metadata{}, err
 	}
+
+	var totalRecords int
 
 	defer rows.Close()
 
-	//Loop through each users (raw wise)
 	for rows.Next() {
 		var user model.UserResponse
-		err := rows.Scan(
+
+		err = rows.Scan(
+			&totalRecords,
 			&user.ID,
 			&user.First_Name,
 			&user.Last_Name,
 			&user.Email,
+			&user.Password,
 			&user.Phone,
-			&user.Last_appointment)
+			&user.Last_appointment,
+		)
 
 		if err != nil {
-			return users, err
+			return users, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
 		}
 		users = append(users, user)
 	}
-	if err = rows.Err(); err != nil {
-		return users, err
-	}
 
-	return users, nil
+	if err := rows.Err(); err != nil {
+		return users, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
+	}
+	log.Println(users)
+	log.Println(utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize))
+	return users, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), nil
+
 }
 
 func (c *userRepo) FindUser(email string) (model.UserResponse, error) {
@@ -81,8 +92,8 @@ func (c *userRepo) FindUser(email string) (model.UserResponse, error) {
 				id,
 				first_name,
 				last_name,
-				password,
 				email,
+				password,
 				phone,
 				last_appointment
 				FROM users 

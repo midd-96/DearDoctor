@@ -1,6 +1,7 @@
 package service
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -62,6 +63,26 @@ func (j *jwtService) GenerateToken(user_id int, email, role string) string {
 		log.Println(err)
 	}
 	return signedToken
+}
+func (j *jwtService) GenerateRefreshToken(accessToken string) (string, error) {
+	claims := &SignedDetails{}
+	j.GetTokenFromString(accessToken, claims)
+
+	if time.Until(time.Unix(claims.ExpiresAt, 0)) > 30*time.Second {
+		return "", errors.New("too early to generate refresh token")
+	}
+
+	claims.ExpiresAt = time.Now().Local().Add(time.Minute * time.Duration(5)).Unix()
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+	refreshToken, err := token.SignedString([]byte(j.SecretKey))
+
+	if err != nil {
+		log.Println(err)
+	}
+	return refreshToken, err
+
 }
 
 func (j *jwtService) VerifyToken(signedToken string) (bool, *SignedDetails) {

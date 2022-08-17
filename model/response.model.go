@@ -17,8 +17,7 @@ type UserResponse struct {
 	Password         string `json:"password"`
 	Phone            string `json:"phone"`
 	Last_appointment int    `json:"last_appointment"`
-	Token            string `json:"token,omitempty"`
-	// UserAddress  []UserAddressResponse `json:"address,omitempty"`
+	Token            string `json:"token"`
 }
 
 type DoctorResponse struct {
