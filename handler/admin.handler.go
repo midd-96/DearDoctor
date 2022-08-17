@@ -55,8 +55,6 @@ func (c *adminHandler) ViewAllUsers() http.HandlerFunc {
 			Users: users,
 			Meta:  metadata,
 		}
-		//log.Print(result)
-		//users, err := c.adminService.AllUsers()
 
 		if err != nil {
 			response := response.ErrorResponse("error while getting users from database", err.Error(), nil)
@@ -99,10 +97,11 @@ func (c *adminHandler) AddDepartment() http.HandlerFunc {
 func (c *adminHandler) ApprovelAndFee() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var datatoadd model.ApproveAndFee
+		emailid := (r.URL.Query().Get("email"))
 
 		json.NewDecoder(r.Body).Decode(&datatoadd)
 
-		err := c.adminService.UpdateApproveFee(datatoadd)
+		err := c.adminService.UpdateApproveFee(datatoadd, emailid)
 
 		if err != nil {
 			response := response.ErrorResponse("error while updating ", err.Error(), nil)
