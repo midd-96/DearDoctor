@@ -55,7 +55,7 @@ func main() {
 		jwtUserService   service.JWTService    = service.NewJWTUserService()
 		jwtDoctorService service.JWTService    = service.NewJWTDoctorService()
 		authService      service.AuthService   = service.NewAuthService(adminRepo, userRepo, doctorRepo)
-		adminService     service.AdminService  = service.NewAdminService(adminRepo, userRepo)
+		adminService     service.AdminService  = service.NewAdminService(adminRepo, userRepo, doctorRepo)
 		userService      service.UserService   = service.NewUserService(userRepo, adminRepo)
 		doctorService    service.DoctorService = service.NewDoctorService(doctorRepo, userRepo)
 
@@ -68,7 +68,7 @@ func main() {
 		adminMiddleware  m.Middleware    = m.NewMiddlewareAdmin(jwtAdminService)
 		userMiddleware   m.Middleware    = m.NewMiddlewareUser(jwtUserService)
 		doctorMiddleware m.Middleware    = m.NewMiddlewareDoctors(jwtDoctorService)
-		adminHandler     h.AdminHandler  = h.NewAdminHandler(adminService, userService)
+		adminHandler     h.AdminHandler  = h.NewAdminHandler(adminService, userService, doctorService)
 		userHandler      h.UserHandler   = h.NewUserHandler(userService)
 		doctorHandler    h.DoctorHandler = h.NewDoctorHandler(doctorService)
 
@@ -81,7 +81,8 @@ func main() {
 	adminRoute.AdminRouter(router,
 		authHandler,
 		adminHandler,
-		adminMiddleware)
+		adminMiddleware,
+		doctorHandler)
 
 	userRoute.UserRouter(router,
 		authHandler,

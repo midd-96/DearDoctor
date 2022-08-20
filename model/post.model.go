@@ -1,8 +1,6 @@
 package model
 
 import (
-	"time"
-
 	"gorm.io/gorm"
 )
 
@@ -12,7 +10,7 @@ type User struct {
 	First_Name       string `json:"first_name"`
 	Last_Name        string `json:"last_name"`
 	Email            string `json:"email" gorm:"not null;unique"`
-	Phone            int    `json:"phone_number"`
+	Phone            int64  `json:"phone_number"`
 	Password         string `json:"password"`
 	Last_appointment int    `json:"last_appointment"`
 	Role             bool   `json:"role"`
@@ -20,6 +18,8 @@ type User struct {
 
 // confirmed appointments shema for confirmed table
 type Confirmed struct {
+	gorm.Model
+
 	Id             int    `json:"id" gorm:"primary key"`
 	Day_consult    string `json:"consulting_day" gorm:"not null"`
 	Time_consult   string `json:"consulting_time" gorm:"not null"`
@@ -50,10 +50,9 @@ type ApproveAndFee struct {
 //table schema to mark availability by doctor
 
 type Slotes struct {
-	gorm.Model
-
+	//gorm.Model
 	Id            int    `json:"id" gorm:"primary_key"`
-	Docter_id     int    `json:"docter_id" gorm:"not null"`
+	Docter_id     int    `json:"doctor_id" gorm:"not null"`
 	Available_day string `json:"available_day" gorm:"not null"`
 	Time_from     string `json:"staring_time" gorm:"not null"`
 	Time_to       string `json:"ending_time" gorm:"not null"`
@@ -78,30 +77,7 @@ type Doctor struct {
 	Fee            int    `json:"fee"`
 }
 
-//table schema for user address
-type Address struct {
-	User_id     int    `json:"user_id,omitempty"`
-	AddressType string `json:"address_type"`
-	HouseName   string `json:"house_name"`
-	StreetName  string `json:"stree_name"`
-	Landmark    string `json:"landmark"`
-	District    string `json:"district"`
-	State       string `json:"state"`
-	Country     string `json:"country"`
-	PinCode     int    `json:"pincode"`
-	Created_At  time.Time
-}
-
 type Admin struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
-}
-
-type Filter struct {
-	Category    []string `json:"category"`
-	Brand       []string `json:"brand"`
-	Color       []string `json:"color"`
-	Processor   []string `json:"processor"`
-	Name        []string `json:"name"`
-	ProductCode []string `json:"product_code"`
 }

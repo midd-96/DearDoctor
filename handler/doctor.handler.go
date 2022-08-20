@@ -6,6 +6,7 @@ import (
 	"dearDoctor/service"
 	"dearDoctor/utils"
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -31,6 +32,7 @@ func (c *doctorHandler) MarkAvailability() http.HandlerFunc {
 		json.NewDecoder(r.Body).Decode(&addslotes)
 
 		err := c.doctorService.AddSlotes(addslotes)
+		log.Println(err)
 		if err != nil {
 			response := response.ErrorResponse("failed to add avialable slotes", err.Error(), nil)
 			w.Header().Add("Content-Type", "application/json")
@@ -39,7 +41,7 @@ func (c *doctorHandler) MarkAvailability() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", "available slotes added")
+		response := response.SuccessResponse(true, "SUCCESS", "available slotes added")
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)

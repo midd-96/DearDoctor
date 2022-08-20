@@ -11,7 +11,8 @@ type AdminRoute interface {
 	AdminRouter(routes chi.Router,
 		authHandler h.AuthHandler,
 		adminHandler h.AdminHandler,
-		middleware m.Middleware)
+		middleware m.Middleware,
+		doctorHandler h.DoctorHandler)
 }
 
 type adminRoute struct{}
@@ -24,7 +25,8 @@ func NewAdminRoute() AdminRoute {
 func (r *adminRoute) AdminRouter(routes chi.Router,
 	authHandler h.AuthHandler,
 	adminHandler h.AdminHandler,
-	middleware m.Middleware) {
+	middleware m.Middleware,
+	doctorHandler h.DoctorHandler) {
 
 	routes.Post("/admin/login", authHandler.AdminLogin())
 
@@ -32,7 +34,7 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 		r.Use(middleware.AuthorizeJwt)
 
 		r.Get("/admin/view/users", adminHandler.ViewAllUsers())
-		r.Get("admin/view/doctors", adminHandler.ViewAllDoctors())
+		r.Get("/admin/view/doctors", adminHandler.ViewAllDoctors())
 		r.Post("/admin/add/dept", adminHandler.AddDepartment())
 		r.Patch("/admin/approve/doctor", adminHandler.ApprovelAndFee())
 

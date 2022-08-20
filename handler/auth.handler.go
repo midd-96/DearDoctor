@@ -80,7 +80,7 @@ func (c *authHandler) AdminLogin() http.HandlerFunc {
 		token := c.jwtAdminService.GenerateToken(admin.ID, admin.Username, "admin")
 		admin.Password = ""
 		admin.Token = token
-		response := response.SuccessResponse(true, "OK!", admin.Token)
+		response := response.SuccessResponse(true, "SUCCESS", admin.Token)
 		utils.ResponseJSON(w, response)
 	}
 
@@ -109,7 +109,7 @@ func (c *authHandler) UserLogin() http.HandlerFunc {
 		token := c.jwtUserService.GenerateToken(user.ID, user.Email, "user")
 		user.Password = ""
 		user.Token = token
-		response := response.SuccessResponse(true, "OK", user.Token)
+		response := response.SuccessResponse(true, "SUCCESS", user.Token)
 		utils.ResponseJSON(w, response)
 	}
 }
@@ -136,7 +136,7 @@ func (c *authHandler) UserSignup() http.HandlerFunc {
 
 		user, _ := c.userService.FindUser(newUser.Email)
 		user.Password = ""
-		response := response.SuccessResponse(true, "OK", user)
+		response := response.SuccessResponse(true, "SUCCESS", user)
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
@@ -163,7 +163,7 @@ func (c *authHandler) DoctorSignup() http.HandlerFunc {
 
 		doctor, _ := c.doctorService.FindDoctor(newDoctor.Email)
 		doctor.Password = ""
-		response := response.SuccessResponse(true, "OK", doctor)
+		response := response.SuccessResponse(true, "SUCCESS", doctor)
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
@@ -193,7 +193,7 @@ func (c *authHandler) DoctorLogin() http.HandlerFunc {
 		token := c.jwtDoctorService.GenerateToken(doctor.ID, doctor.Email, "doctor")
 		doctor.Password = ""
 		doctor.Token = token
-		response := response.SuccessResponse(true, "OK", doctor.Token)
+		response := response.SuccessResponse(true, "SUCCESS", doctor.Token)
 		utils.ResponseJSON(w, response)
 	}
 }
@@ -215,7 +215,7 @@ func (c *authHandler) AdminRefreshToken() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", refreshToken)
+		response := response.SuccessResponse(true, "SUCCESS", refreshToken)
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
@@ -240,7 +240,7 @@ func (c *authHandler) UserRefreshToken() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", refreshToken)
+		response := response.SuccessResponse(true, "SUCCESS", refreshToken)
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
@@ -265,7 +265,7 @@ func (c *authHandler) DoctorRefreshToken() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", refreshToken)
+		response := response.SuccessResponse(true, "SUCCESS", refreshToken)
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)

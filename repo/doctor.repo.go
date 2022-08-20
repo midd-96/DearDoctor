@@ -3,12 +3,15 @@ package repo
 import (
 	"database/sql"
 	"dearDoctor/model"
+	"dearDoctor/utils"
+	"log"
 )
 
 type DoctorRepository interface {
 	AddSlotes(slote model.Slotes) (int, error)
 	FindDoctor(email string) (model.DoctorResponse, error)
 	InsertDoctor(doctor model.Doctor) (int, error)
+	AllDoctors(pagenation utils.Filter) ([]model.DoctorResponse, utils.Metadata, error)
 }
 
 type doctorRepo struct {
@@ -26,22 +29,18 @@ func (c *doctorRepo) AddSlotes(slote model.Slotes) (int, error) {
 	var id int
 
 	query := `INSERT INTO slotes(
-		id,
 		doctor_id,
 		available_day,
 		time_from,
-		time_to,
-		status
-		) VALUES ($1, $2, $3, $4, $5, $6)
-	RETURNIG id;`
+		time_to) 
+		VALUES ($1, $2, $3, $4)
+		RETURNING id;`
 
 	err := c.db.QueryRow(query,
-		slote.Id,
 		slote.Docter_id,
 		slote.Available_day,
 		slote.Time_from,
-		slote.Time_to,
-		slote.Status).Scan(&id)
+		slote.Time_to).Scan(&id)
 
 	return id, err
 }
@@ -103,4 +102,59 @@ func (c *doctorRepo) InsertDoctor(doctor model.Doctor) (int, error) {
 		&id,
 	)
 	return id, err
+}
+
+func (c *doctorRepo) AllDoctors(pagenation utils.Filter) ([]model.DoctorResponse, utils.Metadata, error) {
+
+	var doctors []model.DoctorResponse
+
+	query := `SELECT 
+				COUNT(*) OVER(),
+				id,
+				first_name,
+				last_name,
+				email,
+				password,
+				phone,
+				approvel
+				FROM doctors 
+				LIMIT $1 OFFSET $2`
+
+	rows, err := c.db.Query(query, pagenation.Limit(), pagenation.Offset())
+	if err != nil {
+		log.Println("Error", "Query prepare failed: ", err)
+		return nil, utils.Metadata{}, err
+	}
+
+	var totalRecords int
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var doctor model.DoctorResponse
+
+		err = rows.Scan(
+			&totalRecords,
+			&doctor.ID,
+			&doctor.First_Name,
+			&doctor.Last_Name,
+			&doctor.Email,
+			&doctor.Password,
+			&doctor.Phone,
+			&doctor.Approvel,
+		)
+
+		if err != nil {
+			return doctors, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
+		}
+		doctors = append(doctors, doctor)
+	}
+
+	if err := rows.Err(); err != nil {
+		return doctors, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
+	}
+	log.Println(doctors)
+	log.Println(utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize))
+	return doctors, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), nil
+
 }

@@ -13,19 +13,23 @@ type AdminService interface {
 	AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error)
 	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
 	AddDept(department model.Departments) error
+	AllDoctors(pagenation utils.Filter) (*[]model.DoctorResponse, *utils.Metadata, error)
 }
 
 type adminService struct {
-	adminRepo repo.AdminRepository
-	userRepo  repo.UserRepository
+	adminRepo  repo.AdminRepository
+	userRepo   repo.UserRepository
+	doctorRepo repo.DoctorRepository
 }
 
 func NewAdminService(
 	adminRepo repo.AdminRepository,
-	userRepo repo.UserRepository) AdminService {
+	userRepo repo.UserRepository,
+	doctorRepo repo.DoctorRepository) AdminService {
 	return &adminService{
-		adminRepo: adminRepo,
-		userRepo:  userRepo,
+		adminRepo:  adminRepo,
+		userRepo:   userRepo,
+		doctorRepo: doctorRepo,
 	}
 }
 
@@ -41,14 +45,22 @@ func (c *adminService) FindAdmin(username string) (*model.AdminResponse, error) 
 
 func (c *adminService) AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error) {
 
-	//var users []model.UserResponse
-
 	users, metadata, err := c.userRepo.AllUsers(pagenation)
 	if err != nil {
 		return nil, &metadata, err
 	}
 
 	return &users, &metadata, nil
+}
+
+func (c *adminService) AllDoctors(pagenation utils.Filter) (*[]model.DoctorResponse, *utils.Metadata, error) {
+
+	doctors, metadata, err := c.doctorRepo.AllDoctors(pagenation)
+	if err != nil {
+		return nil, &metadata, err
+	}
+
+	return &doctors, &metadata, nil
 }
 
 func (c *adminService) AddDept(department model.Departments) error {

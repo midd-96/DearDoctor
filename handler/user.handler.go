@@ -38,7 +38,7 @@ func (c *userHandler) ConfirmAppointment() http.HandlerFunc {
 			utils.ResponseJSON(w, response)
 			return
 		}
-		response := response.SuccessResponse(true, "OK", "Appointment Confirmed")
+		response := response.SuccessResponse(true, "SUCCESS", "Appointment Confirmed")
 		w.Header().Add("Content-Type", "application/json")
 		utils.ResponseJSON(w, response)
 

@@ -52,7 +52,7 @@ func (j *jwtService) GenerateToken(user_id int, email, role string) string {
 		email,
 		role,
 		jwt.StandardClaims{
-			ExpiresAt: time.Now().Local().Add(time.Minute * time.Duration(59)).Unix(),
+			ExpiresAt: time.Now().Local().Add(time.Minute * time.Duration(2)).Unix(),
 		},
 	}
 

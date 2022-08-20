@@ -15,20 +15,24 @@ type AdminHandler interface {
 	ViewAllUsers() http.HandlerFunc
 	AddDepartment() http.HandlerFunc
 	ApprovelAndFee() http.HandlerFunc
+	ViewAllDoctors() http.HandlerFunc
 }
 
 type adminHandler struct {
-	adminService service.AdminService
-	userService  service.UserService
+	adminService  service.AdminService
+	userService   service.UserService
+	doctorService service.DoctorService
 }
 
 func NewAdminHandler(
 	adminService service.AdminService,
 	userService service.UserService,
+	doctorService service.DoctorService,
 ) AdminHandler {
 	return &adminHandler{
-		adminService: adminService,
-		userService:  userService,
+		adminService:  adminService,
+		userService:   userService,
+		doctorService: doctorService,
 	}
 }
 
@@ -70,6 +74,44 @@ func (c *adminHandler) ViewAllUsers() http.HandlerFunc {
 	}
 }
 
+func (c *adminHandler) ViewAllDoctors() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		page, _ := strconv.Atoi(r.URL.Query().Get("page"))
+
+		pageSize, _ := strconv.Atoi(r.URL.Query().Get("pagesize"))
+
+		log.Println(page, "   ", pageSize)
+
+		pagenation := utils.Filter{
+			Page:     page,
+			PageSize: pageSize,
+		}
+
+		doctors, metadata, err := c.adminService.AllDoctors(pagenation)
+
+		result := struct {
+			Doctors *[]model.DoctorResponse
+			Meta    *utils.Metadata
+		}{
+			Doctors: doctors,
+			Meta:    metadata,
+		}
+
+		if err != nil {
+			response := response.ErrorResponse("error while getting docters from database", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "Listed All Doctors", result)
+		utils.ResponseJSON(w, response)
+
+	}
+}
+
 func (c *adminHandler) AddDepartment() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
@@ -87,7 +129,7 @@ func (c *adminHandler) AddDepartment() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", "new department added")
+		response := response.SuccessResponse(true, "SUCCESS", "new department added")
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
@@ -111,7 +153,7 @@ func (c *adminHandler) ApprovelAndFee() http.HandlerFunc {
 			return
 		}
 
-		response := response.SuccessResponse(true, "OK!", "Updated approvel/fee")
+		response := response.SuccessResponse(true, "SUCCESS", "Updated approvel/fee")
 		w.Header().Add("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)

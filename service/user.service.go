@@ -71,19 +71,6 @@ func (c *userService) AddAppointment(confirm model.Confirmed) error {
 	return nil
 }
 
-// func (c *userService) GetAllProducts(filter model.Filter, user_id int, pagenation utils.Filter) (*[]model.GetProduct, *utils.Metadata, error) {
-
-// 	products, metadata, err := c.productRepo.GetAllProducts(filter, user_id, pagenation)
-
-// 	if err != nil {
-// 		return nil, &metadata, err
-
-// 	}
-
-// 	return &products, &metadata, nil
-
-// }
-
 func HashPassword(password string) string {
 	data := []byte(password)
 	password = fmt.Sprintf("%x", md5.Sum(data))

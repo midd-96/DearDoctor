@@ -32,7 +32,6 @@ func (c *userRepo) AllUsers(pagenation utils.Filter) ([]model.UserResponse, util
 
 	var users []model.UserResponse
 
-	//stores related query to a variable
 	query := `SELECT 
 				COUNT(*) OVER(),
 				id,
@@ -144,7 +143,6 @@ func (c *userRepo) InsertUser(user model.User) (int, error) {
 func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 	var id int
 	query := `INSERT INTO confirmeds(
-		id,
 		day_consult,
 		time_consult,
 		payment_mode,
@@ -154,11 +152,10 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 		doctor_id
 		)
 		VALUES
-		($1, $2, $3, $4, $5, $6, $7, $8)
+		($1, $2, $3, $4, $5, $6, $7)
 		RETURNING id;`
 
 	err := c.db.QueryRow(query,
-		confirm.Id,
 		confirm.Day_consult,
 		confirm.Time_consult,
 		confirm.Payment_mode,
@@ -179,48 +176,8 @@ func (c *userRepo) ManageUsers(email string) error {
 
 	err := c.db.QueryRow(query,
 		email).Err()
-	// err := c.db.QueryRow(query,
-	// 	Role,
-	// 	email).Err()
 
 	return err
-}
-
-func (c *userRepo) AddAddress(address model.Address) (int, error) {
-
-	var id int
-
-	query := `INSERT INTO address(
-				type,
-				user_id,
-				house_name,
-				street_name,
-				landmark,
-				district,
-				state,
-				country,
-				pincode,
-				created_at)
-				VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)	
-				RETURNING id;`
-
-	err := c.db.QueryRow(query,
-		address.AddressType,
-		address.User_id,
-		address.HouseName,
-		address.StreetName,
-		address.Landmark,
-		address.District,
-		address.State,
-		address.Country,
-		address.PinCode,
-		address.Created_At).Scan(&id)
-
-	if err != nil {
-		return 0, err
-	}
-
-	return id, err
 }
 
 func (c *userRepo) UpdateUser(data model.User) error {

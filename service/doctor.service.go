@@ -5,6 +5,7 @@ import (
 	"dearDoctor/model"
 	"dearDoctor/repo"
 	"errors"
+	"log"
 )
 
 type DoctorService interface {
@@ -30,12 +31,12 @@ func NewDoctorService(
 
 func (c *doctorService) AddSlotes(slote model.Slotes) error {
 
-	_, err := c.doctorRepo.AddSlotes(slote)
+	slot, err := c.doctorRepo.AddSlotes(slote)
 
 	if err != nil {
 		return err
 	}
-
+	log.Println(slot)
 	return nil
 }
 
