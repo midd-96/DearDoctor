@@ -30,3 +30,11 @@ type DoctorResponse struct {
 	Approvel   bool   `json:"approvel"`
 	Token      string `json:"token,omitempty"`
 }
+
+type Appointments struct {
+	Day_consult    string `json:"consulting_day" gorm:"not null"`
+	Time_consult   string `json:"consulting_time" gorm:"not null"`
+	Payment_mode   string `json:"payment_mode" gorm:"not null"`
+	Payment_status bool   `json:"payment_status" gorm:"not null"`
+	Email          string `json:"email" gorm:"not null"`
+}

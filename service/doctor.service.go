@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"dearDoctor/model"
 	"dearDoctor/repo"
+	"dearDoctor/utils"
 	"errors"
 	"log"
 )
@@ -12,6 +13,7 @@ type DoctorService interface {
 	AddSlotes(slote model.Slotes) error
 	FindDoctor(email string) (*model.DoctorResponse, error)
 	CreateDoctor(newDoctor model.Doctor) error
+	AppointmentsByDoctor(pagenation utils.Filter, docId int) (*[]model.Appointments, *utils.Metadata, error)
 }
 
 type doctorService struct {
@@ -27,6 +29,15 @@ func NewDoctorService(
 		doctorRepo: doctorRepo,
 		userRepo:   userRepo,
 	}
+}
+
+func (c *doctorService) AppointmentsByDoctor(pagenation utils.Filter, docId int) (*[]model.Appointments, *utils.Metadata, error) {
+	appointments, metadata, err := c.doctorRepo.ListAppointments(pagenation, docId)
+	if err != nil {
+		return nil, &metadata, err
+	}
+
+	return &appointments, &metadata, nil
 }
 
 func (c *doctorService) AddSlotes(slote model.Slotes) error {

@@ -12,6 +12,7 @@ type DoctorRepository interface {
 	FindDoctor(email string) (model.DoctorResponse, error)
 	InsertDoctor(doctor model.Doctor) (int, error)
 	AllDoctors(pagenation utils.Filter) ([]model.DoctorResponse, utils.Metadata, error)
+	ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error)
 }
 
 type doctorRepo struct {
@@ -22,6 +23,55 @@ func NewDoctorRepo(db *sql.DB) DoctorRepository {
 	return &doctorRepo{
 		db: db,
 	}
+}
+
+func (c *doctorRepo) ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error) {
+	var appointments []model.Appointments
+	// docId := docemail
+
+	query := `SELECT 
+				COUNT(*) OVER(),
+				day_consult,
+				time_consult,
+				payment_mode,
+				payment_status,
+				email
+				FROM confirmeds WHERE doctor_id = $1 
+				LIMIT $2 OFFSET $3`
+
+	rows, err := c.db.Query(query, docId, pagenation.Limit(), pagenation.Offset())
+	if err != nil {
+		return nil, utils.Metadata{}, err
+	}
+
+	var totalRecords int
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var appointment model.Appointments
+
+		err = rows.Scan(
+			&totalRecords,
+			&appointment.Day_consult,
+			&appointment.Time_consult,
+			&appointment.Payment_mode,
+			&appointment.Payment_status,
+			&appointment.Email,
+		)
+
+		if err != nil {
+			return appointments, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
+		}
+		appointments = append(appointments, appointment)
+	}
+
+	if err := rows.Err(); err != nil {
+		return appointments, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), err
+	}
+	log.Println(appointments)
+	log.Println(utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize))
+	return appointments, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), nil
 }
 
 func (c *doctorRepo) AddSlotes(slote model.Slotes) (int, error) {
