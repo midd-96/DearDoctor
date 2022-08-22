@@ -46,7 +46,6 @@ func (c *userRepo) AllUsers(pagenation utils.Filter) ([]model.UserResponse, util
 
 	rows, err := c.db.Query(query, pagenation.Limit(), pagenation.Offset())
 	if err != nil {
-		log.Println("Error", "Query prepare failed: ", err)
 		return nil, utils.Metadata{}, err
 	}
 
@@ -142,6 +141,7 @@ func (c *userRepo) InsertUser(user model.User) (int, error) {
 
 func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 	var id int
+	log.Println(confirm)
 	query := `INSERT INTO confirmeds(
 		day_consult,
 		time_consult,

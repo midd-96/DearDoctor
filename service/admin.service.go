@@ -14,6 +14,7 @@ type AdminService interface {
 	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
 	AddDept(department model.Departments) error
 	AllDoctors(pagenation utils.Filter) (*[]model.DoctorResponse, *utils.Metadata, error)
+	ViewAllAppointments(pagenation utils.Filter, doc_id int, day string) (*[]model.AppointmentByDoctor, *utils.Metadata, error)
 }
 
 type adminService struct {
@@ -31,6 +32,17 @@ func NewAdminService(
 		userRepo:   userRepo,
 		doctorRepo: doctorRepo,
 	}
+}
+
+func (c *adminService) ViewAllAppointments(pagenation utils.Filter, doc_id int, day string) (*[]model.AppointmentByDoctor, *utils.Metadata, error) {
+
+	appointments, metadata, err := c.adminRepo.ViewAllAppointments(pagenation, doc_id, day)
+
+	if err != nil {
+		return nil, &metadata, err
+	}
+
+	return &appointments, &metadata, nil
 }
 
 func (c *adminService) FindAdmin(username string) (*model.AdminResponse, error) {

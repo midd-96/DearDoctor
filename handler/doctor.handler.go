@@ -33,9 +33,9 @@ func (c *doctorHandler) AppointmentsByDoctor() http.HandlerFunc {
 
 		pageSize, _ := strconv.Atoi(r.URL.Query().Get("pagesize"))
 
-		docId, _ := strconv.Atoi(r.URL.Query().Get("docEmail"))
+		docId, _ := strconv.Atoi(r.URL.Query().Get("docId"))
 
-		log.Println(page, "   ", pageSize)
+		log.Println(page, "   ", pageSize, docId)
 
 		pagenation := utils.Filter{
 			Page:     page,

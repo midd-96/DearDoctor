@@ -26,8 +26,9 @@ func NewDoctorRepo(db *sql.DB) DoctorRepository {
 }
 
 func (c *doctorRepo) ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error) {
+
 	var appointments []model.Appointments
-	// docId := docemail
+	doctorId := docId
 
 	query := `SELECT 
 				COUNT(*) OVER(),
@@ -39,7 +40,7 @@ func (c *doctorRepo) ListAppointments(pagenation utils.Filter, docId int) ([]mod
 				FROM confirmeds WHERE doctor_id = $1 
 				LIMIT $2 OFFSET $3`
 
-	rows, err := c.db.Query(query, docId, pagenation.Limit(), pagenation.Offset())
+	rows, err := c.db.Query(query, doctorId, pagenation.Limit(), pagenation.Offset())
 	if err != nil {
 		return nil, utils.Metadata{}, err
 	}

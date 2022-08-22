@@ -16,6 +16,7 @@ type AdminHandler interface {
 	AddDepartment() http.HandlerFunc
 	ApprovelAndFee() http.HandlerFunc
 	ViewAllDoctors() http.HandlerFunc
+	ViewAllAppointments() http.HandlerFunc
 }
 
 type adminHandler struct {
@@ -34,6 +35,46 @@ func NewAdminHandler(
 		userService:   userService,
 		doctorService: doctorService,
 	}
+}
+
+func (c *adminHandler) ViewAllAppointments() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		doc_id, _ := strconv.Atoi(r.URL.Query().Get("Doc_Id"))
+		page, _ := strconv.Atoi(r.URL.Query().Get("Page"))
+		pageSize, _ := strconv.Atoi(r.URL.Query().Get("Pagesize"))
+		day := (r.URL.Query().Get("Day"))
+		log.Println(page, " ", pageSize, " ", doc_id, " ", day)
+		pagenation := utils.Filter{
+			Page:     page,
+			PageSize: pageSize,
+		}
+
+		appointments, metadata, err := c.adminService.ViewAllAppointments(pagenation, doc_id, day)
+
+		result := struct {
+			AppointmentByDoctor *[]model.AppointmentByDoctor
+			Meta                *utils.Metadata
+		}{
+			AppointmentByDoctor: appointments,
+			Meta:                metadata,
+		}
+
+		if err != nil {
+
+			response := response.ErrorResponse("could not process the request", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "LIST OF ALL APPOINTMENTS", result)
+		w.Header().Add("Content-Type", "application/json")
+		utils.ResponseJSON(w, response)
+
+	}
+
 }
 
 func (c *adminHandler) ViewAllUsers() http.HandlerFunc {

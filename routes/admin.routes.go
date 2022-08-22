@@ -29,6 +29,7 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 	doctorHandler h.DoctorHandler) {
 
 	routes.Post("/admin/login", authHandler.AdminLogin())
+	routes.Get("/admin/view/all/appointments", adminHandler.ViewAllAppointments())
 
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)
