@@ -14,7 +14,10 @@ type AdminService interface {
 	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
 	AddDept(department model.Departments) error
 	AllDoctors(pagenation utils.Filter) (*[]model.DoctorResponse, *utils.Metadata, error)
-	ViewAllAppointments(pagenation utils.Filter, doc_id int, day string) (*[]model.AppointmentByDoctor, *utils.Metadata, error)
+	ViewAllAppointments(pagenation utils.Filter, filters model.Filter) (*[]model.AppointmentByDoctor, *utils.Metadata, error)
+	CalculatePayout(doc_Id int) (string, error)
+	ViewSingleUser(user_Id int) (*model.UserResponse, error)
+	ViewSingleDoctor(doc_Id int) (*model.DoctorResponse, error)
 }
 
 type adminService struct {
@@ -34,9 +37,41 @@ func NewAdminService(
 	}
 }
 
-func (c *adminService) ViewAllAppointments(pagenation utils.Filter, doc_id int, day string) (*[]model.AppointmentByDoctor, *utils.Metadata, error) {
+func (c *adminService) ViewSingleDoctor(doc_Id int) (*model.DoctorResponse, error) {
+	doctor, err := c.adminRepo.ViewSingleDoctor(doc_Id)
 
-	appointments, metadata, err := c.adminRepo.ViewAllAppointments(pagenation, doc_id, day)
+	if err != nil {
+		return nil, err
+	}
+
+	return &doctor, nil
+}
+
+func (c *adminService) ViewSingleUser(user_Id int) (*model.UserResponse, error) {
+	user, err := c.adminRepo.ViewSingleUser(user_Id)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &user, nil
+}
+
+func (c *adminService) CalculatePayout(doc_Id int) (string, error) {
+
+	amount, err := c.adminRepo.CalculatePayout(doc_Id)
+
+	if err != nil {
+		return "", err
+	}
+
+	return amount, nil
+
+}
+
+func (c *adminService) ViewAllAppointments(pagenation utils.Filter, filters model.Filter) (*[]model.AppointmentByDoctor, *utils.Metadata, error) {
+
+	appointments, metadata, err := c.adminRepo.ViewAllAppointments(pagenation, filters)
 
 	if err != nil {
 		return nil, &metadata, err

@@ -30,6 +30,9 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 
 	routes.Post("/admin/login", authHandler.AdminLogin())
 	routes.Get("/admin/view/all/appointments", adminHandler.ViewAllAppointments())
+	routes.Get("/admin/payout/total/amount", adminHandler.CalculatePayout())
+	routes.Get("/admin/listone/user", adminHandler.ViewSingleUser())
+	routes.Get("/admin/listone/doctor", adminHandler.ViewSingleDoctor())
 
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)

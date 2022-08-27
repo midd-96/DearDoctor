@@ -48,18 +48,18 @@ type AppointmentByDoctor struct {
 
 type Filter struct {
 	Day      []string `json:"day"`
-	DoctorId []int    `json:"doc_id"`
-	Sort
-}
-
-type DoctorId struct {
-	DoctorId int
+	DoctorId []string `json:"doc_id"`
+	Sort     []string `json:"sort"`
 }
 
 type Day struct {
-	Day string
+	Day string `json:"day"`
+}
+
+type DoctorId struct {
+	DoctorId string `json:"doc_id"`
 }
 
 type Sort struct {
-	Latest string
+	Sort string `json:"sort"`
 }

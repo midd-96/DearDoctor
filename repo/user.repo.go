@@ -140,7 +140,7 @@ func (c *userRepo) InsertUser(user model.User) (int, error) {
 }
 
 func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
-	var id int
+	var ID int
 	log.Println(confirm)
 	query := `INSERT INTO confirmeds(
 		day_consult,
@@ -153,7 +153,7 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 		)
 		VALUES
 		($1, $2, $3, $4, $5, $6, $7)
-		RETURNING id;`
+		RETURNING ID;`
 
 	err := c.db.QueryRow(query,
 		confirm.Day_consult,
@@ -163,9 +163,9 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 		confirm.Fee,
 		confirm.Email,
 		confirm.Doctor_id).Scan(
-		&id,
+		&ID,
 	)
-	return id, err
+	return ID, err
 }
 
 func (c *userRepo) ManageUsers(email string) error {
