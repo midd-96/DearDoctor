@@ -45,7 +45,8 @@ func main() {
 	config.Init()
 
 	var (
-		db *sql.DB = config.ConnectDB()
+		db         *sql.DB           = config.ConnectDB()
+		mailConfig config.MailConfig = config.NewMailConfig()
 		//validate    *validator.Validate    = validator.New()
 		adminRepo  repo.AdminRepository  = repo.NewAdminRepo(db)
 		userRepo   repo.UserRepository   = repo.NewUserRepo(db)
@@ -57,7 +58,7 @@ func main() {
 		authService      service.AuthService   = service.NewAuthService(adminRepo, userRepo, doctorRepo)
 		adminService     service.AdminService  = service.NewAdminService(adminRepo, userRepo, doctorRepo)
 		userService      service.UserService   = service.NewUserService(userRepo, adminRepo)
-		doctorService    service.DoctorService = service.NewDoctorService(doctorRepo, userRepo)
+		doctorService    service.DoctorService = service.NewDoctorService(doctorRepo, userRepo, mailConfig)
 
 		authHandler h.AuthHandler = h.NewAuthHandler(jwtAdminService,
 			jwtUserService, jwtDoctorService, authService,

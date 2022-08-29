@@ -14,6 +14,8 @@ import (
 type DoctorHandler interface {
 	MarkAvailability() http.HandlerFunc
 	AppointmentsByDoctor() http.HandlerFunc
+	SendVerificationMail() http.HandlerFunc
+	VerifyAccount() http.HandlerFunc
 }
 
 type doctorHandler struct {
@@ -23,6 +25,48 @@ type doctorHandler struct {
 func NewDoctorHandler(doctorService service.DoctorService) DoctorHandler {
 	return &doctorHandler{
 		doctorService: doctorService,
+	}
+}
+
+func (c *doctorHandler) VerifyAccount() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		email := r.URL.Query().Get("Email")
+		code, _ := strconv.Atoi(r.URL.Query().Get("Code"))
+
+		err := c.doctorService.VerifyAccount(email, code)
+		log.Println(err)
+
+		if err != nil {
+			response := response.ErrorResponse("Verification failed, Invalid OTP", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+		response := response.SuccessResponse(true, "Account verified successfully", email)
+		utils.ResponseJSON(w, response)
+	}
+}
+
+func (c *doctorHandler) SendVerificationMail() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		email := r.URL.Query().Get("Email")
+
+		_, err := c.doctorService.FindDoctor(email)
+
+		if err == nil {
+			err = c.doctorService.SendVerificationEmail(email)
+		}
+
+		if err != nil {
+			response := response.ErrorResponse("Error while sending verification mail", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+		response := response.SuccessResponse(true, "Verification mail sent successfully", email)
+		utils.ResponseJSON(w, response)
 	}
 }
 

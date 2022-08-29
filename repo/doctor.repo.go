@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"dearDoctor/model"
 	"dearDoctor/utils"
+	"errors"
 	"log"
 )
 
@@ -13,6 +14,8 @@ type DoctorRepository interface {
 	InsertDoctor(doctor model.Doctor) (int, error)
 	AllDoctors(pagenation utils.Filter) ([]model.DoctorResponse, utils.Metadata, error)
 	ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error)
+	StoreVerificationDetails(email string, code int) error
+	VerifyAccount(email string, code int) error
 }
 
 type doctorRepo struct {
@@ -23,6 +26,49 @@ func NewDoctorRepo(db *sql.DB) DoctorRepository {
 	return &doctorRepo{
 		db: db,
 	}
+}
+
+func (c *doctorRepo) VerifyAccount(email string, code int) error {
+
+	var id int
+
+	query := `SELECT id FROM 
+				verifications WHERE 
+				email = $1 AND code = $2;`
+	err := c.db.QueryRow(query, email, code).Scan(&id)
+
+	if err == sql.ErrNoRows {
+		return errors.New("Invalid verification code.")
+	}
+
+	if err != nil {
+		return err
+	}
+
+	query = `UPDATE doctors 
+				SET
+				 verification = $1
+				WHERE
+				 email = $2 ;`
+	err = c.db.QueryRow(query, true, email).Err()
+	log.Println("Updating verification: ", err)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *doctorRepo) StoreVerificationDetails(email string, code int) error {
+
+	query := `INSERT INTO 
+				verifications(email, code)
+				VALUES( $1, $2);`
+
+	err := c.db.QueryRow(query, email, code).Err()
+
+	return err
+
 }
 
 func (c *doctorRepo) ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error) {

@@ -19,8 +19,8 @@ func Init() *gorm.DB {
 	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Departments{})
 	db.AutoMigrate(&model.Doctor{})
-	//db.AutoMigrate(&model.Guests{})
 	db.AutoMigrate(&model.Slotes{})
 	db.AutoMigrate(&model.Confirmed{})
+	db.AutoMigrate(&model.Verification{})
 	return db
 }
