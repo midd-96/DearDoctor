@@ -22,5 +22,6 @@ func Init() *gorm.DB {
 	db.AutoMigrate(&model.Slotes{})
 	db.AutoMigrate(&model.Confirmed{})
 	db.AutoMigrate(&model.Verification{})
+	db.AutoMigrate(&model.Payout{})
 	return db
 }

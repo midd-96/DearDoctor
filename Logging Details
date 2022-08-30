@@ -1536,3 +1536,126 @@ Connected to database: postgres
 2022/08/29 20:09:03 Api is listening on port: 8080
 2022/08/29 20:09:23 Updating User verification:  <nil>
 2022/08/29 20:09:23 <nil>
+2022/08/30 13:13:01 
+Connected to database: postgres
+2022/08/30 13:13:01 Api is listening on port: 8080
+2022/08/30 13:14:32 
+Connected to database: postgres
+2022/08/30 13:14:32 Api is listening on port: 8080
+2022/08/30 13:16:10 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 13:16:10 No doctor exist on payout table
+2022/08/30 13:28:54 
+Connected to database: postgres
+2022/08/30 13:28:54 Api is listening on port: 8080
+2022/08/30 13:29:11 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 13:29:11 No doctor exist on payout table
+2022/08/30 13:29:11 <nil>
+2022/08/30 13:30:42 
+Connected to database: postgres
+2022/08/30 13:30:42 Api is listening on port: 8080
+2022/08/30 13:31:02 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 13:31:02 No doctor exist on payout table
+2022/08/30 13:31:02 
+2022/08/30 13:31:02 <nil>
+2022/08/30 13:31:45 
+Connected to database: postgres
+2022/08/30 13:31:45 Api is listening on port: 8080
+2022/08/30 13:31:56 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 13:31:56 No doctor exist on payout table
+2022/08/30 13:31:56 0xc000414890
+2022/08/30 13:31:56 <nil>
+2022/08/30 13:32:30 
+Connected to database: postgres
+2022/08/30 13:32:30 Api is listening on port: 8080
+2022/08/30 13:32:39 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 13:32:39 No doctor exist on payout table
+2022/08/30 13:32:39 0xc0000902e0
+2022/08/30 13:32:39 <nil>
+2022/08/30 14:37:35 
+Connected to database: postgres
+2022/08/30 14:37:35 Api is listening on port: 8080
+2022/08/30 14:37:47 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 14:37:47 No doctor exist on payout table
+2022/08/30 14:37:47 
+2022/08/30 14:37:47 <nil>
+2022/08/30 14:55:51 
+Connected to database: postgres
+2022/08/30 14:55:51 Api is listening on port: 8080
+2022/08/30 14:56:46 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 14:56:46 24
+2022/08/30 14:56:46 No doctor exist on payout table
+2022/08/30 14:56:46 Email : 
+2022/08/30 14:56:46 <nil>
+2022/08/30 15:00:16 
+Connected to database: postgres
+2022/08/30 15:00:16 Api is listening on port: 8080
+2022/08/30 15:00:29 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:00:29 24
+2022/08/30 15:02:41 
+Connected to database: postgres
+2022/08/30 15:02:41 Api is listening on port: 8080
+2022/08/30 15:02:56 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:02:56 24
+2022/08/30 15:02:56 Email : adnankadalayi90@gmail.com
+2022/08/30 15:10:39 
+Connected to database: postgres
+2022/08/30 15:10:39 Api is listening on port: 8080
+2022/08/30 15:10:51 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:10:51 24
+2022/08/30 15:10:51 Email : adnankadalayi90@gmail.com
+2022/08/30 15:13:20 
+Connected to database: postgres
+2022/08/30 15:13:20 Api is listening on port: 8080
+2022/08/30 15:13:31 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:13:31 24
+2022/08/30 15:13:31 Email : adnankadalayi90@gmail.com
+2022/08/30 15:13:31 No doctor exist on payout table
+2022/08/30 15:13:31 Email : adnankadalayi90@gmail.com
+2022/08/30 15:13:31 <nil>
+2022/08/30 15:21:56 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:21:56 24
+2022/08/30 15:21:56 Email : adnankadalayi90@gmail.com
+2022/08/30 15:22:47 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:22:48 24
+2022/08/30 15:22:48 Email : adnankadalayi90@gmail.com
+2022/08/30 15:24:17 
+Connected to database: postgres
+2022/08/30 15:24:17 Api is listening on port: 8080
+2022/08/30 15:45:09 
+Connected to database: postgres
+2022/08/30 15:45:09 Api is listening on port: 8080
+2022/08/30 15:45:22 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:46:24 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:48:42 
+Connected to database: postgres
+2022/08/30 15:48:42 Api is listening on port: 8080
+2022/08/30 15:48:55 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:49:53 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:51:49 
+Connected to database: postgres
+2022/08/30 15:51:49 Api is listening on port: 8080
+2022/08/30 15:52:03 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 15:52:03 updation  <nil>
+2022/08/30 17:34:33 
+Connected to database: postgres
+2022/08/30 17:34:33 Api is listening on port: 8080
+2022/08/30 17:34:52 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:35:29 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:35:29 updation  <nil>
+2022/08/30 17:44:13 
+Connected to database: postgres
+2022/08/30 17:44:13 Api is listening on port: 8080
+2022/08/30 17:44:27 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:44:36 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:44:36 updation  <nil>
+2022/08/30 17:46:27 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:46:27 updation  pq: relation "payouts" does not exist
+2022/08/30 17:47:06 
+Connected to database: postgres
+2022/08/30 17:47:06 Api is listening on port: 8080
+2022/08/30 17:47:20 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:48:07 
+Connected to database: postgres
+2022/08/30 17:48:07 Api is listening on port: 8080
+2022/08/30 17:48:17 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/30 17:48:17 updation  <nil>

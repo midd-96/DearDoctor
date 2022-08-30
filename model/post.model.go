@@ -1,6 +1,8 @@
 package model
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
@@ -47,13 +49,11 @@ type Departments struct {
 type ApproveAndFee struct {
 	Approve bool `json:"approvel"`
 	Fee     int  `json:"fee"`
-	//Doctor_id int  `json:"doc_id"`
 }
 
 //table schema to mark availability by doctor
 
 type Slotes struct {
-	//gorm.Model
 	Id            int    `json:"id" gorm:"primary_key"`
 	Docter_id     int    `json:"doctor_id" gorm:"not null"`
 	Available_day string `json:"available_day" gorm:"not null"`
@@ -92,4 +92,21 @@ type Verification struct {
 
 	Email string `json:"email"`
 	Code  int    `json:"code"`
+}
+
+type Payout struct {
+	Id                  int       `json:"id" gorm:"primary_key"`
+	Username            string    `json:"email" gorm:"unique"`
+	LastRequestedAmount int       `json:"request_amount"`
+	RequestedTime       time.Time `json:"requested_time"`
+	Wallet              float64   `json:"wallet"`
+	Approvel            bool      `json:"approvel"`
+	ApprovedTime        time.Time `json:"approved_time"`
+}
+
+type Account struct {
+	Username      string `json:"email"`
+	AccountNumber string `json:"account_number"`
+	IFSC          string `json:"ifsc"`
+	AccountHolder string `json:"account_holder"`
 }

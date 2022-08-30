@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	//"github.com/lib/pq"
 )
 
 type UserRepository interface {
@@ -187,6 +186,7 @@ func (c *userRepo) InsertUser(user model.User) (int, error) {
 
 func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 	var ID int
+	var doc_email string
 	log.Println(confirm)
 	query := `INSERT INTO confirmeds(
 		day_consult,
@@ -201,7 +201,7 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 		($1, $2, $3, $4, $5, $6, $7)
 		RETURNING ID;`
 
-	err := c.db.QueryRow(query,
+	err1 := c.db.QueryRow(query,
 		confirm.Day_consult,
 		confirm.Time_consult,
 		confirm.Payment_mode,
@@ -211,7 +211,42 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 		confirm.Doctor_id).Scan(
 		&ID,
 	)
-	return ID, err
+
+	//to store email id of the doctor who got an appointment
+	query = `SELECT email FROM 
+				doctors WHERE 
+				id = $1;`
+	err := c.db.QueryRow(query, confirm.Doctor_id).Scan(&doc_email)
+
+	//checks weather it is his first appointment or not
+	var status bool
+	query = `SELECT * FROM 
+				payouts WHERE 
+				username = $1;`
+	err = c.db.QueryRow(query, doc_email).Scan(&status)
+	if err == sql.ErrNoRows {
+		//if it is his first appointments create new row.
+		query = `INSERT INTO payouts(
+					username,
+					wallet)
+					VALUES (
+						$1, $2
+					) RETURNING username;`
+
+		err = c.db.QueryRow(query, doc_email, float64(confirm.Fee)*0.75).Scan(&doc_email)
+
+	} else {
+
+		query = `UPDATE payouts SET
+			wallet = wallet + $1;`
+
+		err = c.db.QueryRow(query, float64(confirm.Fee)*0.75).Err()
+
+		log.Println("updation ", err)
+
+	}
+
+	return ID, err1
 }
 
 func (c *userRepo) ManageUsers(email string) error {
@@ -267,32 +302,6 @@ func (c *userRepo) UpdateUser(data model.User) error {
 		arg = append(arg, data.Password)
 		i++
 	}
-
-	// if data.Phone_Number != 0 {
-	// 	if i > 1 {
-	// 		query = query + `, `
-	// 	}
-	// 	query = query + `phone_number = $` + fmt.Sprintf(`%d`, i)
-	// 	arg = append(arg, data.Phone_Number)
-	// 	i++
-	// }
-
-	// if data.IsVerified {
-	// 	if i > 1 {
-	// 		query = query + `, `
-	// 	}
-	// 	query = query + `is_verified = $` + fmt.Sprintf(`%d`, i)
-	// 	arg = append(arg, data.IsVerified)
-	// 	i++
-	// }
-
-	// if i > 1 {
-	// 	query = query + `, `
-	// }
-	// query = query + `updated_at = $` + fmt.Sprintf(`%d
-	// 										WHERE id = $%d;`, i, i+1)
-	// arg = append(arg, data.Updated_At)
-	// arg = append(arg, data.ID)
 
 	statement, err := c.db.Prepare(query)
 
