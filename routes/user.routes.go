@@ -28,6 +28,8 @@ func (r *userRoute) UserRouter(routes chi.Router,
 
 	routes.Post("/user/signup", authHandler.UserSignup())
 	routes.Post("/user/login", authHandler.UserLogin())
+	routes.Post("/user/send/verification", userHandler.SendVerificationMail())
+	routes.Patch("/user/verify/account", userHandler.VerifyAccount())
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)
 		r.Post("/user/add/appointment", userHandler.ConfirmAppointment())

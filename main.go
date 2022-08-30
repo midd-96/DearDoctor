@@ -57,7 +57,7 @@ func main() {
 		jwtDoctorService service.JWTService    = service.NewJWTDoctorService()
 		authService      service.AuthService   = service.NewAuthService(adminRepo, userRepo, doctorRepo)
 		adminService     service.AdminService  = service.NewAdminService(adminRepo, userRepo, doctorRepo)
-		userService      service.UserService   = service.NewUserService(userRepo, adminRepo)
+		userService      service.UserService   = service.NewUserService(userRepo, adminRepo, mailConfig)
 		doctorService    service.DoctorService = service.NewDoctorService(doctorRepo, userRepo, mailConfig)
 
 		authHandler h.AuthHandler = h.NewAuthHandler(jwtAdminService,

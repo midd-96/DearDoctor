@@ -3,30 +3,72 @@ package service
 import (
 	"crypto/md5"
 	"database/sql"
+	"dearDoctor/config"
 	"dearDoctor/model"
 	"dearDoctor/repo"
 	"errors"
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 type UserService interface {
 	FindUser(email string) (*model.UserResponse, error)
 	CreateUser(newUser model.User) error
 	AddAppointment(confirm model.Confirmed) error
+	SendVerificationEmail(email string) error
+	VerifyAccount(email string, code int) error
 }
 
 type userService struct {
-	userRepo  repo.UserRepository
-	adminRepo repo.AdminRepository
+	userRepo   repo.UserRepository
+	adminRepo  repo.AdminRepository
+	mailConfig config.MailConfig
 }
 
 func NewUserService(
 	userRepo repo.UserRepository,
-	adminRepo repo.AdminRepository) UserService {
+	adminRepo repo.AdminRepository,
+	mailConfig config.MailConfig) UserService {
 	return &userService{
-		userRepo:  userRepo,
-		adminRepo: adminRepo,
+		userRepo:   userRepo,
+		adminRepo:  adminRepo,
+		mailConfig: mailConfig,
 	}
+}
+
+func (c *userService) VerifyAccount(email string, code int) error {
+
+	err := c.userRepo.VerifyAccount(email, code)
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (c *userService) SendVerificationEmail(email string) error {
+	//to generate random code
+	rand.Seed(time.Now().UnixNano())
+	code := rand.Intn(100000)
+
+	message := fmt.Sprintf(
+		"\nThe verification code is:\n\n%d\nUseto verify your account.\n\n dearDoctor.",
+		code,
+	)
+
+	// send random code to user's email
+	if err := c.mailConfig.SendMail(email, message); err != nil {
+		return err
+	}
+
+	err := c.userRepo.StoreVerificationDetails(email, code)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (c *userService) FindUser(email string) (*model.UserResponse, error) {

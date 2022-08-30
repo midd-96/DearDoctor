@@ -6,6 +6,8 @@ import (
 
 // user schema for user table to get listed all users
 type User struct {
+	gorm.Model
+
 	Id               int    `json:"user_id"`
 	First_Name       string `json:"first_name"`
 	Last_Name        string `json:"last_name"`
@@ -14,6 +16,7 @@ type User struct {
 	Password         string `json:"password"`
 	Last_appointment int    `json:"last_appointment"`
 	Role             bool   `json:"role"`
+	Verification     bool   `json:"verification" gorm:"default:false"`
 }
 
 // confirmed appointments shema for confirmed table

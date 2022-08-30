@@ -1488,3 +1488,51 @@ Connected to database: postgres
 2022/08/29 18:19:09 Invalid verification code.
 2022/08/29 18:20:59 Updating verification:  <nil>
 2022/08/29 18:20:59 <nil>
+2022/08/29 18:53:28 
+Connected to database: postgres
+2022/08/29 18:53:28 Api is listening on port: 8080
+2022/08/29 18:56:10 
+Connected to database: postgres
+2022/08/29 18:56:10 Api is listening on port: 8080
+2022/08/29 18:57:22 Invalid verification code/Email
+2022/08/29 18:57:32 Invalid verification code/Email
+2022/08/29 18:57:53 Invalid verification code/Email
+2022/08/29 18:58:01 Invalid verification code/Email
+2022/08/29 19:00:51 
+Connected to database: postgres
+2022/08/29 19:00:51 Api is listening on port: 8080
+2022/08/29 19:01:11 Invalid verification code/Email
+2022/08/29 19:01:21 Updating User verification:  pq: column "verification" of relation "users" does not exist
+2022/08/29 19:01:21 pq: column "verification" of relation "users" does not exist
+2022/08/29 19:02:41 
+Connected to database: postgres
+2022/08/29 19:02:41 Api is listening on port: 8080
+2022/08/29 19:11:16 
+Connected to database: postgres
+2022/08/29 19:11:16 Api is listening on port: 8080
+2022/08/29 19:20:43 
+Connected to database: postgres
+2022/08/29 19:20:43 Api is listening on port: 8080
+2022/08/29 19:35:48 
+Connected to database: postgres
+2022/08/29 19:35:48 Api is listening on port: 8080
+2022/08/29 19:36:17 midlaj9995@gmail.com   vpjovophplkxwpfr   smtp.gmail.com   587
+2022/08/29 19:40:32 midlaj9995@gmail.com   vpjovophplkxwpfr   smtp.gmail.com   587
+2022/08/29 19:43:57 midlaj9995@gmail.com   vpjovophplkxwpfr   smtp.gmail.com   587
+2022/08/29 19:53:42 
+Connected to database: postgres
+2022/08/29 19:53:42 Api is listening on port: 8080
+2022/08/29 19:54:09 midlaj9995@gmail.com   bydwzkhafzwrygbx   smtp.gmail.com   587
+2022/08/29 19:59:45 
+Connected to database: postgres
+2022/08/29 19:59:45 Api is listening on port: 8080
+2022/08/29 20:00:11 Updating User verification:  pq: column "verification" of relation "users" does not exist
+2022/08/29 20:00:11 pq: column "verification" of relation "users" does not exist
+2022/08/29 20:00:33 midlaj9995@gmail.com   bydwzkhafzwrygbx   smtp.gmail.com   587
+2022/08/29 20:01:24 Updating verification:  <nil>
+2022/08/29 20:01:24 <nil>
+2022/08/29 20:09:03 
+Connected to database: postgres
+2022/08/29 20:09:03 Api is listening on port: 8080
+2022/08/29 20:09:23 Updating User verification:  <nil>
+2022/08/29 20:09:23 <nil>

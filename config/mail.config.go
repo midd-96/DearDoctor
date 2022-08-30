@@ -2,6 +2,7 @@ package config
 
 import (
 	"bytes"
+	"log"
 	"net/smtp"
 	"os"
 )
@@ -24,6 +25,8 @@ func (c *mailConfig) SendMail(to, message string) error {
 	smtpPort := os.Getenv("SMTP_PORT")
 
 	auth := smtp.PlainAuth("", userName, password, smtpHost)
+
+	log.Println(userName, " ", password, " ", smtpHost, " ", smtpPort)
 
 	headers := make(map[string]string)
 
