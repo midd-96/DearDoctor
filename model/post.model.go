@@ -106,7 +106,7 @@ type Payout struct {
 
 type Account struct {
 	Id            int    `json:"id" gorm:"primary_key"`
-	Username      string `json:"email"`
+	Email         string `json:"email"`
 	AccountNumber string `json:"account_number"`
 	IFSC          string `json:"ifsc"`
 	AccountHolder string `json:"account_holder"`

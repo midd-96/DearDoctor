@@ -17,6 +17,7 @@ type DoctorHandler interface {
 	SendVerificationMail() http.HandlerFunc
 	VerifyAccount() http.HandlerFunc
 	RequestForPayout() http.HandlerFunc
+	AddBankAccountDetails() http.HandlerFunc
 }
 
 type doctorHandler struct {
@@ -28,6 +29,30 @@ func NewDoctorHandler(doctorService service.DoctorService) DoctorHandler {
 		doctorService: doctorService,
 	}
 }
+
+func (c *doctorHandler) AddBankAccountDetails() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var bankAccount model.Account
+
+		json.NewDecoder(r.Body).Decode(&bankAccount)
+
+		err := c.doctorService.AddBankAccountDetails(bankAccount)
+
+		if err != nil {
+			response := response.ErrorResponse("failed to add bank account details", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "SUCCESS", "Bank account added")
+		w.Header().Add("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		utils.ResponseJSON(w, response)
+	}
+}
+
 func (c *doctorHandler) RequestForPayout() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		//email := r.Header.Get("useremail")

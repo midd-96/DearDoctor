@@ -21,6 +21,7 @@ type DoctorService interface {
 	SendVerificationEmail(email string) error
 	VerifyAccount(email string, code int) error
 	RequestForPayout(email string, requestAmount float64) (float64, error)
+	AddBankAccountDetails(bankAccount model.Account) error
 }
 
 type doctorService struct {
@@ -39,6 +40,17 @@ func NewDoctorService(
 		userRepo:   userRepo,
 		mailConfig: mailConfig,
 	}
+}
+
+func (c *doctorService) AddBankAccountDetails(bankAccount model.Account) error {
+
+	bank_Ac := c.doctorRepo.AddBankAccountDetails(bankAccount)
+
+	if bank_Ac != nil {
+		return bank_Ac
+	}
+
+	return nil
 }
 
 func (c *doctorService) RequestForPayout(email string, requestAmount float64) (float64, error) {

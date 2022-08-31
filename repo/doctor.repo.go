@@ -18,6 +18,7 @@ type DoctorRepository interface {
 	StoreVerificationDetails(email string, code int) error
 	VerifyAccount(email string, code int) error
 	RequestForPayout(email string, requestAmount float64) (float64, error)
+	AddBankAccountDetails(bankAccount model.Account) error
 }
 
 type doctorRepo struct {
@@ -28,6 +29,39 @@ func NewDoctorRepo(db *sql.DB) DoctorRepository {
 	return &doctorRepo{
 		db: db,
 	}
+}
+
+func (c *doctorRepo) AddBankAccountDetails(bankAccount model.Account) error {
+
+	var accountHolder string
+	query := `SELECT account_holder
+				FROM accounts 
+				WHERE email = $1;`
+	err := c.db.QueryRow(query, bankAccount.Email).Scan(&accountHolder)
+
+	if err == sql.ErrNoRows {
+		var id int
+
+		query = `INSERT INTO accounts(
+		email,
+		account_number,
+		ifsc,
+		account_holder)
+		VALUES ($1, $2, $3, $4)
+		RETURNING id;`
+
+		err = c.db.QueryRow(query,
+			bankAccount.Email,
+			bankAccount.AccountNumber,
+			bankAccount.IFSC,
+			bankAccount.AccountHolder).Scan(&id)
+
+		log.Println("Error: ", err)
+		return err
+	}
+
+	err = errors.New("Account details already exists for this doctor")
+	return err
 }
 
 func (c *doctorRepo) RequestForPayout(email string, requestAmount float64) (float64, error) {

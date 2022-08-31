@@ -1767,3 +1767,41 @@ Connected to database: postgres
 2022/08/31 18:43:29 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
 2022/08/31 18:43:29 not first entry and not cod
 2022/08/31 18:43:29 updation  <nil>
+2022/08/31 20:50:38 
+Connected to database: postgres
+2022/08/31 20:50:38 Api is listening on port: 8080
+2022/08/31 20:53:56 
+Connected to database: postgres
+2022/08/31 20:53:56 Api is listening on port: 8080
+2022/08/31 20:56:44 
+Connected to database: postgres
+2022/08/31 20:56:44 Api is listening on port: 8080
+2022/08/31 20:56:57 Error:  pq: column "accountnumber" of relation "accounts" does not exist
+2022/08/31 20:58:42 
+Connected to database: postgres
+2022/08/31 20:58:42 Api is listening on port: 8080
+2022/08/31 20:58:58 Error:  pq: column "accountnumber" of relation "accounts" does not exist
+2022/08/31 20:59:36 
+Connected to database: postgres
+2022/08/31 20:59:36 Api is listening on port: 8080
+2022/08/31 20:59:54 Error:  <nil>
+2022/08/31 21:00:54 
+Connected to database: postgres
+2022/08/31 21:00:54 Api is listening on port: 8080
+2022/08/31 21:01:12 Error:  <nil>
+2022/08/31 21:12:42 
+Connected to database: postgres
+2022/08/31 21:12:42 Api is listening on port: 8080
+2022/08/31 21:12:58 Error:  <nil>
+2022/08/31 21:18:20 
+Connected to database: postgres
+2022/08/31 21:18:20 Api is listening on port: 8080
+2022/08/31 21:18:38 Error:  <nil>
+2022/08/31 21:22:59 Error:  <nil>
+2022/08/31 21:25:58 
+Connected to database: postgres
+2022/08/31 21:25:58 Api is listening on port: 8080
+2022/08/31 21:26:15 Error:  <nil>
+2022/08/31 21:27:42 
+Connected to database: postgres
+2022/08/31 21:27:42 Api is listening on port: 8080

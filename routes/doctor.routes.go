@@ -36,6 +36,7 @@ func (r *doctorRoute) DoctorRouter(routes chi.Router,
 		r.Patch("/doctor/request/payout", doctorHandler.RequestForPayout())
 		r.Get("/doctor/token/refresh", authHandler.DoctorRefreshToken())
 		r.Get("/doctor/list/allappointments", doctorHandler.AppointmentsByDoctor())
+		r.Post("/doctor/add/bankac", doctorHandler.AddBankAccountDetails())
 	})
 
 }
