@@ -6,6 +6,7 @@ import (
 	"dearDoctor/utils"
 	"errors"
 	"log"
+	"time"
 )
 
 type DoctorRepository interface {
@@ -16,6 +17,7 @@ type DoctorRepository interface {
 	ListAppointments(pagenation utils.Filter, docId int) ([]model.Appointments, utils.Metadata, error)
 	StoreVerificationDetails(email string, code int) error
 	VerifyAccount(email string, code int) error
+	RequestForPayout(email string, requestAmount float64) (float64, error)
 }
 
 type doctorRepo struct {
@@ -26,6 +28,34 @@ func NewDoctorRepo(db *sql.DB) DoctorRepository {
 	return &doctorRepo{
 		db: db,
 	}
+}
+
+func (c *doctorRepo) RequestForPayout(email string, requestAmount float64) (float64, error) {
+
+	var walletBalance float64
+	log.Println("mail id recieved at repo :", email)
+	query := `SELECT wallet FROM 
+				payouts WHERE 
+				username = $1;`
+	err := c.db.QueryRow(query, email).Scan(&walletBalance)
+	log.Println("Error from repo of doctor while scanning data from payouts", err, walletBalance)
+
+	if requestAmount <= walletBalance {
+		query = `UPDATE payouts
+					SET last_requested_amount = $1,
+						requested_time = $2,
+						approvel = $3
+					WHERE username= $4`
+
+		Requested_At, _ := time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		err = c.db.QueryRow(query, requestAmount, Requested_At, false, email).Err()
+
+		return requestAmount, nil
+
+	}
+	err = errors.New("Requested amount higher than wallet balance")
+	return requestAmount, err
+
 }
 
 func (c *doctorRepo) VerifyAccount(email string, code int) error {

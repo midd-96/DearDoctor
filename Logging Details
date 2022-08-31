@@ -1659,3 +1659,111 @@ Connected to database: postgres
 2022/08/30 17:48:07 Api is listening on port: 8080
 2022/08/30 17:48:17 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
 2022/08/30 17:48:17 updation  <nil>
+2022/08/31 12:44:57 
+Connected to database: postgres
+2022/08/31 12:44:57 Api is listening on port: 8080
+2022/08/31 12:47:53 
+Connected to database: postgres
+2022/08/31 12:47:53 Api is listening on port: 8080
+2022/08/31 12:48:30 
+2022/08/31 12:48:30 pq: column "email" does not exist
+2022/08/31 12:49:35 
+2022/08/31 12:49:35 pq: column "email" does not exist
+2022/08/31 12:53:35 
+Connected to database: postgres
+2022/08/31 12:53:35 Api is listening on port: 8080
+2022/08/31 12:54:03 
+2022/08/31 12:54:03 pq: column "email" does not exist
+2022/08/31 12:56:06 
+2022/08/31 12:56:06 pq: column "email" does not exist
+2022/08/31 13:40:29 
+Connected to database: postgres
+2022/08/31 13:40:29 Api is listening on port: 8080
+2022/08/31 13:40:59 adnankadalayi90@gmail.com
+2022/08/31 13:40:59 pq: column "email" does not exist
+2022/08/31 13:41:05 adnankadalayi90@gmail.com
+2022/08/31 13:41:05 pq: column "email" does not exist
+2022/08/31 13:43:47 
+Connected to database: postgres
+2022/08/31 13:43:47 Api is listening on port: 8080
+2022/08/31 13:44:17 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:44:17 pq: column "email" does not exist
+2022/08/31 13:48:46 
+Connected to database: postgres
+2022/08/31 13:48:46 Api is listening on port: 8080
+2022/08/31 13:48:56 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:48:56 Error from repo of doctor while scanning data from payouts pq: column "email" does not exist 0
+2022/08/31 13:50:31 
+Connected to database: postgres
+2022/08/31 13:50:31 Api is listening on port: 8080
+2022/08/31 13:50:46 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:50:46 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 13:50:46 Error from repo of doctor while scanning data from payouts pq: column "email" does not exist 0
+2022/08/31 13:51:53 
+Connected to database: postgres
+2022/08/31 13:51:53 Api is listening on port: 8080
+2022/08/31 13:52:03 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:52:03 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 13:52:03 Error from repo of doctor while scanning data from payouts <nil> 225
+2022/08/31 13:52:03 100
+2022/08/31 13:53:14 
+Connected to database: postgres
+2022/08/31 13:53:14 Api is listening on port: 8080
+2022/08/31 13:53:27 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:53:27 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 13:53:27 Error from repo of doctor while scanning data from payouts <nil> 225
+2022/08/31 13:53:27 100
+2022/08/31 13:54:24 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 13:54:24 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 13:54:24 Error from repo of doctor while scanning data from payouts <nil> 225
+2022/08/31 13:54:24 300
+2022/08/31 14:39:16 
+Connected to database: postgres
+2022/08/31 14:39:16 Api is listening on port: 8080
+2022/08/31 14:40:04 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 14:40:04 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 14:40:04 Error from repo of doctor while scanning data from payouts <nil> 225
+2022/08/31 14:41:40 Got Email :  adnankadalayi90@gmail.com
+2022/08/31 14:41:40 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/08/31 14:41:40 Error from repo of doctor while scanning data from payouts <nil> 225
+2022/08/31 14:41:40 200
+2022/08/31 17:52:49 
+Connected to database: postgres
+2022/08/31 17:52:49 Api is listening on port: 8080
+2022/08/31 17:55:28 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 17:55:28 updation  <nil>
+2022/08/31 17:56:32 
+Connected to database: postgres
+2022/08/31 17:56:32 Api is listening on port: 8080
+2022/08/31 17:57:55 
+Connected to database: postgres
+2022/08/31 17:57:55 Api is listening on port: 8080
+2022/08/31 17:58:24 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 17:58:24 updation  <nil>
+2022/08/31 18:01:06 
+Connected to database: postgres
+2022/08/31 18:01:06 Api is listening on port: 8080
+2022/08/31 18:01:31 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 18:01:31 updation  <nil>
+2022/08/31 18:08:23 
+Connected to database: postgres
+2022/08/31 18:08:23 Api is listening on port: 8080
+2022/08/31 18:08:56 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 18:08:56 updation  <nil>
+2022/08/31 18:30:18 
+Connected to database: postgres
+2022/08/31 18:30:18 Api is listening on port: 8080
+2022/08/31 18:30:30 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 18:30:30 not first entry and not cod
+2022/08/31 18:30:30 updation  <nil>
+2022/08/31 18:34:43 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/31 18:34:43 existing entry and cod
+2022/08/31 18:34:43 updation  <nil>
+2022/08/31 18:41:34 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 18:41:34 not first entry and not cod
+2022/08/31 18:41:34 updation  <nil>
+2022/08/31 18:42:56 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 cod false 150 user2@gmail.com 24}
+2022/08/31 18:42:56 first entry and cod
+2022/08/31 18:43:29 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} monday 10:30 UPI false 150 user2@gmail.com 24}
+2022/08/31 18:43:29 not first entry and not cod
+2022/08/31 18:43:29 updation  <nil>

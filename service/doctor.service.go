@@ -20,6 +20,7 @@ type DoctorService interface {
 	AppointmentsByDoctor(pagenation utils.Filter, docId int) (*[]model.Appointments, *utils.Metadata, error)
 	SendVerificationEmail(email string) error
 	VerifyAccount(email string, code int) error
+	RequestForPayout(email string, requestAmount float64) (float64, error)
 }
 
 type doctorService struct {
@@ -38,6 +39,19 @@ func NewDoctorService(
 		userRepo:   userRepo,
 		mailConfig: mailConfig,
 	}
+}
+
+func (c *doctorService) RequestForPayout(email string, requestAmount float64) (float64, error) {
+
+	amount, err := c.doctorRepo.RequestForPayout(email, requestAmount)
+
+	if err != nil {
+		log.Println("Error from doctor service :", err)
+		return amount, err
+
+	}
+
+	return amount, nil
 }
 
 func (c *doctorService) VerifyAccount(email string, code int) error {

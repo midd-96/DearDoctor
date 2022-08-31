@@ -16,6 +16,7 @@ type DoctorHandler interface {
 	AppointmentsByDoctor() http.HandlerFunc
 	SendVerificationMail() http.HandlerFunc
 	VerifyAccount() http.HandlerFunc
+	RequestForPayout() http.HandlerFunc
 }
 
 type doctorHandler struct {
@@ -25,6 +26,28 @@ type doctorHandler struct {
 func NewDoctorHandler(doctorService service.DoctorService) DoctorHandler {
 	return &doctorHandler{
 		doctorService: doctorService,
+	}
+}
+func (c *doctorHandler) RequestForPayout() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		//email := r.Header.Get("useremail")
+		email := r.Header.Get("email")
+		log.Println("Got Email : ", email)
+		requestAmount, err := strconv.ParseFloat(r.URL.Query().Get("Amount"), 64)
+
+		amount, err := c.doctorService.RequestForPayout(email, requestAmount)
+
+		if err != nil {
+			response := response.ErrorResponse("error while requesting for payout", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+		log.Println(amount)
+		response := response.SuccessResponse(true, "Requested successfully", amount)
+		utils.ResponseJSON(w, response)
+
 	}
 }
 
@@ -69,7 +92,6 @@ func (c *doctorHandler) SendVerificationMail() http.HandlerFunc {
 		utils.ResponseJSON(w, response)
 	}
 }
-
 func (c *doctorHandler) AppointmentsByDoctor() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 

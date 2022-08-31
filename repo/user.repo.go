@@ -187,7 +187,6 @@ func (c *userRepo) InsertUser(user model.User) (int, error) {
 func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 	var ID int
 	var doc_email string
-	log.Println(confirm)
 	query := `INSERT INTO confirmeds(
 		day_consult,
 		time_consult,
@@ -224,7 +223,29 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 				payouts WHERE 
 				username = $1;`
 	err = c.db.QueryRow(query, doc_email).Scan(&status)
-	if err == sql.ErrNoRows {
+	if err == sql.ErrNoRows && confirm.Payment_mode == "cod" {
+
+		//if it is his first appointments create new row.
+		query = `INSERT INTO payouts(
+					username,
+					wallet)
+					VALUES (
+						$1, $2
+					) RETURNING username;`
+
+		err = c.db.QueryRow(query, doc_email, (float64(confirm.Fee)*0.75)-float64(confirm.Fee)).Scan(&doc_email)
+
+	} else if err != sql.ErrNoRows && confirm.Payment_mode == "cod" {
+
+		query = `UPDATE payouts SET
+			wallet = wallet - $1;`
+
+		err = c.db.QueryRow(query, (float64(confirm.Fee) - (float64(confirm.Fee) * 0.75))).Err()
+
+	}
+
+	if err == sql.ErrNoRows && confirm.Payment_mode != "cod" {
+
 		//if it is his first appointments create new row.
 		query = `INSERT INTO payouts(
 					username,
@@ -235,14 +256,12 @@ func (c *userRepo) AddAppointment(confirm model.Confirmed) (int, error) {
 
 		err = c.db.QueryRow(query, doc_email, float64(confirm.Fee)*0.75).Scan(&doc_email)
 
-	} else {
+	} else if err != sql.ErrNoRows && confirm.Payment_mode != "cod" {
 
 		query = `UPDATE payouts SET
 			wallet = wallet + $1;`
 
 		err = c.db.QueryRow(query, float64(confirm.Fee)*0.75).Err()
-
-		log.Println("updation ", err)
 
 	}
 

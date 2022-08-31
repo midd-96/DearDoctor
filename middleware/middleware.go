@@ -67,8 +67,8 @@ func (c *middleware) AuthorizeJwt(next http.Handler) http.Handler {
 			return
 		}
 
-		user_id := fmt.Sprint(claims.User_Id)
-		r.Header.Set("user_id", user_id)
+		user_email := fmt.Sprint(claims.Username)
+		r.Header.Set("email", user_email)
 		next.ServeHTTP(w, r)
 
 	})
