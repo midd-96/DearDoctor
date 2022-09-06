@@ -18,6 +18,7 @@ type AdminService interface {
 	CalculatePayout(doc_Id int) (string, error)
 	ViewSingleUser(user_Id int) (*model.UserResponse, error)
 	ViewSingleDoctor(doc_Id int) (*model.DoctorResponse, error)
+	ApprovePayout(email string) (float64, error)
 }
 
 type adminService struct {
@@ -35,6 +36,15 @@ func NewAdminService(
 		userRepo:   userRepo,
 		doctorRepo: doctorRepo,
 	}
+}
+
+func (c *adminService) ApprovePayout(email string) (float64, error) {
+	amount, err := c.adminRepo.ApprovePayout(email)
+
+	if err != nil {
+		return amount, err
+	}
+	return amount, nil
 }
 
 func (c *adminService) ViewSingleDoctor(doc_Id int) (*model.DoctorResponse, error) {

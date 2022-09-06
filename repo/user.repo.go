@@ -16,8 +16,12 @@ type UserRepository interface {
 	AddAppointment(confirm model.Confirmed) (int, error)
 	ManageUsers(email string) error
 	UpdateUser(data model.User) error
+	FindAppointmentById(id int) (float64, error)
 	StoreVerificationDetails(email string, code int) error
 	VerifyAccount(email string, code int) error
+	Payment(payment model.PaymentDetails) error
+	FindUserByAppointmentId(id int) (model.UserResponse, error)
+	FindUserById(id int) (model.User, error)
 }
 
 type userRepo struct {
@@ -28,6 +32,75 @@ func NewUserRepo(db *sql.DB) UserRepository {
 	return &userRepo{
 		db: db,
 	}
+}
+
+func (c *userRepo) Payment(data model.PaymentDetails) error {
+
+	var arg []interface{}
+
+	insertQuery := `
+				INSERT INTO
+				   payments ( appointment_id, user_id, payment_type, created_at, payment_id, razor_order_id, payment_signature )
+				VALUES
+				   (
+				      $1, $2, $3, $4, $5, $6, $7
+				   )
+				RETURNING id;`
+
+	updateQuery := `
+					UPDATE
+					   confirmeds
+					SET
+					   payment_status = true, payment_mode = $1 ,updated_at = $2
+					
+	`
+
+	err := c.db.QueryRow(
+		insertQuery,
+		data.Appointment_ID,
+		data.User_ID,
+		data.PaymentType,
+		data.Created_At,
+		data.Razorpay_payment_id,
+		data.Razorpay_order_id,
+		data.Razorpay_signature).Scan(&data.ID)
+
+	if err != nil {
+		return err
+	}
+
+	arg = append(arg, data.PaymentType)
+	arg = append(arg, data.Updated_At)
+
+	i := 3
+
+	updateQuery = updateQuery + `
+								WHERE
+								id = $` + fmt.Sprintf(`%d;`, i)
+
+	arg = append(arg, data.Appointment_ID)
+
+	stmt, err := c.db.Prepare(updateQuery)
+
+	if err != nil {
+		log.Println("Error", err)
+		log.Println("Error", "Query prepare failed")
+		return err
+	}
+
+	_, err = stmt.Query(arg...)
+
+	if err != nil {
+		log.Println("Error", err)
+		log.Println("Error", "Query Exec failed")
+		return err
+	}
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (c *userRepo) VerifyAccount(email string, code int) error {
@@ -71,6 +144,20 @@ func (c *userRepo) StoreVerificationDetails(email string, code int) error {
 
 	return err
 
+}
+
+func (c *userRepo) FindAppointmentById(id int) (float64, error) {
+
+	var fee float64
+	query := `SELECT 
+				fee
+				FROM confirmeds 
+				WHERE id = $1 AND payment_status = false;`
+
+	err := c.db.QueryRow(query,
+		id).Scan(&fee)
+
+	return fee, err
 }
 
 func (c *userRepo) AllUsers(pagenation utils.Filter) ([]model.UserResponse, utils.Metadata, error) {
@@ -125,6 +212,69 @@ func (c *userRepo) AllUsers(pagenation utils.Filter) ([]model.UserResponse, util
 	log.Println(utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize))
 	return users, utils.ComputeMetaData(totalRecords, pagenation.Page, pagenation.PageSize), nil
 
+}
+
+func (c *userRepo) FindUserByAppointmentId(id int) (model.UserResponse, error) {
+
+	var email string
+	query := `SELECT email 
+				FROM confirmeds
+				WHERE id = $1;`
+
+	err := c.db.QueryRow(query, id).Scan(&email)
+	var user model.UserResponse
+
+	query = `SELECT 
+				id,
+				first_name,
+				last_name,
+				email,
+				password,
+				phone,
+				last_appointment
+				FROM users 
+				WHERE email = $1;`
+
+	err = c.db.QueryRow(query,
+		email).Scan(
+		&user.ID,
+		&user.First_Name,
+		&user.Last_Name,
+		&user.Email,
+		&user.Password,
+		&user.Phone,
+		&user.Last_appointment,
+	)
+
+	return user, err
+}
+func (c *userRepo) FindUserById(id int) (model.User, error) {
+
+	var user model.User
+
+	query := `SELECT 
+				id,
+				first_name,
+				last_name,
+				email,
+				password,
+				phone,
+				last_appointment
+				FROM users 
+				WHERE id = $1;`
+
+	err := c.db.QueryRow(query,
+		id).Scan(
+		&user.ID,
+		&user.First_Name,
+		&user.Last_Name,
+		&user.Email,
+		&user.Password,
+		&user.Phone,
+		&user.Last_appointment,
+	)
+
+	return user, err
 }
 
 func (c *userRepo) FindUser(email string) (model.UserResponse, error) {

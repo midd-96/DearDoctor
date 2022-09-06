@@ -55,9 +55,8 @@ func (c *doctorHandler) AddBankAccountDetails() http.HandlerFunc {
 
 func (c *doctorHandler) RequestForPayout() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		//email := r.Header.Get("useremail")
 		email := r.Header.Get("email")
-		log.Println("Got Email : ", email)
+		log.Println("Got Email ID: ", email)
 		requestAmount, err := strconv.ParseFloat(r.URL.Query().Get("Amount"), 64)
 
 		amount, err := c.doctorService.RequestForPayout(email, requestAmount)

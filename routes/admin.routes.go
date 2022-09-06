@@ -41,7 +41,7 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 		r.Get("/admin/view/doctors", adminHandler.ViewAllDoctors())
 		r.Post("/admin/add/dept", adminHandler.AddDepartment())
 		r.Patch("/admin/approve/doctor", adminHandler.ApprovelAndFee())
-
+		r.Patch("/admin/approve/payout", adminHandler.ApprovePayout())
 		r.Get("/admin/token/refresh", authHandler.AdminRefreshToken())
 
 	})

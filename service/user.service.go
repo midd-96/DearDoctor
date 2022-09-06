@@ -8,7 +8,9 @@ import (
 	"dearDoctor/repo"
 	"errors"
 	"fmt"
+	"log"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -18,6 +20,8 @@ type UserService interface {
 	AddAppointment(confirm model.Confirmed) error
 	SendVerificationEmail(email string) error
 	VerifyAccount(email string, code int) error
+	ProcessingPayment(data model.PaymentDetails) (*model.PaymentDetails, error)
+	AddPayment(data model.PaymentDetails) error
 }
 
 type userService struct {
@@ -35,6 +39,59 @@ func NewUserService(
 		adminRepo:  adminRepo,
 		mailConfig: mailConfig,
 	}
+}
+
+func (c *userService) ProcessingPayment(data model.PaymentDetails) (*model.PaymentDetails, error) {
+
+	var err error
+	log.Println("appointment id:", data.Appointment_ID)
+	data.Amount, err = c.userRepo.FindAppointmentById(data.Appointment_ID)
+
+	if err != nil {
+		log.Println("Error in finding appoointment", err)
+		return nil, errors.New("Unable to find appointment/ Already paid")
+	}
+
+	user, _ := c.userRepo.FindUserByAppointmentId(data.Appointment_ID)
+
+	data.User_ID = user.ID
+
+	data.Email = user.Email
+
+	data.Full_Name = user.First_Name
+
+	data.Phone_Number, _ = strconv.Atoi(user.Phone)
+
+	return &data, nil
+
+}
+
+func (c *userService) AddPayment(data model.PaymentDetails) error {
+
+	err := c.userRepo.Payment(data)
+
+	if err != nil {
+		return err
+	}
+
+	log.Println("Mail id : ", data.Email)
+	user, _ := c.userRepo.FindUserById(data.User_ID)
+
+	message := fmt.Sprintf(
+		"Hello, %s ..\nYour Appointment (Appointment Id: %d) has been confirmed.\n\nConsultation Fee: %.2f has been paid.\n\nVisit Again!\nThanks and regards,\n\n DearDoctor.",
+		user.First_Name,
+		data.Appointment_ID,
+		data.Amount,
+	)
+
+	log.Println("Mail id sent from user service : ", user.Email)
+	err = c.mailConfig.SendMail(user.Email, message)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (c *userService) VerifyAccount(email string, code int) error {

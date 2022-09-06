@@ -24,5 +24,6 @@ func Init() *gorm.DB {
 	db.AutoMigrate(&model.Verification{})
 	db.AutoMigrate(&model.Payout{})
 	db.AutoMigrate(&model.Account{})
+	db.AutoMigrate(&model.Payment{})
 	return db
 }

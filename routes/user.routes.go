@@ -30,6 +30,9 @@ func (r *userRoute) UserRouter(routes chi.Router,
 	routes.Post("/user/login", authHandler.UserLogin())
 	routes.Post("/user/send/verification", userHandler.SendVerificationMail())
 	routes.Patch("/user/verify/account", userHandler.VerifyAccount())
+	routes.Get("/user/payment/{Appointment_id}", userHandler.Payment())
+	routes.Get("/payment-success", userHandler.PaymentSuccess())
+	routes.Get("/success", userHandler.Success())
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)
 		r.Post("/user/add/appointment", userHandler.ConfirmAppointment())

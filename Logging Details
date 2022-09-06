@@ -1805,3 +1805,1319 @@ Connected to database: postgres
 2022/08/31 21:27:42 
 Connected to database: postgres
 2022/08/31 21:27:42 Api is listening on port: 8080
+2022/09/02 11:25:54 
+Connected to database: postgres
+2022/09/02 11:25:54 Api is listening on port: 8080
+2022/09/02 11:29:07 Got Email :  adnankadalayi90@gmail.com
+2022/09/02 11:29:07 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/09/02 11:29:07 Error from repo of doctor while scanning data from payouts <nil> 75
+2022/09/02 11:29:07 75
+2022/09/02 11:29:14 Got Email :  adnankadalayi90@gmail.com
+2022/09/02 11:29:14 mail id recieved at repo : adnankadalayi90@gmail.com
+2022/09/02 11:29:15 Error from repo of doctor while scanning data from payouts <nil> 75
+2022/09/02 11:29:15 Error from doctor service : Requested amount higher than wallet balance
+2022/09/02 11:34:22 
+Connected to database: postgres
+2022/09/02 11:34:22 Api is listening on port: 8080
+2022/09/02 11:34:38 UPDATE payouts p
+				SET approvel = $1,
+					approved_date = $2,
+					wallet= wallet-p.last_requested_amount
+					WHERE username = $3;
+2022/09/02 11:38:38 
+Connected to database: postgres
+2022/09/02 11:38:38 Api is listening on port: 8080
+2022/09/02 11:38:52 UPDATE payouts p
+				SET approvel = $1,
+					approved_date = $2,
+					wallet= wallet-p.last_requested_amount
+					WHERE username = $3;
+2022/09/02 11:38:52 &{0xc00032dc20 <nil>}
+2022/09/02 11:41:47 
+Connected to database: postgres
+2022/09/02 11:41:47 Api is listening on port: 8080
+2022/09/02 11:42:02 UPDATE payouts
+				SET approvel = $1,
+					approved_date = $2,
+					wallet= wallet - last_requested_amount
+					WHERE username = $3;
+2022/09/02 11:42:02 &{0xc00045e240 <nil>}
+2022/09/02 11:42:02 SELECT wallet FROM 
+				payouts WHERE 
+				username = $1;
+2022/09/02 11:44:51 
+Connected to database: postgres
+2022/09/02 11:44:51 Api is listening on port: 8080
+2022/09/02 11:45:07 UPDATE payouts
+				SET approvel = $1,
+					approved_date = $2,
+					wallet= wallet - last_requested_amount
+					WHERE username = $3;
+2022/09/02 11:45:07 2022-09-02 11:45:07 +0530 IST
+2022/09/02 11:45:07 adnankadalayi90@gmail.com
+2022/09/02 11:45:07 &{0xc0002d5b00 <nil>}
+2022/09/02 11:52:02 
+Connected to database: postgres
+2022/09/02 11:52:02 Api is listening on port: 8080
+2022/09/02 11:52:25 UPDATE payouts
+				SET approvel = $1,
+					approved_date = $2,
+					wallet = wallet - last_requested_amount
+					WHERE username = $3 AND approvel = $4;
+2022/09/02 11:52:25 2022-09-02 11:52:25 +0530 IST
+2022/09/02 11:52:25 adnankadalayi90@gmail.com
+2022/09/02 11:52:25 pq: column "approved_date" of relation "payouts" does not exist
+2022/09/02 11:53:21 
+Connected to database: postgres
+2022/09/02 11:53:21 Api is listening on port: 8080
+2022/09/02 12:00:07 UPDATE payouts
+				SET approvel = $1,
+					approved_time = $2,
+					wallet = wallet - last_requested_amount
+					WHERE username = $3 AND approvel = $4;
+2022/09/02 12:00:07 2022-09-02 12:00:07 +0530 IST
+2022/09/02 12:00:07 adnankadalayi90@gmail.com
+2022/09/02 12:00:07 <nil>
+2022/09/02 12:00:07 SELECT wallet FROM 
+				payouts WHERE 
+				username = $1;
+2022/09/04 13:18:57 
+Connected to database: postgres
+2022/09/04 13:18:57 Api is listening on port: 8080
+2022/09/04 13:20:30 1     3
+2022/09/04 13:20:30 [{1 asvfrd fghsj notimng@gmail.com $2a$10$9OLnx68JKz1L/u4kk5T32enEe7XYAw5T4tJ9mpnMWddrc7apdEe1q 3445109901 true } {10 asvfrd fghsj notimnertyuig@gmail.com 121212 3445109551 false } {11 asvfrd fghsj notimnerjtyuig@gmail.com 121212 3445109550 false }]
+2022/09/04 13:20:30 {1 3 1 4 12}
+2022/09/04 13:20:39 2     3
+2022/09/04 13:20:39 [{14 asvfrd fghsj notimnerjtyuigu@gmail.com 121212 3445109770 false } {15 asvfrd fghsj rfgbthn@gmail.com 121212 1145109770 false } {16 asvfrd fghsj rfgbthna@gmail.com 121212 1245109770 false }]
+2022/09/04 13:20:39 {2 3 1 4 12}
+2022/09/04 13:20:50 4     3
+2022/09/04 13:20:50 [{23 doctor fghsj doctor1@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111123 false } {21 doctor fghsj doctor@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111111 true } {24 doctor fghsj adnankadalayi90@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111234 false }]
+2022/09/04 13:20:50 {4 3 1 4 12}
+2022/09/04 21:06:43 
+Connected to database: postgres
+2022/09/04 21:06:43 Api is listening on port: 8080
+2022/09/04 21:07:51 
+Connected to database: postgres
+2022/09/04 21:07:51 Api is listening on port: 8080
+2022/09/04 21:14:25 
+Connected to database: postgres
+2022/09/04 21:14:25 Api is listening on port: 8080
+2022/09/04 21:15:58 error in finding order:  sql: no rows in result set
+2022/09/04 21:16:39 error in finding order:  sql: no rows in result set
+2022/09/04 21:16:44 error in finding order:  sql: no rows in result set
+2022/09/04 21:21:45 
+Connected to database: postgres
+2022/09/04 21:21:45 Api is listening on port: 8080
+2022/09/04 21:22:15 appointment id: 0
+2022/09/04 21:22:15 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:22:19 appointment id: 0
+2022/09/04 21:22:19 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:31:12 appointment id: 0
+2022/09/04 21:31:12 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:31:39 appointment id: 0
+2022/09/04 21:31:39 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:31:42 appointment id: 0
+2022/09/04 21:31:42 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:37:52 
+Connected to database: postgres
+2022/09/04 21:37:52 Api is listening on port: 8080
+2022/09/04 21:38:12 appointment id: 0
+2022/09/04 21:38:12 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:38:15 appointment id: 0
+2022/09/04 21:38:15 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:39:49 appointment id: 0
+2022/09/04 21:39:49 error in finding appoointment:  sql: no rows in result set
+2022/09/04 21:59:30 
+Connected to database: postgres
+2022/09/04 21:59:30 Api is listening on port: 8080
+2022/09/04 21:59:54 {0 0 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 21:59:54 appointment id: 0
+2022/09/04 21:59:54 error in finding appoointment:  sql: no rows in result set
+2022/09/04 22:22:36 
+Connected to database: postgres
+2022/09/04 22:22:36 Api is listening on port: 8080
+2022/09/04 22:22:50 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 22:22:50 appointment id: 21
+2022/09/04 22:23:29 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 22:23:29 appointment id: 21
+2022/09/04 22:31:46 
+Connected to database: postgres
+2022/09/04 22:31:46 Api is listening on port: 8080
+2022/09/04 22:32:08 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 22:32:08 appointment id: 21
+2022/09/04 22:32:09 page variables: {0 order_KDtlKedZJy4lO2 150   0 15000 21}
+2022/09/04 23:10:02 
+Connected to database: postgres
+2022/09/04 23:10:02 Api is listening on port: 8080
+2022/09/04 23:10:26 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:10:26 appointment id: 21
+2022/09/04 23:10:27 page variables: {0 order_KDuPmpxjkHQEAc 150   0 15000 21}
+2022/09/04 23:15:44 
+Connected to database: postgres
+2022/09/04 23:15:44 Api is listening on port: 8080
+2022/09/04 23:16:01 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:16:01 appointment id: 21
+2022/09/04 23:16:01 email 
+2022/09/04 23:16:01 name 
+2022/09/04 23:16:01 phone 
+2022/09/04 23:16:02 page variables: {0 order_KDuVg8yLmTly9A 150   0 15000 21}
+2022/09/04 23:17:56 
+Connected to database: postgres
+2022/09/04 23:17:56 Api is listening on port: 8080
+2022/09/04 23:18:12 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:18:12 appointment id: 21
+2022/09/04 23:18:12 email 
+2022/09/04 23:18:12 email 
+2022/09/04 23:18:12 name 
+2022/09/04 23:18:12 phone 
+2022/09/04 23:18:13 page variables: {0 order_KDuXzQKmdCfRFI 150   0 15000 21}
+2022/09/04 23:28:08 
+Connected to database: postgres
+2022/09/04 23:28:08 Api is listening on port: 8080
+2022/09/04 23:28:22 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:28:22 appointment id: 21
+2022/09/04 23:28:22 email 
+2022/09/04 23:28:22 email user2@gmail.com
+2022/09/04 23:28:22 name user
+2022/09/04 23:28:22 phone 241244588
+2022/09/04 23:28:24 page variables: {0 order_KDuijsIZlC9ela 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:31:33 
+Connected to database: postgres
+2022/09/04 23:31:33 Api is listening on port: 8080
+2022/09/04 23:31:46 {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:31:46 appointment id: 21
+2022/09/04 23:31:46 email 
+2022/09/04 23:31:46 email user2@gmail.com
+2022/09/04 23:31:46 name user
+2022/09/04 23:31:46 phone 241244588
+2022/09/04 23:31:47 page variables: {order_KDumKPRZCwSay9 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:37:12 
+Connected to database: postgres
+2022/09/04 23:37:12 Api is listening on port: 8080
+2022/09/04 23:37:25 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:37:25 appointment id: 21
+2022/09/04 23:37:25 email user2@gmail.com
+2022/09/04 23:37:25 name user
+2022/09/04 23:37:25 phone 241244588
+2022/09/04 23:37:26 page variables: {0 order_KDusIJA8w8YjPr 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:39:16 
+Connected to database: postgres
+2022/09/04 23:39:16 Api is listening on port: 8080
+2022/09/04 23:39:34 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:39:34 appointment id: 21
+2022/09/04 23:39:34 email user2@gmail.com
+2022/09/04 23:39:34 name user
+2022/09/04 23:39:34 phone 241244588
+2022/09/04 23:39:35 page variables: {0 order_KDuuZD18uaI1Yn 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:45:23 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:45:23 appointment id: 21
+2022/09/04 23:45:23 email user2@gmail.com
+2022/09/04 23:45:23 name user
+2022/09/04 23:45:23 phone 241244588
+2022/09/04 23:45:24 page variables: {0 order_KDv0hZsIn9nZx6 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:49:49 
+Connected to database: postgres
+2022/09/04 23:49:49 Api is listening on port: 8080
+2022/09/04 23:50:16 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:50:16 appointment id: 21
+2022/09/04 23:50:16 UserID 20
+2022/09/04 23:50:16 email user2@gmail.com
+2022/09/04 23:50:16 name user
+2022/09/04 23:50:16 phone 241244588
+2022/09/04 23:50:18 page variables: {20 order_KDv5s36Tm90lem 150 user user2@gmail.com 241244588 15000 21}
+2022/09/04 23:59:29 
+Connected to database: postgres
+2022/09/04 23:59:29 Api is listening on port: 8080
+2022/09/04 23:59:44 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/04 23:59:44 appointment id: 21
+2022/09/04 23:59:44 UserID 20
+2022/09/04 23:59:44 email user2@gmail.com
+2022/09/04 23:59:44 name user
+2022/09/04 23:59:44 phone 241244588
+2022/09/04 23:59:45 page variables: {20 order_KDvFronlFsXeVM 150 user user2@gmail.com 241244588 15000 21}
+2022/09/05 00:01:21 
+Connected to database: postgres
+2022/09/05 00:01:21 Api is listening on port: 8080
+2022/09/05 00:01:42 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/05 00:01:42 appointment id: 21
+2022/09/05 00:01:42 UserID 20
+2022/09/05 00:01:42 email user2@gmail.com
+2022/09/05 00:01:42 name user
+2022/09/05 00:01:42 phone 241244588
+2022/09/05 00:01:44 page variables: {20 order_KDvHwwanz9Rj1t 150 user user2@gmail.com 241244588 15000 21}
+2022/09/05 00:06:24 
+Connected to database: postgres
+2022/09/05 00:06:24 Api is listening on port: 8080
+2022/09/05 00:06:37 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/05 00:06:37 appointment id: 21
+2022/09/05 00:06:37 UserID 20
+2022/09/05 00:06:37 email user2@gmail.com
+2022/09/05 00:06:37 name user
+2022/09/05 00:06:37 phone 241244588
+2022/09/05 00:06:39 page variables: {20 order_KDvN8xdAByuOJK 150 user user2@gmail.com 241244588 15000 21}
+2022/09/05 00:08:31 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/05 00:08:31 appointment id: 21
+2022/09/05 00:08:32 UserID 20
+2022/09/05 00:08:32 email user2@gmail.com
+2022/09/05 00:08:32 name user
+2022/09/05 00:08:32 phone 241244588
+2022/09/05 00:08:33 page variables: {20 order_KDvP9T6KKCUO0K 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:07:28 
+Connected to database: postgres
+2022/09/06 10:07:28 Api is listening on port: 8080
+2022/09/06 10:07:58 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:07:58 appointment id: 21
+2022/09/06 10:07:58 UserID 20
+2022/09/06 10:07:58 email user2@gmail.com
+2022/09/06 10:07:58 name user
+2022/09/06 10:07:58 phone 241244588
+2022/09/06 10:07:59 page variables: {20 order_KEU9QnfEZSVitN 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:08:28 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:08:28 appointment id: 21
+2022/09/06 10:08:29 UserID 20
+2022/09/06 10:08:29 email user2@gmail.com
+2022/09/06 10:08:29 name user
+2022/09/06 10:08:29 phone 241244588
+2022/09/06 10:08:29 page variables: {20 order_KEU9xcqhgUaF0p 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:36:38 
+Connected to database: postgres
+2022/09/06 10:36:38 Api is listening on port: 8080
+2022/09/06 10:36:50 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:36:50 appointment id: 21
+2022/09/06 10:36:50 UserID 20
+2022/09/06 10:36:50 email user2@gmail.com
+2022/09/06 10:36:50 name user
+2022/09/06 10:36:50 phone 241244588
+2022/09/06 10:36:51 page variables: {20 order_KEUdufhIgzwqtH 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:43:57 
+Connected to database: postgres
+2022/09/06 10:43:57 Api is listening on port: 8080
+2022/09/06 10:44:31 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:44:31 appointment id: 21
+2022/09/06 10:44:31 UserID 20
+2022/09/06 10:44:31 email user2@gmail.com
+2022/09/06 10:44:31 name user
+2022/09/06 10:44:31 phone 241244588
+2022/09/06 10:44:32 page variables: {20 order_KEUm2guqJ0F1V7 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:47:31 
+Connected to database: postgres
+2022/09/06 10:47:31 Api is listening on port: 8080
+2022/09/06 10:47:43 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:47:43 appointment id: 21
+2022/09/06 10:47:43 UserID 20
+2022/09/06 10:47:43 email user2@gmail.com
+2022/09/06 10:47:43 name user
+2022/09/06 10:47:43 phone 241244588
+2022/09/06 10:47:44 page variables: {20 order_KEUpQ0xHqKGKdr 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:49:54 
+Connected to database: postgres
+2022/09/06 10:49:54 Api is listening on port: 8080
+2022/09/06 10:50:33 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:50:33 appointment id: 21
+2022/09/06 10:50:33 UserID 20
+2022/09/06 10:50:33 email user2@gmail.com
+2022/09/06 10:50:33 name user
+2022/09/06 10:50:33 phone 241244588
+2022/09/06 10:50:34 page variables: {20 order_KEUsPd1yH0y3fI 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:56:23 
+Connected to database: postgres
+2022/09/06 10:56:23 Api is listening on port: 8080
+2022/09/06 10:56:35 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:56:35 appointment id: 21
+2022/09/06 10:56:35 UserID 20
+2022/09/06 10:56:35 email user2@gmail.com
+2022/09/06 10:56:35 name user
+2022/09/06 10:56:35 phone 241244588
+2022/09/06 10:56:36 page variables: {20 order_KEUyn7T4AqK3QE 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:57:57 
+Connected to database: postgres
+2022/09/06 10:57:57 Api is listening on port: 8080
+2022/09/06 10:58:21 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:58:21 appointment id: 21
+2022/09/06 10:58:21 UserID 20
+2022/09/06 10:58:21 email user2@gmail.com
+2022/09/06 10:58:21 name user
+2022/09/06 10:58:21 phone 241244588
+2022/09/06 10:58:22 page variables: {20 order_KEV0duY8ye0h2j 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 10:59:08 
+Connected to database: postgres
+2022/09/06 10:59:08 Api is listening on port: 8080
+2022/09/06 10:59:24 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 10:59:24 appointment id: 21
+2022/09/06 10:59:24 UserID 20
+2022/09/06 10:59:24 email user2@gmail.com
+2022/09/06 10:59:24 name user
+2022/09/06 10:59:24 phone 241244588
+2022/09/06 10:59:25 page variables: {20 order_KEV1kwJP0Ohdpd 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:02:30 
+Connected to database: postgres
+2022/09/06 11:02:30 Api is listening on port: 8080
+2022/09/06 11:02:59 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:02:59 appointment id: 21
+2022/09/06 11:02:59 UserID 20
+2022/09/06 11:02:59 email user2@gmail.com
+2022/09/06 11:02:59 name user
+2022/09/06 11:02:59 phone 241244588
+2022/09/06 11:03:00 page variables: {20 order_KEV5Y4GreKZnOQ 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:06:48 
+Connected to database: postgres
+2022/09/06 11:06:48 Api is listening on port: 8080
+2022/09/06 11:07:06 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:07:06 appointment id: 21
+2022/09/06 11:07:06 UserID 20
+2022/09/06 11:07:06 email user2@gmail.com
+2022/09/06 11:07:06 name user
+2022/09/06 11:07:06 phone 241244588
+2022/09/06 11:07:07 page variables: {20 order_KEV9th1QYfYh02 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:20:38 
+Connected to database: postgres
+2022/09/06 11:20:38 Api is listening on port: 8080
+2022/09/06 11:20:53 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:20:53 appointment id: 21
+2022/09/06 11:20:53 UserID 20
+2022/09/06 11:20:53 email user2@gmail.com
+2022/09/06 11:20:53 name user
+2022/09/06 11:20:53 phone 241244588
+2022/09/06 11:20:54 page variables: {20 order_KEVOS58QUh2ZsK 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:21:46 
+Connected to database: postgres
+2022/09/06 11:21:46 Api is listening on port: 8080
+2022/09/06 11:21:56 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:21:56 appointment id: 21
+2022/09/06 11:21:56 UserID 20
+2022/09/06 11:21:56 email user2@gmail.com
+2022/09/06 11:21:56 name user
+2022/09/06 11:21:56 phone 241244588
+2022/09/06 11:21:57 page variables: {20 order_KEVPZBL0EzKLv0 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:23:57 
+Connected to database: postgres
+2022/09/06 11:23:57 Api is listening on port: 8080
+2022/09/06 11:23:58 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:23:58 appointment id: 21
+2022/09/06 11:23:58 UserID 20
+2022/09/06 11:23:58 email user2@gmail.com
+2022/09/06 11:23:58 name user
+2022/09/06 11:23:58 phone 241244588
+2022/09/06 11:23:59 page variables: {20 order_KEVRhfHsc245H8 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:24:07 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:24:07 appointment id: 21
+2022/09/06 11:24:07 UserID 20
+2022/09/06 11:24:07 email user2@gmail.com
+2022/09/06 11:24:07 name user
+2022/09/06 11:24:07 phone 241244588
+2022/09/06 11:24:08 page variables: {20 order_KEVRreFDb7BLBl 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:38:42 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:38:42 appointment id: 21
+2022/09/06 11:38:42 UserID 20
+2022/09/06 11:38:42 email user2@gmail.com
+2022/09/06 11:38:42 name user
+2022/09/06 11:38:42 phone 241244588
+2022/09/06 11:38:43 page variables: {20 order_KEVhH1TmpBnUck 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:49:43 
+Connected to database: postgres
+2022/09/06 11:49:43 Api is listening on port: 8080
+2022/09/06 11:50:00 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:50:00 appointment id: 21
+2022/09/06 11:50:00 UserID 20
+2022/09/06 11:50:00 email user2@gmail.com
+2022/09/06 11:50:00 name user
+2022/09/06 11:50:00 phone 241244588
+2022/09/06 11:50:00 page variables: {20 order_KEVtCUgLUsdHAI 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:53:46 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:53:46 appointment id: 21
+2022/09/06 11:53:46 UserID 20
+2022/09/06 11:53:46 email user2@gmail.com
+2022/09/06 11:53:46 name user
+2022/09/06 11:53:46 phone 241244588
+2022/09/06 11:53:47 page variables: {20 order_KEVxBqW2tBgVMn 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:57:22 
+Connected to database: postgres
+2022/09/06 11:57:22 Api is listening on port: 8080
+2022/09/06 11:57:38 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:57:38 appointment id: 21
+2022/09/06 11:57:38 UserID 20
+2022/09/06 11:57:38 email user2@gmail.com
+2022/09/06 11:57:38 name user
+2022/09/06 11:57:38 phone 241244588
+2022/09/06 11:57:39 page variables: {20 order_KEW1HM9Mbqzpl3 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 11:59:46 
+Connected to database: postgres
+2022/09/06 11:59:46 Api is listening on port: 8080
+2022/09/06 11:59:53 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 11:59:53 appointment id: 21
+2022/09/06 11:59:53 UserID 20
+2022/09/06 11:59:53 email user2@gmail.com
+2022/09/06 11:59:53 name user
+2022/09/06 11:59:53 phone 241244588
+2022/09/06 11:59:53 page variables: {20 order_KEW3dgkx8EwVDM 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:02:59 
+Connected to database: postgres
+2022/09/06 12:02:59 Api is listening on port: 8080
+2022/09/06 12:03:07 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:03:07 appointment id: 21
+2022/09/06 12:03:07 UserID 20
+2022/09/06 12:03:07 email user2@gmail.com
+2022/09/06 12:03:07 name user
+2022/09/06 12:03:07 phone 241244588
+2022/09/06 12:03:08 page variables: {20 order_KEW73jihjK7PfG 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:03:27 Request Data, Line 104(userhandler): {0 22 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:03:27 appointment id: 22
+2022/09/06 12:03:27 UserID 20
+2022/09/06 12:03:27 email user2@gmail.com
+2022/09/06 12:03:27 name user
+2022/09/06 12:03:27 phone 241244588
+2022/09/06 12:03:27 page variables: {20 order_KEW7PH3ETXPeQo 150 user user2@gmail.com 241244588 15000 22}
+2022/09/06 12:17:35 
+Connected to database: postgres
+2022/09/06 12:17:35 Api is listening on port: 8080
+2022/09/06 12:18:06 Request Data, Line 104(userhandler): {0 22 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:18:06 appointment id: 22
+2022/09/06 12:18:06 UserID 20
+2022/09/06 12:18:06 email user2@gmail.com
+2022/09/06 12:18:06 name user
+2022/09/06 12:18:06 phone 241244588
+2022/09/06 12:18:07 page variables: {20 order_KEWMtU2cYUDoZb 150 user user2@gmail.com 241244588 15000 22}
+2022/09/06 12:22:49 
+Connected to database: postgres
+2022/09/06 12:22:49 Api is listening on port: 8080
+2022/09/06 12:23:03 Request Data, Line 104(userhandler): {0 22 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:23:03 appointment id: 22
+2022/09/06 12:23:03 UserID 20
+2022/09/06 12:23:03 email user2@gmail.com
+2022/09/06 12:23:03 name user
+2022/09/06 12:23:03 phone 241244588
+2022/09/06 12:23:03 page variables: {20 order_KEWS6xcf1LGnjG 150 user user2@gmail.com 241244588 15000 22}
+2022/09/06 12:23:57 
+Connected to database: postgres
+2022/09/06 12:23:57 Api is listening on port: 8080
+2022/09/06 12:24:08 Request Data, Line 104(userhandler): {0 22 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:24:08 appointment id: 22
+2022/09/06 12:24:08 UserID 20
+2022/09/06 12:24:08 email user2@gmail.com
+2022/09/06 12:24:08 name user
+2022/09/06 12:24:08 phone 241244588
+2022/09/06 12:24:09 page variables: {20 order_KEWTGM1tPVIJ2I 150 user user2@gmail.com 241244588 15000 22}
+2022/09/06 12:24:36 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:24:36 appointment id: 21
+2022/09/06 12:24:36 UserID 20
+2022/09/06 12:24:36 email user2@gmail.com
+2022/09/06 12:24:36 name user
+2022/09/06 12:24:36 phone 241244588
+2022/09/06 12:24:37 page variables: {20 order_KEWTlDhW6LZviL 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:25:57 
+Connected to database: postgres
+2022/09/06 12:25:57 Api is listening on port: 8080
+2022/09/06 12:26:12 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:26:12 appointment id: 21
+2022/09/06 12:26:12 UserID 20
+2022/09/06 12:26:12 email user2@gmail.com
+2022/09/06 12:26:12 name user
+2022/09/06 12:26:12 phone 241244588
+2022/09/06 12:26:12 page variables: {20 order_KEWVRA8WeSAtrQ 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:28:45 
+Connected to database: postgres
+2022/09/06 12:28:45 Api is listening on port: 8080
+2022/09/06 12:28:55 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:28:55 appointment id: 21
+2022/09/06 12:28:55 UserID 20
+2022/09/06 12:28:55 email user2@gmail.com
+2022/09/06 12:28:55 name user
+2022/09/06 12:28:55 phone 241244588
+2022/09/06 12:28:56 page variables: {20 order_KEWYJntojtSwdz 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:30:44 
+Connected to database: postgres
+2022/09/06 12:30:44 Api is listening on port: 8080
+2022/09/06 12:30:55 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:30:55 appointment id: 21
+2022/09/06 12:30:56 UserID 20
+2022/09/06 12:30:56 email user2@gmail.com
+2022/09/06 12:30:56 name user
+2022/09/06 12:30:56 phone 241244588
+2022/09/06 12:30:56 page variables: {20 order_KEWaRInw7TuIxH 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:36:49 
+Connected to database: postgres
+2022/09/06 12:36:49 Api is listening on port: 8080
+2022/09/06 12:37:06 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:37:06 appointment id: 21
+2022/09/06 12:37:06 UserID 20
+2022/09/06 12:37:06 email user2@gmail.com
+2022/09/06 12:37:06 name user
+2022/09/06 12:37:06 phone 241244588
+2022/09/06 12:37:07 page variables: {20 order_KEWgy9MnIT7ukE 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:39:46 
+Connected to database: postgres
+2022/09/06 12:39:46 Api is listening on port: 8080
+2022/09/06 12:40:32 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:40:32 appointment id: 21
+2022/09/06 12:40:33 UserID 20
+2022/09/06 12:40:33 email user2@gmail.com
+2022/09/06 12:40:33 name user
+2022/09/06 12:40:33 phone 241244588
+2022/09/06 12:40:33 page variables: {20 order_KEWkb6oVXgic2p 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:55:54 
+Connected to database: postgres
+2022/09/06 12:55:54 Api is listening on port: 8080
+2022/09/06 12:56:06 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:56:06 appointment id: 21
+2022/09/06 12:56:07 UserID 20
+2022/09/06 12:56:07 email user2@gmail.com
+2022/09/06 12:56:07 name user
+2022/09/06 12:56:07 phone 241244588
+2022/09/06 12:56:07 page variables: {20 order_KEX12Z5usak9bC 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 12:56:34 
+Connected to database: postgres
+2022/09/06 12:56:34 Api is listening on port: 8080
+2022/09/06 12:56:46 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 12:56:46 appointment id: 21
+2022/09/06 12:56:46 UserID 20
+2022/09/06 12:56:46 email user2@gmail.com
+2022/09/06 12:56:46 name user
+2022/09/06 12:56:46 phone 241244588
+2022/09/06 12:56:47 page variables: {20 order_KEX1jsD8JlBNHR 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 13:03:50 
+Connected to database: postgres
+2022/09/06 13:03:50 Api is listening on port: 8080
+2022/09/06 13:04:03 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 13:04:03 appointment id: 21
+2022/09/06 13:04:03 UserID 20
+2022/09/06 13:04:03 email user2@gmail.com
+2022/09/06 13:04:03 name user
+2022/09/06 13:04:03 phone 241244588
+2022/09/06 13:04:04 page variables: {20 order_KEX9R5gNOfpoLH 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 13:04:23 here it comes
+2022/09/06 13:04:23 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 13:25:22 
+Connected to database: postgres
+2022/09/06 13:25:22 Api is listening on port: 8080
+2022/09/06 13:25:31 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 13:25:31 appointment id: 21
+2022/09/06 13:25:31 UserID 20
+2022/09/06 13:25:31 email user2@gmail.com
+2022/09/06 13:25:31 name user
+2022/09/06 13:25:31 phone 241244588
+2022/09/06 13:25:32 page variables: {20 order_KEXW6jSe9ZNmta 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 13:25:44 here it comes
+2022/09/06 13:25:44 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 13:28:47 
+Connected to database: postgres
+2022/09/06 13:28:47 Api is listening on port: 8080
+2022/09/06 13:28:57 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 13:28:57 appointment id: 21
+2022/09/06 13:28:57 UserID 20
+2022/09/06 13:28:57 email user2@gmail.com
+2022/09/06 13:28:57 name user
+2022/09/06 13:28:57 phone 241244588
+2022/09/06 13:28:58 page variables: {20 order_KEXZjFyiPSFMAz 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 13:29:09 here it comes
+2022/09/06 13:29:09 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 13:29:09 +0530 IST 2022-09-06 13:29:09 +0530 IST pay_KEXZqUUcVrnk3L order_KEXZjFyiPSFMAz       4dccf12b0dc32d9c4be9109de4cfeef29a38d264f7989a1f267a364b4858bacb}
+2022/09/06 13:29:09 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 13:46:25 
+Connected to database: postgres
+2022/09/06 13:46:25 Api is listening on port: 8080
+2022/09/06 13:46:36 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 13:46:36 appointment id: 21
+2022/09/06 13:46:36 UserID 20
+2022/09/06 13:46:36 email user2@gmail.com
+2022/09/06 13:46:36 name user
+2022/09/06 13:46:36 phone 241244588
+2022/09/06 13:46:37 paymentData.User_ID 20
+2022/09/06 13:46:37 paymentData.Email user2@gmail.com
+2022/09/06 13:46:37 page variables: {20 order_KEXsNMkUS0qC1o 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 13:46:51 here it comes
+2022/09/06 13:46:51 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 13:46:51 +0530 IST 2022-09-06 13:46:51 +0530 IST pay_KEXsYQlBb79hTp order_KEXsNMkUS0qC1o       fff64d234d8628c813969013fb6a65b07820c1376fc9ec1e89a23af8fac076d3}
+2022/09/06 13:46:51 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 14:48:01 
+Connected to database: postgres
+2022/09/06 14:48:01 Api is listening on port: 8080
+2022/09/06 14:48:13 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:48:13 appointment id: 21
+2022/09/06 14:48:13 UserID 20
+2022/09/06 14:48:13 email user2@gmail.com
+2022/09/06 14:48:13 name user
+2022/09/06 14:48:13 phone 241244588
+2022/09/06 14:48:13 paymentData.User_ID 20
+2022/09/06 14:48:13 paymentData.Email user2@gmail.com
+2022/09/06 14:48:13 page variables: {20 order_KEYvSIhTPz9J7X 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 14:48:45 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:48:45 appointment id: 21
+2022/09/06 14:48:45 UserID 20
+2022/09/06 14:48:45 email user2@gmail.com
+2022/09/06 14:48:45 name user
+2022/09/06 14:48:45 phone 241244588
+2022/09/06 14:48:45 paymentData.User_ID 20
+2022/09/06 14:48:45 paymentData.Email user2@gmail.com
+2022/09/06 14:48:45 page variables: {20 order_KEYw1545XIHM9y 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 14:48:55 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:48:55 appointment id: 21
+2022/09/06 14:48:55 UserID 20
+2022/09/06 14:48:55 email user2@gmail.com
+2022/09/06 14:48:55 name user
+2022/09/06 14:48:55 phone 241244588
+2022/09/06 14:48:55 paymentData.User_ID 20
+2022/09/06 14:48:55 paymentData.Email user2@gmail.com
+2022/09/06 14:48:55 page variables: {20 order_KEYwCCALa5uFaM 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 14:50:44 
+Connected to database: postgres
+2022/09/06 14:50:44 Api is listening on port: 8080
+2022/09/06 14:50:55 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:50:55 appointment id: 21
+2022/09/06 14:50:55 UserID 20
+2022/09/06 14:50:55 email user2@gmail.com
+2022/09/06 14:50:55 name user
+2022/09/06 14:50:55 phone 241244588
+2022/09/06 14:50:57 paymentData.User_ID 20
+2022/09/06 14:50:57 paymentData.Email user2@gmail.com
+2022/09/06 14:50:57 page variables: {20 order_KEYyKSoVtLzpad 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 14:53:45 
+Connected to database: postgres
+2022/09/06 14:53:45 Api is listening on port: 8080
+2022/09/06 14:53:58 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:53:58 appointment id: 21
+2022/09/06 14:53:58 UserID 20
+2022/09/06 14:53:58 email user2@gmail.com
+2022/09/06 14:53:58 name user
+2022/09/06 14:53:58 phone 241244588
+2022/09/06 14:53:59 paymentData.User_ID 20
+2022/09/06 14:53:59 paymentData.Email user2@gmail.com
+2022/09/06 14:53:59 page variables: {20 order_KEZ1Xfzavyyb42 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 14:56:17 
+Connected to database: postgres
+2022/09/06 14:56:17 Api is listening on port: 8080
+2022/09/06 14:56:29 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 14:56:29 appointment id: 21
+2022/09/06 14:56:29 UserID 20
+2022/09/06 14:56:29 email user2@gmail.com
+2022/09/06 14:56:29 name user
+2022/09/06 14:56:29 phone 241244588
+2022/09/06 14:56:30 paymentData.User_ID 20
+2022/09/06 14:56:30 paymentData.Email user2@gmail.com
+2022/09/06 14:56:30 page variables: {20 order_KEZ4CIUVvm3n2G 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:01:54 
+Connected to database: postgres
+2022/09/06 15:01:54 Api is listening on port: 8080
+2022/09/06 15:02:10 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:02:10 appointment id: 21
+2022/09/06 15:02:10 UserID 20
+2022/09/06 15:02:10 email user2@gmail.com
+2022/09/06 15:02:10 name user
+2022/09/06 15:02:10 phone 241244588
+2022/09/06 15:02:11 paymentData.User_ID 20
+2022/09/06 15:02:11 paymentData.Email user2@gmail.com
+2022/09/06 15:02:11 page variables: {20 order_KEZACdJOJaG2ww 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:02:24 here it comes
+2022/09/06 15:02:24 Appointment ID:  0
+2022/09/06 15:02:24 User ID:  0
+2022/09/06 15:02:24 Amount :  0
+2022/09/06 15:02:24 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:02:24 +0530 IST 2022-09-06 15:02:24 +0530 IST pay_KEZAKdKu2aAsnx order_KEZACdJOJaG2ww       2f93d08b2f6bd00961d3b0a944426e95c55b6000405c619cc00036a68fd7afe9}
+2022/09/06 15:02:24 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 15:12:45 
+Connected to database: postgres
+2022/09/06 15:12:45 Api is listening on port: 8080
+2022/09/06 15:12:57 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:12:57 appointment id: 21
+2022/09/06 15:12:57 UserID 20
+2022/09/06 15:12:57 email user2@gmail.com
+2022/09/06 15:12:57 name user
+2022/09/06 15:12:57 phone 241244588
+2022/09/06 15:12:58 paymentData.User_ID 20
+2022/09/06 15:12:58 paymentData.Email user2@gmail.com
+2022/09/06 15:12:58 page variables: {20 order_KEZLaR4X48IsiG 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:14:37 
+Connected to database: postgres
+2022/09/06 15:14:37 Api is listening on port: 8080
+2022/09/06 15:15:13 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:15:13 appointment id: 21
+2022/09/06 15:15:13 UserID 20
+2022/09/06 15:15:13 email user2@gmail.com
+2022/09/06 15:15:13 name user
+2022/09/06 15:15:13 phone 241244588
+2022/09/06 15:15:14 paymentData.User_ID 20
+2022/09/06 15:15:14 paymentData.Email user2@gmail.com
+2022/09/06 15:15:14 page variables: {20 order_KEZNzZfjwcPgHv 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:15:31 here it comes
+2022/09/06 15:15:31 Appointment ID:  0
+2022/09/06 15:15:31 User ID:  0
+2022/09/06 15:15:31 Amount :  0
+2022/09/06 15:15:31 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:15:31 +0530 IST 2022-09-06 15:15:31 +0530 IST pay_KEZOD0Jw8d5rIO order_KEZNzZfjwcPgHv       57954e8049e4a01832a6edf89c3bfd4cec4e8c607e719b9be1dc08a384699e2f}
+2022/09/06 15:15:31 error in payment:  pq: INSERT has more expressions than target columns
+2022/09/06 15:30:24 
+Connected to database: postgres
+2022/09/06 15:30:24 Api is listening on port: 8080
+2022/09/06 15:30:37 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:30:37 appointment id: 21
+2022/09/06 15:30:37 UserID 20
+2022/09/06 15:30:37 email user2@gmail.com
+2022/09/06 15:30:37 name user
+2022/09/06 15:30:37 phone 241244588
+2022/09/06 15:30:38 paymentData.User_ID 20
+2022/09/06 15:30:38 paymentData.Email user2@gmail.com
+2022/09/06 15:30:38 page variables: {20 order_KEZeFXGlPeowEp 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:30:50 here it comes
+2022/09/06 15:30:50 Appointment ID:  0
+2022/09/06 15:30:50 User ID:  0
+2022/09/06 15:30:50 Amount :  0
+2022/09/06 15:30:50 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:30:50 +0530 IST 2022-09-06 15:30:50 +0530 IST pay_KEZeNc1tlJvb4f order_KEZeFXGlPeowEp       f5eaeee12e31b98b72380dd3b6f2dc740cd72e40de313bea85119986fb273e8d}
+2022/09/06 15:30:50 error in payment:  pq: column "appointment_id" of relation "payments" does not exist
+2022/09/06 15:38:09 
+Connected to database: postgres
+2022/09/06 15:38:09 Api is listening on port: 8080
+2022/09/06 15:38:32 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:38:32 appointment id: 21
+2022/09/06 15:38:32 UserID 20
+2022/09/06 15:38:32 email user2@gmail.com
+2022/09/06 15:38:32 name user
+2022/09/06 15:38:32 phone 241244588
+2022/09/06 15:38:33 paymentData.User_ID 20
+2022/09/06 15:38:33 paymentData.Email user2@gmail.com
+2022/09/06 15:38:33 page variables: {20 order_KEZmbqOMM0xGrr 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:38:56 here it comes
+2022/09/06 15:38:56 Appointment ID:  0
+2022/09/06 15:38:56 User ID:  0
+2022/09/06 15:38:56 Amount :  0
+2022/09/06 15:38:56 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:38:56 +0530 IST 2022-09-06 15:38:56 +0530 IST pay_KEZmrz4QLxWXpB order_KEZmbqOMM0xGrr       8156a950fd6fe0ac6f0c745d9e00b7889d3691dd4244fb70df33465f8e16c61d}
+2022/09/06 15:38:56 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 15:45:40 
+Connected to database: postgres
+2022/09/06 15:45:40 Api is listening on port: 8080
+2022/09/06 15:45:55 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:45:55 appointment id: 21
+2022/09/06 15:45:56 UserID 20
+2022/09/06 15:45:56 email user2@gmail.com
+2022/09/06 15:45:56 name user
+2022/09/06 15:45:56 phone 241244588
+2022/09/06 15:45:56 paymentData.User_ID 20
+2022/09/06 15:45:56 paymentData.Email user2@gmail.com
+2022/09/06 15:45:56 page variables: {20 order_KEZuQEEk3wU6A3 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:46:13 here it comes
+2022/09/06 15:46:13 Appointment ID:  0
+2022/09/06 15:46:13 User ID:  0
+2022/09/06 15:46:13 Amount :  0
+2022/09/06 15:46:13 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:46:13 +0530 IST 2022-09-06 15:46:13 +0530 IST pay_KEZudXPWiHwKwC order_KEZuQEEk3wU6A3       c9154f32c9cdc02a5886e21846e1e977f2a391ebc6e55751e0b8584dd296edef}
+2022/09/06 15:46:13 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 15:47:25 
+Connected to database: postgres
+2022/09/06 15:47:25 Api is listening on port: 8080
+2022/09/06 15:47:38 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:47:38 appointment id: 21
+2022/09/06 15:47:38 UserID 20
+2022/09/06 15:47:38 email user2@gmail.com
+2022/09/06 15:47:38 name user
+2022/09/06 15:47:38 phone 241244588
+2022/09/06 15:47:39 paymentData.User_ID 20
+2022/09/06 15:47:39 paymentData.Email user2@gmail.com
+2022/09/06 15:47:39 page variables: {20 order_KEZwEWvyuu2qiJ 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:47:43 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:47:43 appointment id: 21
+2022/09/06 15:47:43 UserID 20
+2022/09/06 15:47:43 email user2@gmail.com
+2022/09/06 15:47:43 name user
+2022/09/06 15:47:43 phone 241244588
+2022/09/06 15:47:43 paymentData.User_ID 20
+2022/09/06 15:47:43 paymentData.Email user2@gmail.com
+2022/09/06 15:47:43 page variables: {20 order_KEZwJ8ssqSrYnI 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:47:56 here it comes
+2022/09/06 15:47:56 Appointment ID:  0
+2022/09/06 15:47:56 User ID:  20
+2022/09/06 15:47:56 Amount :  0
+2022/09/06 15:47:56 details recieved:  {0 0 20   0 false razor_pay 0 2022-09-06 15:47:56 +0530 IST 2022-09-06 15:47:56 +0530 IST pay_KEZwSbm7PeO4Jm order_KEZwJ8ssqSrYnI       2d42fef7802017038e22470530e480c22ebbc1e76c62e4aab3459c3dc9385663}
+2022/09/06 15:47:56 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 15:53:16 
+Connected to database: postgres
+2022/09/06 15:53:16 Api is listening on port: 8080
+2022/09/06 15:53:35 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:53:35 appointment id: 21
+2022/09/06 15:53:35 UserID 20
+2022/09/06 15:53:35 email user2@gmail.com
+2022/09/06 15:53:35 name user
+2022/09/06 15:53:35 phone 241244588
+2022/09/06 15:53:36 paymentData.User_ID 20
+2022/09/06 15:53:36 paymentData.Email user2@gmail.com
+2022/09/06 15:53:36 page variables: {20 order_KEa2W5IEM8rVuW 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:53:56 here it comes
+2022/09/06 15:53:56 Appointment ID:  0
+2022/09/06 15:53:56 User ID:  0
+2022/09/06 15:53:56 Amount :  0
+2022/09/06 15:53:56 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 15:53:56 +0530 IST 2022-09-06 15:53:56 +0530 IST pay_KEa2mFrPahmAAK  34a39514ea1db7eee3b8296a6ef622d3559ad68a83e214ad4e61528f6561c738}
+2022/09/06 15:53:56 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 15:56:01 
+Connected to database: postgres
+2022/09/06 15:56:01 Api is listening on port: 8080
+2022/09/06 15:56:16 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:56:16 appointment id: 21
+2022/09/06 15:56:16 UserID 20
+2022/09/06 15:56:16 email user2@gmail.com
+2022/09/06 15:56:16 name user
+2022/09/06 15:56:16 phone 241244588
+2022/09/06 15:56:17 paymentData.User_ID 20
+2022/09/06 15:56:17 paymentData.Email user2@gmail.com
+2022/09/06 15:56:17 page variables: {20 order_KEa5Lu8Kdvv2UR 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:56:42 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:56:42 appointment id: 21
+2022/09/06 15:56:42 UserID 20
+2022/09/06 15:56:42 email user2@gmail.com
+2022/09/06 15:56:42 name user
+2022/09/06 15:56:42 phone 241244588
+2022/09/06 15:56:43 paymentData.User_ID 20
+2022/09/06 15:56:43 paymentData.Email user2@gmail.com
+2022/09/06 15:56:43 page variables: {20 order_KEa5oG9Iky0iG7 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:56:46 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:56:46 appointment id: 21
+2022/09/06 15:56:46 UserID 20
+2022/09/06 15:56:46 email user2@gmail.com
+2022/09/06 15:56:46 name user
+2022/09/06 15:56:46 phone 241244588
+2022/09/06 15:56:47 paymentData.User_ID 20
+2022/09/06 15:56:47 paymentData.Email user2@gmail.com
+2022/09/06 15:56:47 page variables: {20 order_KEa5sa8vlv80Hf 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 15:56:52 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 15:56:52 appointment id: 21
+2022/09/06 15:56:52 UserID 20
+2022/09/06 15:56:52 email user2@gmail.com
+2022/09/06 15:56:52 name user
+2022/09/06 15:56:52 phone 241244588
+2022/09/06 15:56:52 paymentData.User_ID 20
+2022/09/06 15:56:52 paymentData.Email user2@gmail.com
+2022/09/06 15:56:52 page variables: {20 order_KEa5y9Y42ez4Tl 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:00:04 
+Connected to database: postgres
+2022/09/06 16:00:04 Api is listening on port: 8080
+2022/09/06 16:00:15 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:00:15 appointment id: 21
+2022/09/06 16:00:15 UserID 20
+2022/09/06 16:00:15 email user2@gmail.com
+2022/09/06 16:00:15 name user
+2022/09/06 16:00:15 phone 241244588
+2022/09/06 16:00:16 paymentData.User_ID 20
+2022/09/06 16:00:16 paymentData.Email user2@gmail.com
+2022/09/06 16:00:16 page variables: {20 order_KEa9YYGvYTxYaP 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:00:21 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:00:21 appointment id: 21
+2022/09/06 16:00:21 UserID 20
+2022/09/06 16:00:21 email user2@gmail.com
+2022/09/06 16:00:21 name user
+2022/09/06 16:00:21 phone 241244588
+2022/09/06 16:00:22 paymentData.User_ID 20
+2022/09/06 16:00:22 paymentData.Email user2@gmail.com
+2022/09/06 16:00:22 page variables: {20 order_KEa9fCPbArYXLh 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:00:25 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:00:25 appointment id: 21
+2022/09/06 16:00:25 UserID 20
+2022/09/06 16:00:25 email user2@gmail.com
+2022/09/06 16:00:25 name user
+2022/09/06 16:00:25 phone 241244588
+2022/09/06 16:00:26 paymentData.User_ID 20
+2022/09/06 16:00:26 paymentData.Email user2@gmail.com
+2022/09/06 16:00:26 page variables: {20 order_KEa9izyzGBM5Gp 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:00:46 
+Connected to database: postgres
+2022/09/06 16:00:46 Api is listening on port: 8080
+2022/09/06 16:01:28 
+Connected to database: postgres
+2022/09/06 16:01:28 Api is listening on port: 8080
+2022/09/06 16:01:41 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:01:41 appointment id: 21
+2022/09/06 16:01:41 UserID 20
+2022/09/06 16:01:41 email user2@gmail.com
+2022/09/06 16:01:41 name user
+2022/09/06 16:01:41 phone 241244588
+2022/09/06 16:01:42 paymentData.User_ID 20
+2022/09/06 16:01:42 paymentData.Email user2@gmail.com
+2022/09/06 16:01:42 page variables: {20 order_KEaB4NsOdMbeJt 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:06:34 
+Connected to database: postgres
+2022/09/06 16:06:34 Api is listening on port: 8080
+2022/09/06 16:06:48 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:06:48 appointment id: 21
+2022/09/06 16:06:48 UserID 20
+2022/09/06 16:06:48 email user2@gmail.com
+2022/09/06 16:06:48 name user
+2022/09/06 16:06:48 phone 241244588
+2022/09/06 16:06:49 paymentData.User_ID 20
+2022/09/06 16:06:49 paymentData.Email user2@gmail.com
+2022/09/06 16:06:49 page variables: {20 order_KEaGTtuRUqzzmj 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:07:10 here it comes
+2022/09/06 16:07:10 Appointment ID:  0
+2022/09/06 16:07:10 User ID:  0
+2022/09/06 16:07:10 Amount :  0
+2022/09/06 16:07:10 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 16:07:10 +0530 IST 2022-09-06 16:07:10 +0530 IST pay_KEaGk6ht0aDRRc  cb3a6e2291cae69f869bf08a657c11efdb885803592384c8036267d3d2481cdb}
+2022/09/06 16:07:10 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 16:10:06 
+Connected to database: postgres
+2022/09/06 16:10:06 Api is listening on port: 8080
+2022/09/06 16:10:17 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:10:17 appointment id: 21
+2022/09/06 16:10:17 UserID 20
+2022/09/06 16:10:17 email user2@gmail.com
+2022/09/06 16:10:17 name user
+2022/09/06 16:10:17 phone 241244588
+2022/09/06 16:10:18 paymentData.User_ID 20
+2022/09/06 16:10:18 paymentData.Email user2@gmail.com
+2022/09/06 16:10:18 page variables: {20 order_KEaK9bqK6PHaqW 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:14:32 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:14:32 appointment id: 21
+2022/09/06 16:14:32 UserID 20
+2022/09/06 16:14:32 email user2@gmail.com
+2022/09/06 16:14:32 name user
+2022/09/06 16:14:32 phone 241244588
+2022/09/06 16:14:33 paymentData.User_ID 20
+2022/09/06 16:14:33 paymentData.Email user2@gmail.com
+2022/09/06 16:14:33 page variables: {20 order_KEaOdhUEMPcJk0 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:17:34 
+Connected to database: postgres
+2022/09/06 16:17:34 Api is listening on port: 8080
+2022/09/06 16:17:48 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:17:48 appointment id: 21
+2022/09/06 16:17:48 UserID 20
+2022/09/06 16:17:48 email user2@gmail.com
+2022/09/06 16:17:48 name user
+2022/09/06 16:17:48 phone 241244588
+2022/09/06 16:17:49 paymentData.User_ID 20
+2022/09/06 16:17:49 paymentData.Email user2@gmail.com
+2022/09/06 16:17:49 page variables: {20 order_KEaS66jDAOBsLu 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:26:56 
+Connected to database: postgres
+2022/09/06 16:26:56 Api is listening on port: 8080
+2022/09/06 16:27:13 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:27:13 appointment id: 21
+2022/09/06 16:27:13 UserID 20
+2022/09/06 16:27:13 email user2@gmail.com
+2022/09/06 16:27:13 name user
+2022/09/06 16:27:13 phone 241244588
+2022/09/06 16:27:14 paymentData.User_ID 20
+2022/09/06 16:27:14 paymentData.Email user2@gmail.com
+2022/09/06 16:27:14 page variables: {20 order_KEac2aH44wg814 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:27:26 here it comes
+2022/09/06 16:27:26 Appointment ID:  0
+2022/09/06 16:27:26 User ID:  0
+2022/09/06 16:27:26 Amount :  0
+2022/09/06 16:27:26 details recieved:  {0 0 0   0 false razor_pay 0 2022-09-06 16:27:26 +0530 IST 2022-09-06 16:27:26 +0530 IST pay_KEacBaKmmD6joF order_KEac2aH44wg814       fb5ad5b9903e2e256ad68382eb36c120e0192fe288cb0875d8f6da586ba22b7a}
+2022/09/06 16:27:27 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 16:31:32 
+Connected to database: postgres
+2022/09/06 16:31:32 Api is listening on port: 8080
+2022/09/06 16:31:46 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:31:46 appointment id: 21
+2022/09/06 16:31:46 UserID 20
+2022/09/06 16:31:46 email user2@gmail.com
+2022/09/06 16:31:46 name user
+2022/09/06 16:31:46 phone 241244588
+2022/09/06 16:31:47 paymentData.User_ID 20
+2022/09/06 16:31:47 paymentData.Email user2@gmail.com
+2022/09/06 16:31:47 page variables: {20 order_KEagqHxGHvBPQx 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:37:38 
+Connected to database: postgres
+2022/09/06 16:37:38 Api is listening on port: 8080
+2022/09/06 16:37:48 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:37:48 appointment id: 21
+2022/09/06 16:37:48 UserID 20
+2022/09/06 16:37:48 email user2@gmail.com
+2022/09/06 16:37:48 name user
+2022/09/06 16:37:48 phone 241244588
+2022/09/06 16:37:49 paymentData.User_ID 20
+2022/09/06 16:37:49 paymentData.Email user2@gmail.com
+2022/09/06 16:37:49 page variables: {20 order_KEanE5xyZWnspC 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 16:58:32 
+Connected to database: postgres
+2022/09/06 16:58:32 Api is listening on port: 8080
+2022/09/06 16:58:44 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 16:58:44 appointment id: 21
+2022/09/06 16:58:44 UserID 20
+2022/09/06 16:58:44 email user2@gmail.com
+2022/09/06 16:58:44 name user
+2022/09/06 16:58:44 phone 241244588
+2022/09/06 16:58:46 paymentData.User_ID 20
+2022/09/06 16:58:46 paymentData.Email user2@gmail.com
+2022/09/06 16:58:46 page variables: {20 order_KEb9L8LgnP8tiV 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:03:04 
+Connected to database: postgres
+2022/09/06 17:03:04 Api is listening on port: 8080
+2022/09/06 17:03:20 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:03:20 appointment id: 21
+2022/09/06 17:03:20 UserID 20
+2022/09/06 17:03:20 email user2@gmail.com
+2022/09/06 17:03:20 name user
+2022/09/06 17:03:20 phone 241244588
+2022/09/06 17:03:21 paymentData.User_ID 20
+2022/09/06 17:03:21 paymentData.Email user2@gmail.com
+2022/09/06 17:03:21 page variables: {20 order_KEbEBd4BCBiEMR 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:04:25 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:04:25 appointment id: 21
+2022/09/06 17:04:25 UserID 20
+2022/09/06 17:04:25 email user2@gmail.com
+2022/09/06 17:04:25 name user
+2022/09/06 17:04:25 phone 241244588
+2022/09/06 17:04:26 paymentData.User_ID 20
+2022/09/06 17:04:26 paymentData.Email user2@gmail.com
+2022/09/06 17:04:26 page variables: {20 order_KEbFKhrkdXuRCv 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:04:37 
+Connected to database: postgres
+2022/09/06 17:04:37 Api is listening on port: 8080
+2022/09/06 17:04:47 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:04:47 appointment id: 21
+2022/09/06 17:04:47 UserID 20
+2022/09/06 17:04:47 email user2@gmail.com
+2022/09/06 17:04:47 name user
+2022/09/06 17:04:47 phone 241244588
+2022/09/06 17:04:48 paymentData.User_ID 20
+2022/09/06 17:04:48 paymentData.Email user2@gmail.com
+2022/09/06 17:04:48 page variables: {20 order_KEbFjF9NPa4MfL 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:06:54 
+Connected to database: postgres
+2022/09/06 17:06:54 Api is listening on port: 8080
+2022/09/06 17:07:12 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:07:12 appointment id: 21
+2022/09/06 17:07:12 UserID 20
+2022/09/06 17:07:12 email user2@gmail.com
+2022/09/06 17:07:12 name user
+2022/09/06 17:07:12 phone 241244588
+2022/09/06 17:07:13 paymentData.User_ID 20
+2022/09/06 17:07:13 paymentData.Email user2@gmail.com
+2022/09/06 17:07:13 page variables: {20 order_KEbIHbc7rSDHKs 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:07:16 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:07:16 appointment id: 21
+2022/09/06 17:07:16 UserID 20
+2022/09/06 17:07:16 email user2@gmail.com
+2022/09/06 17:07:16 name user
+2022/09/06 17:07:16 phone 241244588
+2022/09/06 17:07:17 paymentData.User_ID 20
+2022/09/06 17:07:17 paymentData.Email user2@gmail.com
+2022/09/06 17:07:17 page variables: {20 order_KEbILOS6vwwofU 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:07:43 
+Connected to database: postgres
+2022/09/06 17:07:43 Api is listening on port: 8080
+2022/09/06 17:07:54 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:07:54 appointment id: 21
+2022/09/06 17:07:54 UserID 20
+2022/09/06 17:07:54 email user2@gmail.com
+2022/09/06 17:07:54 name user
+2022/09/06 17:07:54 phone 241244588
+2022/09/06 17:07:55 paymentData.User_ID 20
+2022/09/06 17:07:55 paymentData.Email user2@gmail.com
+2022/09/06 17:07:55 page variables: {20 order_KEbJ107ieh2j5g 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:09:26 
+Connected to database: postgres
+2022/09/06 17:09:26 Api is listening on port: 8080
+2022/09/06 17:09:46 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:09:46 appointment id: 21
+2022/09/06 17:09:46 UserID 20
+2022/09/06 17:09:46 email user2@gmail.com
+2022/09/06 17:09:46 name user
+2022/09/06 17:09:46 phone 241244588
+2022/09/06 17:09:47 paymentData.User_ID 20
+2022/09/06 17:09:47 paymentData.Email user2@gmail.com
+2022/09/06 17:09:47 page variables: {20 order_KEbKzM9S62JoRQ 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:11:16 
+Connected to database: postgres
+2022/09/06 17:11:16 Api is listening on port: 8080
+2022/09/06 17:11:28 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:11:28 appointment id: 21
+2022/09/06 17:11:28 UserID 20
+2022/09/06 17:11:28 email user2@gmail.com
+2022/09/06 17:11:28 name user
+2022/09/06 17:11:28 phone 241244588
+2022/09/06 17:11:29 paymentData.User_ID 20
+2022/09/06 17:11:29 paymentData.Email user2@gmail.com
+2022/09/06 17:11:29 page variables: {20 order_KEbMmuhVjjk7wU 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:15:34 
+Connected to database: postgres
+2022/09/06 17:15:34 Api is listening on port: 8080
+2022/09/06 17:15:45 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:15:45 appointment id: 21
+2022/09/06 17:15:45 UserID 20
+2022/09/06 17:15:45 email user2@gmail.com
+2022/09/06 17:15:45 name user
+2022/09/06 17:15:45 phone 241244588
+2022/09/06 17:15:46 paymentData.User_ID 20
+2022/09/06 17:15:46 paymentData.Email user2@gmail.com
+2022/09/06 17:15:46 page variables: {20 order_KEbRJjXrNZLH11 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:19:45 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:19:45 appointment id: 21
+2022/09/06 17:19:45 UserID 20
+2022/09/06 17:19:45 email user2@gmail.com
+2022/09/06 17:19:45 name user
+2022/09/06 17:19:45 phone 241244588
+2022/09/06 17:19:46 paymentData.User_ID 20
+2022/09/06 17:19:46 paymentData.Email user2@gmail.com
+2022/09/06 17:19:46 page variables: {20 order_KEbVXFTwJRDMY0 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:20:00 here it comes
+2022/09/06 17:20:00 Appointment ID:  21
+2022/09/06 17:20:00 User ID:  20
+2022/09/06 17:20:00 details recieved:  {0 21 20   0 false razor_pay 0 2022-09-06 17:20:00 +0530 IST 2022-09-06 17:20:00 +0530 IST pay_KEbVfndPN88e9l order_KEbVXFTwJRDMY0       37cea996f6c5c0ba91111ddd462cde858ef3a9f6fd6bcbc4e82ad5fa4c907786}
+2022/09/06 17:20:00 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 17:47:28 
+Connected to database: postgres
+2022/09/06 17:47:28 Api is listening on port: 8080
+2022/09/06 17:47:48 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:47:48 appointment id: 21
+2022/09/06 17:47:48 UserID 20
+2022/09/06 17:47:48 email user2@gmail.com
+2022/09/06 17:47:48 name user
+2022/09/06 17:47:48 phone 241244588
+2022/09/06 17:47:49 paymentData.User_ID 20
+2022/09/06 17:47:49 paymentData.Email user2@gmail.com
+2022/09/06 17:47:49 page variables: {20 order_KEbz9sqO2kThWy 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 17:49:36 
+Connected to database: postgres
+2022/09/06 17:49:36 Api is listening on port: 8080
+2022/09/06 17:49:47 Request Data, Line 104(userhandler): {0 21 0   0 false  0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC   }
+2022/09/06 17:49:47 appointment id: 21
+2022/09/06 17:49:47 UserID 20
+2022/09/06 17:49:47 email user2@gmail.com
+2022/09/06 17:49:47 name user
+2022/09/06 17:49:47 phone 241244588
+2022/09/06 17:49:48 paymentData.User_ID 20
+2022/09/06 17:49:48 paymentData.Email user2@gmail.com
+2022/09/06 17:49:48 page variables: {20 order_KEc1FmE3OBvBKa 150 user user2@gmail.com 241244588 15000 21}
+2022/09/06 18:05:00 
+Connected to database: postgres
+2022/09/06 18:05:00 Api is listening on port: 8080
+2022/09/06 18:05:15 appointment id: 21
+2022/09/06 18:05:15 error in finding appoointment:  sql: no rows in result set
+2022/09/06 18:05:30 appointment id: 21
+2022/09/06 18:05:30 error in finding appoointment:  sql: no rows in result set
+2022/09/06 18:05:40 appointment id: 22
+2022/09/06 18:05:40 UserID 20
+2022/09/06 18:05:40 email user2@gmail.com
+2022/09/06 18:05:40 name user
+2022/09/06 18:05:40 phone 241244588
+2022/09/06 18:06:01 here it comes
+2022/09/06 18:06:01 details recieved:  {0 22 20   0 false razor_pay 0 2022-09-06 18:06:01 +0530 IST 2022-09-06 18:06:01 +0530 IST pay_KEcIGfOhRmglaX order_KEcI2aYDt1i3bN       c957cd615be8d7db835df8fab1fecb70f0197f78d540230081159a19eda5835e}
+2022/09/06 18:06:01 midlaj9995@gmail.com   bydwzkhafzwrygbxddmi   smtp.gmail.com   587
+2022/09/06 18:37:00 
+Connected to database: postgres
+2022/09/06 18:37:00 Api is listening on port: 8080
+2022/09/06 18:37:47 
+Connected to database: postgres
+2022/09/06 18:37:47 Api is listening on port: 8080
+2022/09/06 18:38:30 appointment id: 22
+2022/09/06 18:38:30 Error in finding appoointment sql: no rows in result set
+2022/09/06 18:38:39 appointment id: 20
+2022/09/06 18:39:19 here it comes
+2022/09/06 18:39:19 details recieved:  {0 20 20   0 false razor_pay 0 2022-09-06 18:39:19 +0530 IST 2022-09-06 18:39:19 +0530 IST pay_KEcrUdMuoP28BU order_KEcqsqnWRiZ5qu       7e86bf8bf4563235d65fc0afe3e5f567b547961c507881702ac2bca6f22bd730}
+2022/09/06 18:39:19 midlaj9995@gmail.com   bydwzkhafzwrygbx   smtp.gmail.com   587
+2022/09/06 18:39:19 Email send to 
+2022/09/06 18:40:49 
+Connected to database: postgres
+2022/09/06 18:40:49 Api is listening on port: 8080
+2022/09/06 18:42:04 {{0 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC {0001-01-01 00:00:00 +0000 UTC false}} 0 nitheesh m nitheeshachuthan05@gmail.com 8281181945 user 8 false false}
+2022/09/06 18:44:35 midlaj9995@gmail.com   bydwzkhafzwrygbx   smtp.gmail.com   587
+2022/09/06 18:44:35 Email send to nitheeshachuthan05@gmail.com
+2022/09/06 18:45:46 Invalid verification code/Email
+2022/09/06 18:45:52 Updating User verification:  <nil>
+2022/09/06 18:45:52 <nil>
+2022/09/06 18:46:30 appointment id: 39
+2022/09/06 18:47:08 appointment id: 39
+2022/09/06 18:47:35 here it comes
+2022/09/06 18:47:35 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 18:47:35 +0530 IST 2022-09-06 18:47:35 +0530 IST pay_KEd08KxHw0b1yd order_KEczpbHE7YXNwt       a65a38038eb0ac2465770c5b62ce37f9852757936f97efc0d411e0b6d40f490e}
+2022/09/06 18:47:35 midlaj9995@gmail.com   bydwzkhafzwrygbx   smtp.gmail.com   587
+2022/09/06 18:47:35 Email send to 
+2022/09/06 18:56:42 
+Connected to database: postgres
+2022/09/06 18:56:42 Api is listening on port: 8080
+2022/09/06 18:56:53 appointment id: 39
+2022/09/06 18:57:06 here it comes
+2022/09/06 18:57:06 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 18:57:06 +0530 IST 2022-09-06 18:57:06 +0530 IST pay_KEdAGnvgVTg04n order_KEdA97qQr4MbmL       f150a3e0345ea5716c1c77047533c3f82ebc247087f9386090dde460ff181472}
+2022/09/06 18:57:06 Email Id to send message :  
+2022/09/06 18:59:08 
+Connected to database: postgres
+2022/09/06 18:59:08 Api is listening on port: 8080
+2022/09/06 18:59:21 appointment id: 39
+2022/09/06 18:59:35 here it comes
+2022/09/06 18:59:35 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 18:59:35 +0530 IST 2022-09-06 18:59:35 +0530 IST pay_KEdCtcGOhgN34U order_KEdCkdOlGaMZf9       3dc2f76fdd62c5d1f71248f9935449386d8bf9d1fa6e1c20253c4c3556d0108d}
+2022/09/06 18:59:35 Email Id to send message :  
+2022/09/06 19:02:03 
+Connected to database: postgres
+2022/09/06 19:02:03 Api is listening on port: 8080
+2022/09/06 19:02:29 appointment id: 39
+2022/09/06 19:02:43 here it comes
+2022/09/06 19:02:43 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 19:02:43 +0530 IST 2022-09-06 19:02:43 +0530 IST pay_KEdGD2X7i26tub order_KEdG32NBhW6vNv       69e1fa3cb788a5b66b9e45633766fcdfef64dec907924a15aa028a2bc391ca5a}
+2022/09/06 19:02:43 Mail id sent from user service :  
+2022/09/06 19:02:43 Email Id to send message :  
+2022/09/06 19:05:12 
+Connected to database: postgres
+2022/09/06 19:05:12 Api is listening on port: 8080
+2022/09/06 19:05:33 appointment id: 39
+2022/09/06 19:05:48 here it comes
+2022/09/06 19:05:48 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 19:05:48 +0530 IST 2022-09-06 19:05:48 +0530 IST pay_KEdJTU25D4gJT8 order_KEdJIuN90dQ4li       9772e0c1d8554a818bbdfbf6fa8cdd8f2d784e3c3e5cff6ec499631b037d1406}
+2022/09/06 19:05:48 Mail id sent from user service :  
+2022/09/06 19:05:48 Email Id to send message :  
+2022/09/06 19:20:34 
+Connected to database: postgres
+2022/09/06 19:20:34 Api is listening on port: 8080
+2022/09/06 19:20:49 appointment id: 39
+2022/09/06 19:21:01 here it comes
+2022/09/06 19:21:01 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 19:21:01 +0530 IST 2022-09-06 19:21:01 +0530 IST pay_KEdZXy2iiXQe5S order_KEdZQ1QYXIBx5x       d46f2c53082c28710b5242c7ffbd50fcde6c7c99bae070cbd4aed2f4dea782ea}
+2022/09/06 19:21:01 Mail id sent from user service :  
+2022/09/06 19:21:01 Email Id to send message :  
+2022/09/06 19:25:36 
+Connected to database: postgres
+2022/09/06 19:25:36 Api is listening on port: 8080
+2022/09/06 19:25:50 appointment id: 39
+2022/09/06 19:26:04 here it comes
+2022/09/06 19:26:04 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 19:26:04 +0530 IST 2022-09-06 19:26:04 +0530 IST pay_KEdes6NDYyp8pC order_KEdeiSkX47mUAm       0e77fcecbd0ade9ce95fe2155b65d7409f44eca9cbecc30e8b3854c0d24e5c3c}
+2022/09/06 19:26:04 Mail id sent from user service :  
+2022/09/06 19:26:04 Email Id to send message :  
+2022/09/06 19:28:40 
+Connected to database: postgres
+2022/09/06 19:28:40 Api is listening on port: 8080
+2022/09/06 19:28:56 appointment id: 39
+2022/09/06 19:29:07 here it comes
+2022/09/06 19:29:07 details recieved:  {0 39 22   0 false razor_pay 0 2022-09-06 19:29:07 +0530 IST 2022-09-06 19:29:07 +0530 IST pay_KEdi6ktTfcFfTU order_KEdhzrxblyyzWu       fe009caa91ac9490b62dc03609d577a0b6e95650cd4acdc4a24f63dfe6ac9ffe}
+2022/09/06 19:29:07 Mail id :  
+2022/09/06 19:29:08 Mail id sent from user service :  
+2022/09/06 19:29:08 Email Id to send message :  
+2022/09/06 19:56:01 
+Connected to database: postgres
+2022/09/06 19:56:01 Api is listening on port: 8080
+2022/09/06 19:57:08 appointment id: 39
+2022/09/06 19:57:22 here it comes
+2022/09/06 19:57:22 Mail id :  
+2022/09/06 19:57:22 Mail id sent from user service :  nitheeshachuthan05@gmail.com
+2022/09/06 19:57:22 Email Id to send message :  nitheeshachuthan05@gmail.com
+2022/09/06 20:35:15 appointment id: 39
+2022/09/06 20:35:35 here it comes
+2022/09/06 20:35:35 Mail id :  
+2022/09/06 20:35:35 Mail id sent from user service :  nitheeshachuthan05@gmail.com
+2022/09/06 20:35:35 Email Id to send message :  nitheeshachuthan05@gmail.com
+2022/09/06 20:44:03 
+Connected to database: postgres
+2022/09/06 20:44:03 Api is listening on port: 8080
+2022/09/06 20:48:33 
+Connected to database: postgres
+2022/09/06 20:48:33 Api is listening on port: 8080
+2022/09/06 20:48:49 appointment id: 39
+2022/09/06 20:49:02 here it comes
+2022/09/06 20:49:02 Mail id :  
+2022/09/06 20:49:02 Mail id sent from user service :  nitheeshachuthan05@gmail.com
+2022/09/06 20:49:02 Email Id to send message :  nitheeshachuthan05@gmail.com
+2022/09/06 21:02:51 
+Connected to database: postgres
+2022/09/06 21:02:51 Api is listening on port: 8080
+2022/09/06 21:03:10 appointment id: 39
+2022/09/06 21:03:23 here it comes
+2022/09/06 21:03:23 Mail id :  
+2022/09/06 21:03:24 Mail id sent from user service :  nitheeshachuthan05@gmail.com
+2022/09/06 21:03:24 Email Id to send message :  nitheeshachuthan05@gmail.com
+2022/09/06 21:04:32 
+Connected to database: postgres
+2022/09/06 21:04:32 Api is listening on port: 8080
+2022/09/06 21:04:33 appointment id: 39
+2022/09/06 21:04:57 appointment id: 39
+2022/09/06 21:05:20 here it comes
+2022/09/06 21:05:20 Mail id :  
+2022/09/06 21:05:20 Mail id sent from user service :  nitheeshachuthan05@gmail.com
+2022/09/06 21:05:20 Email Id to send message :  nitheeshachuthan05@gmail.com
+2022/09/06 22:41:53 
+Connected to database: postgres
+2022/09/06 22:41:53 Api is listening on port: 8080
+2022/09/06 22:42:21 appointment id: 38
+2022/09/06 23:32:21 appointment id: 38
+2022/09/06 23:32:43 here it comes
+2022/09/06 23:32:43 Mail id :  
+2022/09/06 23:32:43 Mail id sent from user service :  user2@gmail.com
+2022/09/06 23:32:43 Email Id to send message :  user2@gmail.com
+2022/09/06 23:48:08 appointment id: 37
+2022/09/06 23:48:25 here it comes
+2022/09/06 23:48:25 Mail id :  
+2022/09/06 23:48:25 Mail id sent from user service :  user2@gmail.com
+2022/09/06 23:48:25 Email Id to send message :  user2@gmail.com

@@ -20,6 +20,7 @@ type AdminHandler interface {
 	CalculatePayout() http.HandlerFunc
 	ViewSingleUser() http.HandlerFunc
 	ViewSingleDoctor() http.HandlerFunc
+	ApprovePayout() http.HandlerFunc
 }
 
 type adminHandler struct {
@@ -37,6 +38,28 @@ func NewAdminHandler(
 		adminService:  adminService,
 		userService:   userService,
 		doctorService: doctorService,
+	}
+}
+
+func (c *adminHandler) ApprovePayout() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		email := r.URL.Query().Get("Email")
+
+		amount, err := c.adminService.ApprovePayout(email)
+
+		if err != nil {
+
+			response := response.ErrorResponse("Request not accepted", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusBadRequest)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		response := response.SuccessResponse(true, "Amount Transferred", amount)
+		w.Header().Add("Content-Type", "application/json")
+		utils.ResponseJSON(w, response)
+
 	}
 }
 

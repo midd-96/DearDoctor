@@ -4,9 +4,11 @@ import (
 	"database/sql"
 	"dearDoctor/model"
 	"dearDoctor/utils"
+	"errors"
 	"fmt"
 	"log"
 	"strconv"
+	"time"
 )
 
 type AdminRepository interface {
@@ -17,6 +19,7 @@ type AdminRepository interface {
 	CalculatePayout(doc_Id int) (string, error)
 	ViewSingleUser(user_Id int) (model.UserResponse, error)
 	ViewSingleDoctor(doc_Id int) (model.DoctorResponse, error)
+	ApprovePayout(email string) (float64, error)
 }
 
 type adminRepo struct {
@@ -29,6 +32,45 @@ func NewAdminRepo(db *sql.DB) AdminRepository {
 	}
 }
 
+func (c *adminRepo) ApprovePayout(email string) (float64, error) {
+
+	query := `UPDATE payouts
+				SET approvel = $1,
+					approved_time = $2,
+					wallet = wallet - last_requested_amount
+					WHERE username = $3 AND approvel = $4;`
+
+	Approved_At, _ := time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+
+	log.Println(query)
+	log.Println(Approved_At)
+	log.Println(email)
+
+	err := c.db.QueryRow(query, true, Approved_At, email, false).Err()
+
+	log.Println(err)
+
+	if err != nil {
+		return 0.0, errors.New("Approvel Failed")
+	}
+
+	var walletBalance float64
+
+	query1 := `SELECT wallet FROM 
+				payouts WHERE 
+				username = $1;`
+
+	log.Println(query1)
+
+	err1 := c.db.QueryRow(query1, email).Scan(&walletBalance)
+
+	if err1 != nil {
+		return walletBalance, errors.New("Approved but failed to fetch new wallet balance")
+	}
+
+	return walletBalance, nil
+}
+
 func (c *adminRepo) CalculatePayout(doc_Id int) (string, error) {
 
 	var count int
@@ -38,9 +80,7 @@ func (c *adminRepo) CalculatePayout(doc_Id int) (string, error) {
 				payment_mode != 'cod';`
 
 	err := c.db.QueryRow(query, doc_Id).Scan(&count)
-	//var totalAppointments int
-	//rows.Scan(totalAppointments)
-	log.Println(count)
+
 	if err != nil {
 		return "", err
 	}
@@ -49,13 +89,6 @@ func (c *adminRepo) CalculatePayout(doc_Id int) (string, error) {
 				FROM doctors
 				WHERE id = $1;`
 
-	// var Fee int
-	// err := c.db.QueryRow(query, doc_Id).Scan(&Fee)
-
-	// if err != nil {
-	// 	return "", err
-	// }
-	// log.Println("Fee : ", Fee)
 	res := strconv.Itoa(count * 150)
 
 	return res, err

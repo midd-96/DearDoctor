@@ -111,3 +111,31 @@ type Account struct {
 	IFSC          string `json:"ifsc"`
 	AccountHolder string `json:"account_holder"`
 }
+
+type PaymentDetails struct {
+	ID                  int `json:"payment_id"`
+	Appointment_ID      int `json:"appointment_id"`
+	User_ID             int `json:"user_id"`
+	Full_Name           string
+	Email               string
+	Phone_Number        int
+	Status              bool      `json:"status"`
+	PaymentType         string    `json:"payment_type"`
+	Amount              float64   `json:"amount"`
+	Created_At          time.Time `json:"created_at"`
+	Updated_At          time.Time `json:"updated_at"`
+	Razorpay_payment_id string    `json:"razor_payment_id"`
+	Razorpay_order_id   string    `json:"razor_order_id"`
+	Razorpay_signature  string    `json:"razor_signature"`
+}
+
+type Payment struct {
+	Id                int       `json:"id" gorm:"primary_key"`
+	Appointmnet_Id    int       `json:"appointment_id"`
+	User_Id           int       `json:"user_id"`
+	Payment_type      string    `json:"payment_type"`
+	Created_At        time.Time `json:"created_at"`
+	Payment_Id        string    `json:"payment_id"`
+	Razor_Order_Id    string    `json:"razor_order_id"`
+	Payment_Signature string    `json:"payment_signature"`
+}

@@ -8,7 +8,7 @@ import (
 )
 
 type MailConfig interface {
-	SendMail(to, message string) error
+	SendMail(to string, message string) error
 }
 
 type mailConfig struct{}
@@ -17,16 +17,15 @@ func NewMailConfig() MailConfig {
 	return &mailConfig{}
 }
 
-func (c *mailConfig) SendMail(to, message string) error {
+func (c *mailConfig) SendMail(to string, message string) error {
 
+	log.Println("Email Id to send message : ", to)
 	userName := os.Getenv("SMTP_USERNAME")
 	password := os.Getenv("SMTP_PASSWORD")
 	smtpHost := os.Getenv("SMTP_HOST")
 	smtpPort := os.Getenv("SMTP_PORT")
 
 	auth := smtp.PlainAuth("", userName, password, smtpHost)
-
-	log.Println(userName, " ", password, " ", smtpHost, " ", smtpPort)
 
 	headers := make(map[string]string)
 
