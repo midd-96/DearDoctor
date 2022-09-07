@@ -36,6 +36,8 @@ func (c *doctorHandler) AddBankAccountDetails() http.HandlerFunc {
 
 		json.NewDecoder(r.Body).Decode(&bankAccount)
 
+		bankAccount.Email = r.Header.Get("email")
+
 		err := c.doctorService.AddBankAccountDetails(bankAccount)
 
 		if err != nil {
@@ -56,7 +58,6 @@ func (c *doctorHandler) AddBankAccountDetails() http.HandlerFunc {
 func (c *doctorHandler) RequestForPayout() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		email := r.Header.Get("email")
-		log.Println("Got Email ID: ", email)
 		requestAmount, err := strconv.ParseFloat(r.URL.Query().Get("Amount"), 64)
 
 		amount, err := c.doctorService.RequestForPayout(email, requestAmount)
@@ -68,7 +69,6 @@ func (c *doctorHandler) RequestForPayout() http.HandlerFunc {
 			utils.ResponseJSON(w, response)
 			return
 		}
-		log.Println(amount)
 		response := response.SuccessResponse(true, "Requested successfully", amount)
 		utils.ResponseJSON(w, response)
 
@@ -125,8 +125,6 @@ func (c *doctorHandler) AppointmentsByDoctor() http.HandlerFunc {
 
 		docId, _ := strconv.Atoi(r.URL.Query().Get("docId"))
 
-		log.Println(page, "   ", pageSize, docId)
-
 		pagenation := utils.Filter{
 			Page:     page,
 			PageSize: pageSize,
@@ -163,8 +161,10 @@ func (c *doctorHandler) MarkAvailability() http.HandlerFunc {
 
 		json.NewDecoder(r.Body).Decode(&addslotes)
 
+		addslotes.Docter_id, _ = strconv.Atoi(r.Header.Get("user_id"))
+
 		err := c.doctorService.AddSlotes(addslotes)
-		log.Println(err)
+
 		if err != nil {
 			response := response.ErrorResponse("failed to add avialable slotes", err.Error(), nil)
 			w.Header().Add("Content-Type", "application/json")

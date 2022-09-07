@@ -58,9 +58,7 @@ func (c *doctorService) RequestForPayout(email string, requestAmount float64) (f
 	amount, err := c.doctorRepo.RequestForPayout(email, requestAmount)
 
 	if err != nil {
-		log.Println("Error from doctor service :", err)
 		return amount, err
-
 	}
 
 	return amount, nil
@@ -82,7 +80,7 @@ func (c *doctorService) SendVerificationEmail(email string) error {
 	code := rand.Intn(100000)
 
 	message := fmt.Sprintf(
-		"\nThe verification code is:\n\n%d\nUseto verify your account.\n\n dearDoctor.",
+		"\nThe verification code is:\n\n%d.\nUse to verify your account.\n Thank you for using dearDoctor.\n with regards Team dearDoctor.",
 		code,
 	)
 

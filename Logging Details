@@ -3121,3 +3121,86 @@ Connected to database: postgres
 2022/09/06 23:48:25 Mail id :  
 2022/09/06 23:48:25 Mail id sent from user service :  user2@gmail.com
 2022/09/06 23:48:25 Email Id to send message :  user2@gmail.com
+2022/09/07 10:25:40 
+Connected to database: postgres
+2022/09/07 10:25:40 Api is listening on port: 8080
+2022/09/07 10:27:57 Error:  <nil>
+2022/09/07 11:37:09 
+Connected to database: postgres
+2022/09/07 11:37:09 Api is listening on port: 8080
+2022/09/07 11:42:40 
+Connected to database: postgres
+2022/09/07 11:42:40 Api is listening on port: 8080
+2022/09/07 11:44:40 
+Connected to database: postgres
+2022/09/07 11:44:40 Api is listening on port: 8080
+2022/09/07 11:44:53 nitheeshachuthan05@gmail.com
+2022/09/07 11:48:33 
+Connected to database: postgres
+2022/09/07 11:48:33 Api is listening on port: 8080
+2022/09/07 11:48:44 nitheeshachuthan05@gmail.com
+2022/09/07 11:48:44 after query execution pq: syntax error at or near "DSC"
+2022/09/07 11:50:25 
+Connected to database: postgres
+2022/09/07 11:50:25 Api is listening on port: 8080
+2022/09/07 11:50:38 nitheeshachuthan05@gmail.com
+2022/09/07 11:50:38 after query execution <nil>
+2022/09/07 12:22:44 
+Connected to database: postgres
+2022/09/07 12:22:44 Api is listening on port: 8080
+2022/09/07 12:24:03 []
+2022/09/07 12:24:03 {0 0 0 0 0}
+2022/09/07 12:24:23 []
+2022/09/07 12:24:23 {0 0 0 0 0}
+2022/09/07 12:24:40 []
+2022/09/07 12:24:40 {0 0 0 0 0}
+2022/09/07 12:28:02 
+Connected to database: postgres
+2022/09/07 12:28:02 Api is listening on port: 8080
+2022/09/07 12:28:23 0
+2022/09/07 12:28:23 []
+2022/09/07 12:28:23 {0 0 0 0 0}
+2022/09/07 12:31:54 0
+2022/09/07 12:31:55 []
+2022/09/07 12:31:55 {0 0 0 0 0}
+2022/09/07 12:37:44 
+Connected to database: postgres
+2022/09/07 12:37:44 Api is listening on port: 8080
+2022/09/07 12:38:06 Id got from header 0
+2022/09/07 12:38:06 []
+2022/09/07 12:38:06 {0 0 0 0 0}
+2022/09/07 12:45:41 
+Connected to database: postgres
+2022/09/07 12:45:41 Api is listening on port: 8080
+2022/09/07 12:46:14 Id got from header 0
+2022/09/07 12:46:15 []
+2022/09/07 12:46:15 {0 0 0 0 0}
+2022/09/07 12:57:04 
+Connected to database: postgres
+2022/09/07 12:57:04 Api is listening on port: 8080
+2022/09/07 12:57:25 doctor id at generation of key 24
+2022/09/07 13:00:09 
+Connected to database: postgres
+2022/09/07 13:00:09 Api is listening on port: 8080
+2022/09/07 13:00:18 doctor id at generation of key 24
+2022/09/07 13:00:18 doctor id at generation of key 24
+2022/09/07 13:02:20 
+Connected to database: postgres
+2022/09/07 13:02:20 Api is listening on port: 8080
+2022/09/07 13:03:02 Id got from header 0
+2022/09/07 13:03:02 []
+2022/09/07 13:03:02 {0 0 0 0 0}
+2022/09/07 13:10:48 
+Connected to database: postgres
+2022/09/07 13:10:48 Api is listening on port: 8080
+2022/09/07 13:11:07 em id adnankadalayi90@gmail.com
+2022/09/07 13:11:07 Id got from header 0
+2022/09/07 13:11:07 []
+2022/09/07 13:11:07 {0 0 0 0 0}
+2022/09/07 13:14:21 
+Connected to database: postgres
+2022/09/07 13:14:21 Api is listening on port: 8080
+2022/09/07 13:14:38 [{monday 10:30 cod false user2@gmail.com} {monday 10:30 cod false user2@gmail.com} {monday 10:30 cod false user2@gmail.com} {monday 10:30 cod false user2@gmail.com} {monday 10:30 cod false user2@gmail.com}]
+2022/09/07 13:14:38 {1 5 1 5 23}
+2022/09/07 13:15:02 [{monday 10:30 razor_pay true user2@gmail.com} {monday 10:30 UPI false nitheeshachuthan05@gmail.com} {monday 10:30 UPI false nitheeshachuthan05@gmail.com}]
+2022/09/07 13:15:02 {5 5 1 5 23}

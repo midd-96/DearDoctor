@@ -18,6 +18,7 @@ import (
 
 type UserHandler interface {
 	ConfirmAppointment() http.HandlerFunc
+	ViewConfirmedAppointment() http.HandlerFunc
 	SendVerificationMail() http.HandlerFunc
 	VerifyAccount() http.HandlerFunc
 	Payment() http.HandlerFunc
@@ -49,8 +50,6 @@ func (c *userHandler) PaymentSuccess() http.HandlerFunc {
 
 		var data model.PaymentDetails
 
-		// json.NewDecoder(r.Body).Decode(&data)
-		log.Println("here it comes")
 		data.User_ID, _ = strconv.Atoi(r.URL.Query().Get("user_id"))
 
 		data.Razorpay_payment_id = r.URL.Query().Get("payment_id")
@@ -102,8 +101,6 @@ func (c *userHandler) Payment() http.HandlerFunc {
 		client := razorpay.NewClient("rzp_test_kt3cXZneHJI2uV", "OUu6OR0p6chSb32gmuPzjW9o")
 
 		requestData.Appointment_ID, _ = strconv.Atoi(chi.URLParam(r, "Appointment_id"))
-
-		//err := c.userService.CheckAlreadyPaid(requestData.Appointment_ID)
 
 		paymentData, err := c.userService.ProcessingPayment(requestData)
 
@@ -167,7 +164,6 @@ func (c *userHandler) VerifyAccount() http.HandlerFunc {
 		code, _ := strconv.Atoi(r.URL.Query().Get("Code"))
 
 		err := c.userService.VerifyAccount(email, code)
-		log.Println(err)
 
 		if err != nil {
 			response := response.ErrorResponse("Verification failed, Invalid OTP", err.Error(), nil)
@@ -202,12 +198,35 @@ func (c *userHandler) SendVerificationMail() http.HandlerFunc {
 		utils.ResponseJSON(w, response)
 	}
 }
+func (c *userHandler) ViewConfirmedAppointment() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var appointments []model.Appointments
+
+		email := r.Header.Get("email")
+		log.Println(email)
+
+		appointments, err := c.userService.ViewAppointments(email)
+		if err != nil {
+			response := response.ErrorResponse("No confirmed appointments", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+		response := response.SuccessResponse(true, "SUCCESS", appointments)
+		w.Header().Add("Content-Type", "application/json")
+		utils.ResponseJSON(w, response)
+
+	}
+
+}
 
 func (c *userHandler) ConfirmAppointment() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var appointment model.Confirmed
 
 		json.NewDecoder(r.Body).Decode(&appointment)
+		appointment.Email = r.Header.Get("email")
 
 		err := c.userService.AddAppointment(appointment)
 

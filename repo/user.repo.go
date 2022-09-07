@@ -22,6 +22,7 @@ type UserRepository interface {
 	Payment(payment model.PaymentDetails) error
 	FindUserByAppointmentId(id int) (model.UserResponse, error)
 	FindUserById(id int) (model.User, error)
+	ViewAppointments(email string) ([]model.Appointments, error)
 }
 
 type userRepo struct {
@@ -143,6 +144,50 @@ func (c *userRepo) StoreVerificationDetails(email string, code int) error {
 	err := c.db.QueryRow(query, email, code).Err()
 
 	return err
+
+}
+func (c *userRepo) ViewAppointments(email string) ([]model.Appointments, error) {
+
+	query := `SELECT 
+					day_consult,
+					time_consult,
+					payment_mode,
+					payment_status
+					FROM confirmeds
+					WHERE email= $1
+					ORDER BY id DESC;`
+
+	var appointments []model.Appointments
+
+	rows, err := c.db.Query(query, email)
+	log.Println("after query execution", err)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var appointment model.Appointments
+
+		err = rows.Scan(
+			&appointment.Day_consult,
+			&appointment.Time_consult,
+			&appointment.Payment_mode,
+			&appointment.Payment_status,
+		)
+
+		if err != nil {
+			return appointments, err
+		}
+		appointments = append(appointments, appointment)
+	}
+
+	if err := rows.Err(); err != nil {
+		log.Println("before return", err)
+		return appointments, err
+	}
+	return appointments, nil
 
 }
 

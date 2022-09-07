@@ -1,46 +1,51 @@
 <html>
-  <style>
-    body {
-        text-align: center;
-        padding: 40px 0;
-        background: #EBF0F5;
-      }
-    .card {
-        align-self: center;
-        background: rgba(133, 190, 133, 0.6);
-        padding: 90px;
-        border-radius: 4px;
-        box-shadow: 0 2px 3px #C8D0D8;
-        display: inline-block;
-        margin: 0 auto;
-      }
-  </style>
-  <div class="card">
+<style>
+  body {
+    text-align: center;
+    padding: 40px 0;
+    background: #EBF0F5;
+  }
+
+  .card {
+    align-self: center;
+    background: rgba(133, 190, 133, 0.6);
+    padding: 90px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+  }
+</style>
+<div class="card">
   <div style="    display: flex;
   margin-top: 10%;
   flex-direction: row;
   align-items: center;
   align-content: center;
   flex-wrap: nowrap;">
-  <h3 style="color:#fff;"> Appointment Number :</h3><label name="appointment" id="appointment" style="color:white;">{{.OrderId}}</label><br>
-</div>
-<div style="    display: flex;
+    <h3 style="color:#fff;"> Appointment Number :</h3><label name="appointment" id="appointment"
+      style="color:white;">{{.OrderId}}</label><br>
+  </div>
+  <div style="    display: flex;
 margin-top: 1%;
 flex-direction: row;
 align-items: center;
 align-content: center;
 flex-wrap: nowrap;">
-  <h3 style="color:white;">User Id :</h3><label name="userid" id="userid" style="color:white;">{{.UserID}}</label><br>
-</div>
-<div style="    display: flex;
+<!-- takes User Id from page variables and passes to the function2 -->
+    <h3 style="color:white;">User Id :</h3><label name="userid" id="userid" style="color:white;">{{.UserID}}</label><br>
+  </div>
+  <div style="    display: flex;
 margin-top: 1%;
 flex-direction: row;
 align-items: center;
 align-content: center;
 flex-wrap: nowrap;">
-  <h3 id="totalprice" style="color:white;">Consultation Fee :{{.TotalPrice}}</h3> </div>
-<div style="align-items:center;"> 
-<button id="rzp-button1" class="btn btn-outline-dark btn-lg" style="padding: 1.3em 3em;
+<!-- takes consultation fee from page variables and passes to the function2 -->
+    <h3 id="totalprice" style="color:white;">Consultation Fee :{{.TotalPrice}}</h3>
+  </div>
+  <div style="align-items:center;">
+    <button id="rzp-button1" class="btn btn-outline-dark btn-lg" style="padding: 1.3em 3em;
 font-size: 16px;
 text-transform: uppercase;
 letter-spacing: 2.5px;
@@ -53,7 +58,7 @@ box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 transition: all 0.3s ease 0s;
 cursor: pointer;
 outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bill"></i> Pay The Amount</button>
-</div> 
+  </div>
 </div>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -103,7 +108,7 @@ outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bil
         },
         hide: [
           {
-          method: "upi"
+            method: "upi"
           }
         ],
         sequence: ["block.hdfc", "block.other"],
@@ -113,10 +118,10 @@ outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bil
       }
     },
 
-  
+
 
     "handler": function (response) {
-      verifyPayment(response,userId,appointment); 
+      verifyPayment(response, userId, appointment);//calls to store data in database
 
     },
     "modal": {
@@ -138,9 +143,11 @@ outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bil
   }
 
 
-  function verifyPayment(res,user_id,order_id){
+  function verifyPayment(res, user_id, order_id) {
     console.log('function 2')
     $.ajax({
+
+      //passes details as url params
       url: `/payment-success?user_id=${user_id}&payment_id=${res.razorpay_payment_id}&order_id=${res.razorpay_order_id}
       &signature=${res.razorpay_signature}&id=${order_id}`,
       method: 'Get',
@@ -148,9 +155,7 @@ outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bil
         if (response.status) {
           console.log('test success')
           location.href = '/success'
-        } else if (response.data) {
-
-        } else {
+        }else {
           console.log('test failed')
           swal({
             title: "Sorry, Payment Failed",
@@ -161,6 +166,7 @@ outline: none; margin-left:10%; margin-bottom: 10px;"><i class="fas fa-money-bil
         }
       }
     })
-}
+  }
 </script>
+
 </html>

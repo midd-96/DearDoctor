@@ -8,7 +8,6 @@ import (
 	"dearDoctor/repo"
 	"errors"
 	"fmt"
-	"log"
 	"math/rand"
 	"strconv"
 	"time"
@@ -18,6 +17,7 @@ type UserService interface {
 	FindUser(email string) (*model.UserResponse, error)
 	CreateUser(newUser model.User) error
 	AddAppointment(confirm model.Confirmed) error
+	ViewAppointments(email string) ([]model.Appointments, error)
 	SendVerificationEmail(email string) error
 	VerifyAccount(email string, code int) error
 	ProcessingPayment(data model.PaymentDetails) (*model.PaymentDetails, error)
@@ -44,11 +44,9 @@ func NewUserService(
 func (c *userService) ProcessingPayment(data model.PaymentDetails) (*model.PaymentDetails, error) {
 
 	var err error
-	log.Println("appointment id:", data.Appointment_ID)
 	data.Amount, err = c.userRepo.FindAppointmentById(data.Appointment_ID)
 
 	if err != nil {
-		log.Println("Error in finding appoointment", err)
 		return nil, errors.New("Unable to find appointment/ Already paid")
 	}
 
@@ -74,17 +72,15 @@ func (c *userService) AddPayment(data model.PaymentDetails) error {
 		return err
 	}
 
-	log.Println("Mail id : ", data.Email)
 	user, _ := c.userRepo.FindUserById(data.User_ID)
 
 	message := fmt.Sprintf(
-		"Hello, %s ..\nYour Appointment (Appointment Id: %d) has been confirmed.\n\nConsultation Fee: %.2f has been paid.\n\nVisit Again!\nThanks and regards,\n\n DearDoctor.",
+		"Hello, %s %s ..\nYour Appointment (Appointment Id: %d) has been confirmed.\n\nConsultation Fee has been paid.\n\nThanks for using dearDoctor Visit Again,\n\n with regards dearDoctor.",
 		user.First_Name,
+		user.Last_Name,
 		data.Appointment_ID,
-		data.Amount,
 	)
 
-	log.Println("Mail id sent from user service : ", user.Email)
 	err = c.mailConfig.SendMail(user.Email, message)
 
 	if err != nil {
@@ -110,7 +106,7 @@ func (c *userService) SendVerificationEmail(email string) error {
 	code := rand.Intn(100000)
 
 	message := fmt.Sprintf(
-		"\nThe verification code is:\n\n%d\nUseto verify your account.\n\n dearDoctor.",
+		"\nThe verification code is:\n\n%d.\nUse to verify your account.\n Thank you for using dearDoctor.\n with regards Team dearDoctor.",
 		code,
 	)
 
@@ -159,6 +155,15 @@ func (c *userService) CreateUser(newUser model.User) error {
 	}
 	return nil
 
+}
+
+func (c *userService) ViewAppointments(email string) ([]model.Appointments, error) {
+
+	appointments, err := c.userRepo.ViewAppointments(email)
+	if err != nil {
+		return nil, err
+	}
+	return appointments, nil
 }
 func (c *userService) AddAppointment(confirm model.Confirmed) error {
 	_, err := c.userRepo.AddAppointment(confirm)

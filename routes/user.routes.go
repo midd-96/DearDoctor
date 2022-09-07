@@ -36,8 +36,8 @@ func (r *userRoute) UserRouter(routes chi.Router,
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)
 		r.Post("/user/add/appointment", userHandler.ConfirmAppointment())
-
 		r.Get("/user/token/refresh", authHandler.UserRefreshToken())
+		r.Get("/user/appointments/confirmed", userHandler.ViewConfirmedAppointment())
 
 	})
 

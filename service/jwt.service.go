@@ -46,9 +46,9 @@ func NewJWTAdminService() JWTService {
 	}
 }
 
-func (j *jwtService) GenerateToken(user_id int, email, role string) string {
+func (j *jwtService) GenerateToken(userId int, email, role string) string {
 	claims := &SignedDetails{
-		user_id,
+		userId,
 		email,
 		role,
 		jwt.StandardClaims{
@@ -63,6 +63,7 @@ func (j *jwtService) GenerateToken(user_id int, email, role string) string {
 	if err != nil {
 		log.Println(err)
 	}
+
 	return signedToken
 }
 func (j *jwtService) GenerateRefreshToken(accessToken string) (string, error) {
