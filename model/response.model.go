@@ -8,7 +8,6 @@ type AdminResponse struct {
 	Token    string `json:"token,omitempty"`
 }
 
-// user schema for user table
 type UserResponse struct {
 	ID               int    `json:"id"`
 	First_Name       string `json:"first_name"`
