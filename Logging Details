@@ -3204,3 +3204,78 @@ Connected to database: postgres
 2022/09/07 13:14:38 {1 5 1 5 23}
 2022/09/07 13:15:02 [{monday 10:30 razor_pay true user2@gmail.com} {monday 10:30 UPI false nitheeshachuthan05@gmail.com} {monday 10:30 UPI false nitheeshachuthan05@gmail.com}]
 2022/09/07 13:15:02 {5 5 1 5 23}
+2022/09/09 20:10:50 
+Connected to database: postgres
+2022/09/09 20:10:50 Api is listening on port: 8080
+2022/09/09 20:41:39 
+Connected to database: postgres
+2022/09/09 20:41:39 Api is listening on port: 8080
+2022/09/09 20:42:50 1   5
+2022/09/09 20:42:50 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:42:50 [{10:15 cod false user2@gmail.com} {10:15 cod false user1@gmail.com} {10:15 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com}]
+2022/09/09 20:42:50 {1 5 1 6 27}
+2022/09/09 20:43:03 1   1
+2022/09/09 20:43:03 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:43:03 [{10:15 cod false user2@gmail.com}]
+2022/09/09 20:43:03 {1 1 1 27 27}
+2022/09/09 20:43:15 1   5
+2022/09/09 20:43:15 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:43:15 [{10:15 cod false user2@gmail.com} {10:15 cod false user1@gmail.com} {10:15 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com}]
+2022/09/09 20:43:15 {1 5 1 6 27}
+2022/09/09 20:43:32 2   5
+2022/09/09 20:43:32 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:43:32 [{10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com}]
+2022/09/09 20:43:32 {2 5 1 6 27}
+2022/09/09 20:43:47 2   5
+2022/09/09 20:43:47 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:43:47 [{10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com}]
+2022/09/09 20:43:47 {2 5 1 6 27}
+2022/09/09 20:44:05 2   5
+2022/09/09 20:44:05 SELECT 
+				COUNT(*) OVER(),
+				time_consult,
+				payment_mode,
+				payment_status,
+				email FROM confirmeds c 
+				WHERE id IS NOT NULL LIMIT $1 OFFSET $2;
+2022/09/09 20:44:05 [{10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com} {10:30 cod false user2@gmail.com}]
+2022/09/09 20:44:05 {2 5 1 6 27}
+2022/09/11 22:57:17 
+Connected to database: postgres
+2022/09/11 22:57:17 Api is listening on port: 8080
+2022/09/11 23:02:12 
+Connected to database: postgres
+2022/09/11 23:02:12 Api is listening on port: 8080
+2022/09/11 23:18:04 
+Connected to database: postgres
+2022/09/11 23:18:04 Api is listening on port: 8080
