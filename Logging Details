@@ -3279,3 +3279,17 @@ Connected to database: postgres
 2022/09/11 23:18:04 
 Connected to database: postgres
 2022/09/11 23:18:04 Api is listening on port: 8080
+2022/09/12 20:01:44 failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)
+2022/09/12 20:10:57 failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)
+2022/09/12 20:12:43 failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)
+2022/09/12 20:13:21 failed to connect to `host=postgres user=postgres database=postgres`: hostname resolving error (lookup postgres: no such host)
+2022/09/12 20:14:06 
+Connected to database: postgres
+2022/09/12 20:14:06 Api is listening on port: 8080
+2022/09/12 22:48:53 
+Connected to database: postgres
+2022/09/12 22:48:53 Api is listening on port: 8080
+2022/09/12 22:50:57 4     3
+2022/09/12 22:50:57 [{23 doctor fghsj doctor1@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111123 false } {21 doctor fghsj doctor@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111111 true } {24 doctor fghsj adnankadalayi90@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111234 false }]
+2022/09/12 22:50:57 {4 3 1 4 12}
+2022/09/13 00:58:27 failed to connect to `host=localhost user=postgres database=deardoctor`: server error (FATAL: database "deardoctor" does not exist (SQLSTATE 3D000))
