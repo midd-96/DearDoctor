@@ -17,6 +17,7 @@ func Init() *gorm.DB {
 		log.Fatalln(err)
 	}
 
+	db.AutoMigrate(&model.Admin{})
 	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Departments{})
 	db.AutoMigrate(&model.Doctor{})
@@ -26,5 +27,6 @@ func Init() *gorm.DB {
 	db.AutoMigrate(&model.Payout{})
 	db.AutoMigrate(&model.Account{})
 	db.AutoMigrate(&model.Payment{})
+	db.Exec("INSERT INTO admins (username,password) VALUES ('admin@gmail.com','admin')")
 	return db
 }
