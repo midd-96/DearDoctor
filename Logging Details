@@ -3293,3 +3293,25 @@ Connected to database: postgres
 2022/09/12 22:50:57 [{23 doctor fghsj doctor1@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111123 false } {21 doctor fghsj doctor@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111111 true } {24 doctor fghsj adnankadalayi90@gmail.com f9f16d97c90d8c6f2cab37bb6d1f1992 1111111234 false }]
 2022/09/12 22:50:57 {4 3 1 4 12}
 2022/09/13 00:58:27 failed to connect to `host=localhost user=postgres database=deardoctor`: server error (FATAL: database "deardoctor" does not exist (SQLSTATE 3D000))
+2022/09/14 18:16:40 
+Connected to database: postgres
+2022/09/14 18:16:40 Api is listening on port: 8080
+2022/09/14 18:29:04 
+Connected to database: postgres
+2022/09/14 18:29:04 Api is listening on port: 8080
+2022/09/14 19:01:51 
+Connected to database: postgres
+2022/09/14 19:01:51 Api is listening on port: 8080
+2022/09/14 19:15:33 
+Connected to database: postgres
+2022/09/14 19:15:33 Api is listening on port: 8080
+2022/09/14 19:19:33 
+Connected to database: postgres
+2022/09/14 19:19:33 Api is listening on port: 8080
+2022/09/14 19:37:56 failed to connect to `host=localhost user=postgres database=postgres`: dial error (dial tcp 127.0.0.1:5433: connectex: No connection could be made because the target machine actively refused it.)
+2022/09/14 20:00:35 
+Connected to database: postgres
+2022/09/14 20:00:35 Api is listening on port: 8080
+2022/09/14 20:11:25 
+Connected to database: postgres
+2022/09/14 20:11:25 Api is listening on port: 8080

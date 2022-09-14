@@ -28,15 +28,16 @@ func (r *adminRoute) AdminRouter(routes chi.Router,
 	middleware m.Middleware,
 	doctorHandler h.DoctorHandler) {
 
+	routes.Post("/admin/signup", authHandler.AdminSignup())
 	routes.Post("/admin/login", authHandler.AdminLogin())
-	routes.Get("/admin/view/all/appointments", adminHandler.ViewAllAppointments())
-	routes.Get("/admin/payout/total/amount", adminHandler.CalculatePayout())
-	routes.Get("/admin/listone/user", adminHandler.ViewSingleUser())
-	routes.Get("/admin/listone/doctor", adminHandler.ViewSingleDoctor())
 
 	routes.Group(func(r chi.Router) {
 		r.Use(middleware.AuthorizeJwt)
 
+		r.Get("/admin/view/all/appointments", adminHandler.ViewAllAppointments())
+		r.Get("/admin/payout/total/amount", adminHandler.CalculatePayout())
+		r.Get("/admin/listone/user", adminHandler.ViewSingleUser())
+		r.Get("/admin/listone/doctor", adminHandler.ViewSingleDoctor())
 		r.Get("/admin/view/users", adminHandler.ViewAllUsers())
 		r.Get("/admin/view/doctors", adminHandler.ViewAllDoctors())
 		r.Post("/admin/add/dept", adminHandler.AddDepartment())

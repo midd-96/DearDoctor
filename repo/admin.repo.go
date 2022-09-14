@@ -12,6 +12,7 @@ import (
 )
 
 type AdminRepository interface {
+	CreateAdmin(admin model.Admin) error
 	FindAdmin(username string) (model.AdminResponse, error)
 	AddDept(department model.Departments) error
 	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
@@ -257,21 +258,20 @@ func (c *adminRepo) ViewAllAppointments(pagenation utils.Filter, filters model.F
 
 func (c *adminRepo) FindAdmin(username string) (model.AdminResponse, error) {
 
+	log.Println("username of admin:", username)
 	var admin model.AdminResponse
 
-	query := `SELECT 
-			id,
+	query := `SELECT
+			id, 
 			username,
-			password,
-			role
+			password
 			FROM admins WHERE username = $1;`
 
 	err := c.db.QueryRow(query,
 		username).Scan(
 		&admin.ID,
 		&admin.Username,
-		&admin.Password,
-		&admin.Role)
+		&admin.Password)
 
 	return admin, err
 }
@@ -309,6 +309,21 @@ func (c *adminRepo) AddDept(department model.Departments) error {
 		query,
 		department.Dep_Id,
 		department.Name,
+	).Err()
+	return err
+}
+
+func (c *adminRepo) CreateAdmin(admin model.Admin) error {
+
+	query := `INSERT INTO
+				admins (username,password)
+				VALUES
+				(
+					$1, $2
+					);`
+	err := c.db.QueryRow(
+		query, admin.Username,
+		admin.Password,
 	).Err()
 	return err
 }

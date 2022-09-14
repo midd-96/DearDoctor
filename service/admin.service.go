@@ -1,6 +1,7 @@
 package service
 
 import (
+	"database/sql"
 	"dearDoctor/model"
 	"dearDoctor/repo"
 	"dearDoctor/utils"
@@ -9,6 +10,7 @@ import (
 )
 
 type AdminService interface {
+	CreateAdmin(admin model.Admin) error
 	FindAdmin(username string) (*model.AdminResponse, error)
 	AllUsers(pagenation utils.Filter) (*[]model.UserResponse, *utils.Metadata, error)
 	UpdateApproveFee(approvel model.ApproveAndFee, emailid string) error
@@ -141,5 +143,28 @@ func (c *adminService) UpdateApproveFee(approvel model.ApproveAndFee, emailid st
 		return errors.New("error while updating approvel/fee")
 	}
 
+	return nil
+}
+
+func (c *adminService) CreateAdmin(admin model.Admin) error {
+
+	_, err := c.adminRepo.FindAdmin(admin.Username)
+
+	if err == nil {
+		return errors.New("Admin already exists")
+	}
+
+	if err != nil && err != sql.ErrNoRows {
+		return err
+	}
+
+	//hashing password
+	admin.Password = HashPassword(admin.Password)
+	err = c.adminRepo.CreateAdmin(admin)
+
+	if err != nil {
+		log.Println(err)
+		return errors.New("error while signup")
+	}
 	return nil
 }

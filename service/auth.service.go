@@ -33,16 +33,18 @@ func NewAuthService(
 
 func (c *authService) VerifyAdmin(email, password string) error {
 
-	_, err := c.adminRepo.FindAdmin(email)
+	admin, err := c.adminRepo.FindAdmin(email)
+
+	//_, err = c.adminRepo.FindAdmin(email)
 
 	if err != nil {
 		return errors.New("Invalid Username/ password, failed to login")
 	}
 
-	// isValidPassword := VerifyPassword(password, admin.Password)
-	// if !isValidPassword {
-	// 	return errors.New("Invalid username/ Password, failed to login")
-	// }
+	isValidPassword := VerifyPassword(password, admin.Password)
+	if !isValidPassword {
+		return errors.New("Invalid username/ Password, failed to login")
+	}
 
 	return nil
 }

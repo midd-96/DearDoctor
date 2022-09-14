@@ -13,6 +13,7 @@ import (
 )
 
 type AuthHandler interface {
+	AdminSignup() http.HandlerFunc
 	AdminLogin() http.HandlerFunc
 	UserLogin() http.HandlerFunc
 	UserSignup() http.HandlerFunc
@@ -194,6 +195,32 @@ func (c *authHandler) DoctorLogin() http.HandlerFunc {
 		doctor.Password = ""
 		doctor.Token = token
 		response := response.SuccessResponse(true, "SUCCESS", doctor.Token)
+		utils.ResponseJSON(w, response)
+	}
+}
+func (c *authHandler) AdminSignup() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		var newAdmin model.Admin
+
+		//fetching data
+		json.NewDecoder(r.Body).Decode(&newAdmin)
+
+		err := c.adminService.CreateAdmin(newAdmin)
+
+		if err != nil {
+			response := response.ErrorResponse("Failed to signup", err.Error(), nil)
+			w.Header().Add("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnprocessableEntity)
+			utils.ResponseJSON(w, response)
+			return
+		}
+
+		admin, _ := c.adminService.FindAdmin(newAdmin.Username)
+		admin.Password = ""
+		response := response.SuccessResponse(true, "SUCCESS", admin)
+		w.Header().Add("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
 		utils.ResponseJSON(w, response)
 	}
 }
