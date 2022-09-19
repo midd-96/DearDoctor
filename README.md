@@ -86,8 +86,19 @@ To sent E-mail following environment variables are required :-
 ## Screenshots
 
 
-<img width="958" alt="Screenshot 2022-09-19 191215" src="https://user-images.githubusercontent.com/49141863/191035381-f87c73f7-24a9-4ae9-b423-8a2e60c69932.png">
-<img width="959" alt="Screenshot 2022-09-19 191539" src="https://user-images.githubusercontent.com/49141863/191035436-392a1826-62ac-41e7-a95c-5994bae1e357.png">
+ ***APIs for Admin***
+ 
+ 
+<img width="958" alt="Screenshot 2022-09-19 191215" src="https://user-images.githubusercontent.com/49141863/191035381-f87c73f7-24a9-4ae9-b423-8a2e60c69932.png">    
+
+ ***APIs for Doctors***
+ 
+ 
+<img width="959" alt="Screenshot 2022-09-19 191539" src="https://user-images.githubusercontent.com/49141863/191035436-392a1826-62ac-41e7-a95c-5994bae1e357.png">    
+
+ ***APIs for Users***
+ 
+ 
 <img width="959" alt="Screenshot 2022-09-19 191703" src="https://user-images.githubusercontent.com/49141863/191035451-380dffd3-20a1-46a5-9592-93e70fcdf602.png">
 
 
