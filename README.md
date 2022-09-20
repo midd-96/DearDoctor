@@ -109,5 +109,5 @@ Phone : +91 9995 709722
 
 Email : midlaj9995@gmail.com 
 
-linkedin: [muhammedali midhilaj](https://www.linkedin.com/in/muhammedali-midhilaj-13834723a)
+LinkedIn: [muhammedali midhilaj](https://www.linkedin.com/in/muhammedali-midhilaj-13834723a)
 
