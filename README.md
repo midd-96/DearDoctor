@@ -22,6 +22,12 @@ This is Restfull API build in Golang for booking consultaion slot of various doc
     : Hosted in AWS EC2.
 - JWT-Token, Pagination, Filltering etc
 
+##Architecture
+ In this project we follows the **Clean Architecture** concept by Uncle Bob
+ ![1_HwV1WkWjf9mnECGcB94lpA](https://user-images.githubusercontent.com/49141863/192735465-fccde130-6d70-46f2-a325-3b06b0c95a2f.png)
+
+
+
 ## Features
 
 - SignUp and SignIn by Admin, Doctor, Users.
