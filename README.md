@@ -92,7 +92,7 @@ To sent E-mail following environment variables are required :-
 
 ## View APIs
 
-***https://www.postman.com/middwyd/workspace/dear-doctor/collection/23728396-39993696-f596-4226-a05b-246b920d1e55?action=share&creator=23728396***
+***https://www.postman.com/middwyd/workspace/dear-doctor/collection/23728396-39993696-f596-4226-a05b-246b920d1e55?action=share&creator=23728396midd***
 
 ## Screenshots
 
